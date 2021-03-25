@@ -1,3 +1,5 @@
+package com.ui;
+
 import javax.swing.*;
 
 public class loginVShop extends JFrame {
