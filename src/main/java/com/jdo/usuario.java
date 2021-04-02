@@ -10,24 +10,29 @@ public class usuario {
     protected int id;
     //Otros valores
     protected String nombre;
+    protected String password;
     protected String apellido1;
     protected String apellido2;
+    protected String correo;
     protected String direccion;
     protected int tarjetaCredito;
 
-    public usuario(int id, String nombre, String apellido1, String apellido2, String direccion, int tarjetaCredito) {
-        this.id = id;
+    public usuario(String nombre, String password, String apellido1, String apellido2, String correo, String direccion, int tarjetaCredito) {
+        this.password= password;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
+        this.correo = correo;
         this.direccion = direccion;
         this.tarjetaCredito = tarjetaCredito;
     }
     public usuario() {
         this.id = 0;
+        this.password= "";
         this.nombre = "";
         this.apellido1 = "";
         this.apellido2 = "";
+        this.correo = "";
         this.direccion = "";
         this.tarjetaCredito = 0;
     }
@@ -38,6 +43,14 @@ public class usuario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNombre() {
@@ -62,6 +75,14 @@ public class usuario {
 
     public void setApellido2(String apellido2) {
         this.apellido2 = apellido2;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getDireccion() {

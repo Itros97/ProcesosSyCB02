@@ -11,17 +11,11 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
 public class TestJdo {
-        /**
-         * This variable represents the persistence manager factory instance
-         */
+/*
         private PersistenceManagerFactory pmf = null;
-        /**
-         * This variable represents the persistence manager instance
-         */
+
         private PersistenceManager pm = null;
-        /**
-         * This variable represents the transaction instance
-         */
+
         private Transaction tx = null;
 
         //Generamos la BD ya que es necesaria para los test sobre los objetos de tipo JDO
@@ -60,4 +54,5 @@ public class TestJdo {
         }
         System.out.println("");
     }
+  */
 }
