@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.sql.*;
 
 import com.jdo.producto;
+import net.proteanit.sql.DbUtils;
 
 
 public class mainVShop extends JFrame{
@@ -18,11 +19,13 @@ public class mainVShop extends JFrame{
     private JPanel mainPanel;
     private JTable table;
 
+    Connection conn = null;
+
     public mainVShop()
     {
-
+        initialize();
         add(mainPanel);
-
+        
         table.addMouseListener(new java.awt.event.MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -30,7 +33,9 @@ public class mainVShop extends JFrame{
             }
         });
 
-        JButton tiendaButton = new JButton("Tienda");
+    }
+
+    public void initialize(){
         tiendaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,35 +53,29 @@ public class mainVShop extends JFrame{
             }
         });
 
-        JButton añadirCarritoButton = new JButton("Añadir Carrito");
         añadirCarritoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JPanel panelCuenta = new JPanel();
                 panelCuenta.setBounds(0, 0, 360, 900);
-                mainPanel.getContentPane().add(panelCuenta);
                 panelCuenta.setLayout(null);
             }
         });
 
-        JButton carritoButton = new JButton("Carrito");
         carritoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JPanel panelCarrito = new JPanel();
                 panelCarrito.setBounds(0, 0, 360, 900);
-                mainPanel.getContentPane().add(panelCarrito);
                 panelCarrito.setLayout(null);
             }
         });
 
-        JButton HistorialButton = new JButton("Historial");
-        HistorialButton.addActionListener(new ActionListener() {
+        historialButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JPanel panelHistorial = new JPanel();
                 panelHistorial.setBounds(0, 0, 360, 900);
-                mainPanel.getContentPane().add(panelHistorial);
                 panelHistorial.setLayout(null);
             }
         });
