@@ -20,5 +20,6 @@ public class loginVShop extends JFrame {
         JFrame frame = new loginVShop();
         frame.setVisible(true);
         frame.setSize(500,500);
+        frame.setTitle("Login");
     }
 }
