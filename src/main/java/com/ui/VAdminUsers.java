@@ -1,6 +1,8 @@
 package com.ui;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class VAdminUsers extends JFrame{
     private JTabbedPane tabbedPane1;
@@ -13,12 +15,24 @@ public class VAdminUsers extends JFrame{
     private JFormattedTextField ftfcorreo;
     private JFormattedTextField ftfdireccion;
     private JFormattedTextField ftftarjeta;
+    private JFormattedTextField tfteliminarcorreo;
+    private JButton beliminarusuario;
 
     public VAdminUsers()
     {
+        initialize();
         add(MainPanel);
     }
-    //Para prueba unitaria
+    private void initialize() {
+       bcrear.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+               System.out.println("Creouser");
+           }
+       });
+    }
+    //Para prueba unitarias
+
     public static void main(String[] args) {
         VAdminUsers va1 = new VAdminUsers();
         va1.setVisible(true);
