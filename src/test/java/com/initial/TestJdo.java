@@ -1,7 +1,7 @@
 package com.initial;
 
-import com.jdo.producto;
-import com.jdo.usuario;
+import com.jdo.Producto;
+import com.jdo.Usuario;
 import org.junit.Before;
 import org.junit.Test;
 

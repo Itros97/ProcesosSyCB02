@@ -1,22 +1,23 @@
 package com.util;
 
-import com.jdo.usuario;
+import com.db.ConexionDB;
+import com.jdo.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class usuariobd {
+public class UsuarioDB {
 
     //INSERTAR USUARIO
 
-    public static void InsertarUsuarios(usuario nuevoUsuario)
+    public static void InsertarUsuarios(Usuario nuevoUsuario)
     {
         //Puede que sea necesarario efectuar algunos cambios en estas sentencias
         //ya que esto es SQL puro y estamos trabajando con JDO
         PreparedStatement preparedStatement = null;
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
-        Connection con = null;
+        Connection con = ConexionDB.Conexion();
         try {
             String query = " INSERT INTO USUARIO (NOMBRE,PASSWORD,APELLIDO1,APELLIDO2,CORREO,DIRECCION,TARJETADECREDITO)"
                     + " VALUES (?, ?, ?, ?, ?, ?, ?)";

@@ -6,38 +6,38 @@ import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
-public class producto {
+public class Producto {
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
-    protected int id;
+    protected int idProducto;
     //
     protected String nombre;
     protected String marca;
     protected float precio;
     protected String descripcion;
 
-    public producto(int id, String nombre, String marca, float precio, String descripcion) {
-        this.id = id;
+    public Producto(int idProducto, String nombre, String marca, float precio, String descripcion) {
+        this.idProducto = idProducto;
         this.nombre = nombre;
         this.marca = marca;
         this.precio = precio;
         this.descripcion = descripcion;
     }
-    public producto() {
-        this.id = 0;
+    public Producto() {
+        this.idProducto = 0;
         this.nombre = "";
         this.marca = "";
         this.precio = 0.0f;
         this.descripcion = "";
     }
 
-    public int getId() {
-        return id;
+    public int getIdProducto() {
+        return idProducto;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombre() {
