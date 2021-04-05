@@ -16,7 +16,7 @@ public class Compra {
     //Key Externas
 
 
-    public compra(int id, int us, String codename) {
+    public Compra(int id, int us, String codename) {
         this.id = id;
         this.us = us;
         this.codename = codename;
