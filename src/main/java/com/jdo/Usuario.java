@@ -3,11 +3,11 @@ package com.jdo;
 import javax.jdo.annotations.*;
 
 @PersistenceCapable
-public class usuario {
+public class Usuario {
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
-    protected int id;
+    protected int idUsuario;
     //Otros valores
     protected String nombre;
     protected String password;
@@ -16,8 +16,9 @@ public class usuario {
     protected String correo;
     protected String direccion;
     protected int tarjetaCredito;
+    protected boolean isAdmin;
 
-    public usuario(String nombre, String password, String apellido1, String apellido2, String correo, String direccion, int tarjetaCredito) {
+    public Usuario(String nombre, String password, String apellido1, String apellido2, String correo, String direccion, int tarjetaCredito, boolean isAdmin) {
         this.password= password;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -25,9 +26,11 @@ public class usuario {
         this.correo = correo;
         this.direccion = direccion;
         this.tarjetaCredito = tarjetaCredito;
+        this.isAdmin = isAdmin;
     }
-    public usuario() {
-        this.id = 0;
+
+    public Usuario() {
+        this.idUsuario = 0;
         this.password= "";
         this.nombre = "";
         this.apellido1 = "";
@@ -35,14 +38,15 @@ public class usuario {
         this.correo = "";
         this.direccion = "";
         this.tarjetaCredito = 0;
+        this.isAdmin = false;
     }
 
-    public int getId() {
-        return id;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getPassword() {
@@ -100,4 +104,13 @@ public class usuario {
     public void setTarjetaCredito(int tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
 }
