@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
-import com.jdo.producto;
+import com.jdo.Producto;
 import net.proteanit.sql.DbUtils;
 
 
