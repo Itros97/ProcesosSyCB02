@@ -1,6 +1,8 @@
 package com.ui;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class loginVShop extends JFrame {
 
@@ -17,6 +19,7 @@ public class loginVShop extends JFrame {
     private JFormattedTextField ftfcorreo;
     private JFormattedTextField ftfdireccion;
     private JFormattedTextField ftftarjeta;
+    private JFormattedTextField ftfnickname;
 
     public loginVShop(){
         initialize();
@@ -25,6 +28,12 @@ public class loginVShop extends JFrame {
     }
 
     public void initialize(){
+        ingresarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
 
     }
 

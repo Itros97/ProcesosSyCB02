@@ -1,6 +1,13 @@
 package com.jdo;
 
 import javax.jdo.annotations.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.logging.Level;
+
+import com.db.ConexionDB;
 
 @PersistenceCapable
 public class Usuario {
@@ -10,6 +17,7 @@ public class Usuario {
     protected int idUsuario;
     //Otros valores
     protected String nombre;
+    protected String nickname;
     protected String password;
     protected String apellido1;
     protected String apellido2;
@@ -18,8 +26,9 @@ public class Usuario {
     protected int tarjetaCredito;
     protected boolean isAdmin;
 
-    public Usuario(String nombre, String password, String apellido1, String apellido2, String correo, String direccion, int tarjetaCredito, boolean isAdmin) {
-        this.password= password;
+    public Usuario(String nombre, String nickname, String password, String apellido1, String apellido2, String correo, String direccion, int tarjetaCredito, boolean isAdmin) {
+        this.password = password;
+        this.nickname = nickname;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
@@ -31,6 +40,7 @@ public class Usuario {
 
     public Usuario() {
         this.idUsuario = 0;
+        this.nickname = "";
         this.password= "";
         this.nombre = "";
         this.apellido1 = "";
@@ -47,6 +57,14 @@ public class Usuario {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getPassword() {
@@ -113,4 +131,61 @@ public class Usuario {
         isAdmin = admin;
     }
 
+    public static Usuario getUsuario(String nickname)
+    {
+        Usuario user = new Usuario();
+        PreparedStatement preparedStatement= null;
+        Connection con = ConexionDB.Conexion();
+        try {
+            String query = "SELECT NICKNAME,PASSWORD,TIPO_CUENTA FROM USUARIO WHERE NICKNAME = '" + nickname + "'";
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while(resultSet.next())
+            {
+                if(resultSet.getString("NICKNAME").equals(nickname))
+                {
+                    user.setNickname(nickname);
+                    user.setPassword(resultSet.getString("PASSWORD"));
+                }
+                else
+                {
+                    System.err.println("Usuario Incorrecto");
+                }
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        System.out.println(user.getNickname());
+        System.out.println(user.getPassword());
+        return user;
+    }
+
+    public static void InsertarUsuarios(Usuario nuevoUsuario)
+    {
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+        try {
+            String query = " INSERT INTO USUARIO (NOMBRE,NICKNAME,PASSWORD,APELLIDO1,APELLODO2,CORREO,DIRECCION,TARJETACREDITO)"
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+            preparedStatement = con.prepareStatement(query);
+
+            preparedStatement.setString(1, nuevoUsuario.getNombre());
+            preparedStatement.setString(2, nuevoUsuario.getNickname());
+            preparedStatement.setString(3, nuevoUsuario.getPassword());
+            preparedStatement.setString(4, nuevoUsuario.getApellido1());
+            preparedStatement.setString(5, nuevoUsuario.getApellido2());
+            preparedStatement.setString(6, nuevoUsuario.getCorreo());
+            preparedStatement.setString(7, nuevoUsuario.getDireccion());
+            preparedStatement.setInt(8, nuevoUsuario.getTarjetaCredito());
+            preparedStatement.execute();
+
+            System.out.println("Operacion existosa");
+            ConexionDB.loggerBD.log(Level.INFO, "Nuevo usuario: "+nuevoUsuario.getNickname()+ "creado");
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un ERROR");
+            System.out.println(e);
+        }
+    }
 }

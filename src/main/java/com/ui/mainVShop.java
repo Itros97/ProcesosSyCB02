@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
+import com.db.ConexionDB;
 import com.jdo.Producto;
 import net.proteanit.sql.DbUtils;
 
@@ -19,7 +20,7 @@ public class mainVShop extends JFrame{
     private JPanel mainPanel;
     private JTable table;
 
-    Connection conn = null;
+    Connection con = ConexionDB.Conexion();
 
     public mainVShop()
     {
@@ -41,7 +42,7 @@ public class mainVShop extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 try{
                     String query = "SELECT NOMBRE, MARCA, PRECIO, DESCRIPCION FROM PRODUCTO";
-                    PreparedStatement pst = conn.prepareStatement(query);
+                    PreparedStatement pst = con.prepareStatement(query);
                     ResultSet rs = pst.executeQuery();
 
 
