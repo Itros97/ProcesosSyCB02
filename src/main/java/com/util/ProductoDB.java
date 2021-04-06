@@ -69,7 +69,7 @@ public class ProductoDB {
     public void eliminarProducto(String nombre) {
 
         PreparedStatement preparedStatement= null;
-        Connection con = null;
+        Connection con = ConexionDB.Conexion();
 
         try {
 

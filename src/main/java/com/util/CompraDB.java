@@ -44,7 +44,7 @@ public class CompraDB {
     public void eliminarCompra(int idCompra) {
 
         PreparedStatement preparedStatement= null;
-        Connection con = null;
+        Connection con = ConexionDB.Conexion();
 
         try {
 
