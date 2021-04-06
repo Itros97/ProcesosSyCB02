@@ -1,19 +1,40 @@
 package com.ui;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class loginVShop extends JFrame {
 
     private JPanel mainPanel;
-    private JTextField textFieldUsuario;
-    private JPasswordField passwordField;
-    private JLabel labelUsuario;
-    private JLabel labelPassword;
-    private JButton buttonIngresar;
+    private JTabbedPane tabbedPane1;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JButton ingresarButton;
+    private JButton bcrear;
+    private JFormattedTextField ftfapellido2;
+    private JFormattedTextField ftfapellido1;
+    private JFormattedTextField ftfpassword;
+    private JFormattedTextField ftfnombre;
+    private JFormattedTextField ftfcorreo;
+    private JFormattedTextField ftfdireccion;
+    private JFormattedTextField ftftarjeta;
+    private JFormattedTextField ftfnickname;
 
     public loginVShop(){
+        initialize();
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void initialize(){
+        ingresarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
     }
 
     public static void main(String[] args){
