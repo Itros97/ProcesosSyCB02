@@ -5,6 +5,7 @@ import com.jdo.Compra;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CompraDB {
@@ -38,6 +39,45 @@ public class CompraDB {
         }
     }
 
+    //SELECT COMPRA
+
+    public static Compra seleccionarCompra(int idC){
+        PreparedStatement preparedStatement = null;
+        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
+        Connection con = ConexionDB.Conexion();
+        try {
+            try {
+                PreparedStatement pst = con.prepareStatement("SELECT * FROM COMPRA WHERE NOMBRE = '" + idC + "'");
+                ResultSet rs = pst.executeQuery();
+
+                int id;
+                int idU;
+                int idP;
+
+                while(rs.next()) {
+                    id = rs.getInt("IDCOMPRA");
+                    idU = rs.getInt("IDUSUARIOCOMPRA");
+                    idP = rs.getInt("IDPRODUCTOCOMPRA");
+                    
+                    Compra e = new Compra(id, idU, idP);
+                    return e;
+
+                }
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+                return null;
+            }
+
+        } catch (Exception e) {
+            System.out.println("ERROR al seleccionar el producto");
+            System.out.println(e);
+        }
+
+        return null;
+    }
 
 
     //ELIMINAR COMPRA
