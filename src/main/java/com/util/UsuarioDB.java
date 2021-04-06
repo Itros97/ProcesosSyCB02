@@ -11,7 +11,7 @@ public class UsuarioDB {
 
     //INSERTAR USUARIO
 
-    public static void InsertarUsuarios(Usuario nuevoUsuario)
+    public static void insertarUsuarios(Usuario nuevoUsuario)
     {
         //Puede que sea necesarario efectuar algunos cambios en estas sentencias
         //ya que esto es SQL puro y estamos trabajando con JDO
@@ -44,7 +44,7 @@ public class UsuarioDB {
 
 
     //ELIMINAR USUARIO
-    public void EliminarUsuario(String correo) {
+    public void eliminarUsuario(String correo) {
 
         PreparedStatement preparedStatement= null;
         Connection con = null;

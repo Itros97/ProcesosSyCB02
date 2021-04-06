@@ -12,7 +12,7 @@ public class ProductoDB {
 
     //INSERTAR PRODUCTO
 
-    public static void InsertarProducto(Producto nuevoProducto)
+    public static void insertarProducto(Producto nuevoProducto)
     {
         //Puede que sea necesarario efectuar algunos cambios en estas sentencias
         //ya que esto es SQL puro y estamos trabajando con JDO
