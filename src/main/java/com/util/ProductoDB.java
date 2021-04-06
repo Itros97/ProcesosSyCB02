@@ -6,6 +6,7 @@ import com.jdo.Producto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProductoDB {
@@ -20,16 +21,16 @@ public class ProductoDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO PRODUCTO (NOMBRE,MARCA,PRECIO,DESCRIPCION)"
-                    + " VALUES (?, ?, ?, ?)";
+            String query = " INSERT INTO PRODUCTO (IDPRODUCTO,NOMBRE,MARCA,PRECIO,DESCRIPCION)"
+                    + " VALUES (?, ?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
 
-
-            preparedStatement.setString(1, nuevoProducto.getNombre());
-            preparedStatement.setString(2, nuevoProducto.getMarca());
-            preparedStatement.setFloat(3, nuevoProducto.getPrecio());
-            preparedStatement.setString(4, nuevoProducto.getDescripcion());
+            preparedStatement.setInt(1, nuevoProducto.getIdProducto());
+            preparedStatement.setString(2, nuevoProducto.getNombre());
+            preparedStatement.setString(3, nuevoProducto.getMarca());
+            preparedStatement.setFloat(4, nuevoProducto.getPrecio());
+            preparedStatement.setString(5, nuevoProducto.getDescripcion());
             preparedStatement.execute();
 
             System.out.println("Insert existoso");
@@ -41,27 +42,47 @@ public class ProductoDB {
     }
 
     //SELECCIONAR PRODUCTO
-    public static void seleccionarProducto(String nombre){
+    public static Producto seleccionarProducto(String nombre){
         PreparedStatement preparedStatement = null;
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = "SELECT * FROM PRODUCTO ";
+            try {
+                PreparedStatement pst = con.prepareStatement("SELECT * FROM PRODUCTO WHERE NOMBRE = '" + nombre + "'");
+                ResultSet rs = pst.executeQuery();
 
-            preparedStatement = con.prepareStatement(query);
+                int id;
+                String nom;
+                String mar;
+                float pre;
+                String des;
+
+                while(rs.next()) {
+                    id = rs.getInt("IDPRODUCTO");
+                    nom = rs.getString("NOMBRE");
+                    mar = rs.getString("MARCA");
+                    pre = rs.getFloat("PRECIO");
+                    des = rs.getString("DESCRIPCION");
 
 
+                    Producto e = new Producto(id, nom, mar, pre, des);
+                    return e;
 
-            preparedStatement.execute();
+                }
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
 
-            System.out.println("Select existoso");
+                return null;
+            }
 
         } catch (Exception e) {
             System.out.println("ERROR al seleccionar el producto");
             System.out.println(e);
         }
 
-
+        return null;
     }
 
 
