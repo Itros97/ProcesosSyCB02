@@ -19,8 +19,8 @@ public class UsuarioDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO USUARIO (NOMBRE,PASSWORD,APELLIDO1,APELLIDO2,CORREO,DIRECCION,TARJETADECREDITO)"
-                    + " VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String query = " INSERT INTO USUARIO (NOMBRE,PASSWORD,APELLIDO1,APELLIDO2,CORREO,DIRECCION,TARJETADECREDITO, ISADMIN)"
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
 
@@ -32,12 +32,13 @@ public class UsuarioDB {
             preparedStatement.setString(5, nuevoUsuario.getCorreo());
             preparedStatement.setString(6, nuevoUsuario.getDireccion());
             preparedStatement.setInt(7, nuevoUsuario.getTarjetaCredito());
+            preparedStatement.setBoolean(8, nuevoUsuario.isAdmin());
             preparedStatement.execute();
 
             System.out.println("Insert existoso");
 
         } catch (Exception e) {
-            System.out.println("ERROR al insertar el objeto");
+            System.out.println("ERROR al insertar el usuario");
             System.out.println(e);
         }
     }
