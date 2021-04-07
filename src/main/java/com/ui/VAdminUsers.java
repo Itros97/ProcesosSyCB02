@@ -1,5 +1,8 @@
 package com.ui;
 
+import com.jdo.Usuario;
+import com.util.UsuarioDB;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,6 +30,16 @@ public class VAdminUsers extends JFrame{
        bcrear.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
+               Usuario n1 = new Usuario();
+               n1.setNombre(ftfnombre.getText());
+               n1.setApellido1(ftfapellido1.getText());
+               n1.setApellido2(ftfapellido2.getText());
+               n1.setCorreo(ftfcorreo.getText());
+               n1.setDireccion(ftfdireccion.getText());
+               n1.setPassword(ftfpassword.getText());
+               n1.setTarjetaCredito(Integer.parseInt(ftftarjeta.getText()));
+               n1.setAdmin(false);
+               UsuarioDB.InsertarUsuarios(n1);
                System.out.println("Creouser");
            }
        });
