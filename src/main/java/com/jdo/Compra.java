@@ -11,38 +11,47 @@ public class Compra {
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     protected int id;
     //Datos
-    protected int us;
-    protected String codename;
+
     //Key Externas
+    @ForeignKey
+    protected int idUsuarioCompra;
 
+    @ForeignKey
+    protected int idProductoCompra;
 
-    public Compra(int id, int us, String codename) {
-        this.id = id;
-        this.us = us;
-        this.codename = codename;
+    public Compra(int idCompra, int idUsuarioCompra, int idProductoCompra) {
+        this.idCompra = idCompra;
+        this.idUsuarioCompra = idUsuarioCompra;
+        this.idProductoCompra = idProductoCompra;
     }
 
-    public int getId() {
-        return id;
+    public Compra() {
+        this.idCompra = 0;
+        this.idUsuarioCompra = 0;
+        this.idProductoCompra = 0;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getIdCompra() {
+        return idCompra;
     }
 
-    public int getUs() {
-        return us;
+    public void setIdCompra(int idCompra) {
+        this.idCompra = idCompra;
     }
 
-    public void setUs(int us) {
-        this.us = us;
+    public int getIdUsuarioCompra() {
+        return idUsuarioCompra;
     }
 
-    public String getCodename() {
-        return codename;
+    public void setIdUsuarioCompra(int idUsuarioCompra) {
+        this.idUsuarioCompra = idUsuarioCompra;
     }
 
-    public void setCodename(String codename) {
-        this.codename = codename;
+    public int getIdProductoCompra() {
+        return idProductoCompra;
+    }
+
+    public void setIdProductoCompra(int idProductoCompra) {
+        this.idProductoCompra = idProductoCompra;
     }
 }
