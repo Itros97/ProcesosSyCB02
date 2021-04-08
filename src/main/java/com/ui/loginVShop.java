@@ -4,14 +4,17 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.jdo.Usuario;
+import com.util.UsuarioDB;
+
 public class loginVShop extends JFrame {
 
     private JPanel mainPanel;
     private JTabbedPane tabbedPane1;
-    private JTextField textField1;
-    private JTextField textField2;
+    private JTextField contrasenyatf;
+    private JTextField usuariotf;
     private JButton ingresarButton;
-    private JButton bcrear;
+    private JButton crearButton;
     private JFormattedTextField ftfapellido2;
     private JFormattedTextField ftfapellido1;
     private JFormattedTextField ftfpassword;
@@ -31,7 +34,24 @@ public class loginVShop extends JFrame {
         ingresarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                UsuarioDB.loginUsuario(usuariotf.getText(), contrasenyatf.getText());
+            }
+        });
 
+        crearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Usuario u = new Usuario();
+                u.setNombre(ftfnombre.getText());
+                u.setApellido1(ftfapellido1.getText());
+                u.setApellido2(ftfapellido2.getText());
+                u.setCorreo(ftfcorreo.getText());
+                u.setDireccion(ftfdireccion.getText());
+                u.setPassword(ftfpassword.getText());
+                u.setTarjetaCredito(Integer.parseInt(ftftarjeta.getText()));
+                u.setNickname(ftfnickname.getText());
+                u.setAdmin(false);
+                UsuarioDB.insertarUsuarios(u);
             }
         });
 

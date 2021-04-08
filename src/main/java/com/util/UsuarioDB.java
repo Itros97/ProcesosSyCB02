@@ -2,10 +2,9 @@ package com.util;
 
 import com.db.ConexionDB;
 import com.jdo.Usuario;
+import com.ui.mainVShop;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UsuarioDB {
 
@@ -65,5 +64,42 @@ public class UsuarioDB {
             System.out.println(e);
         }
 
+    }
+
+    //LOGIN
+
+    public static boolean loginUsuario(String nickname, String password) {
+
+        boolean comprobar = false;
+
+        try{
+            PreparedStatement preparedStatement;
+            Connection con = ConexionDB.Conexion();
+
+            String query = "SELECT PASSWORD FROM USUARIO WHERE NICKNAME = '" + nickname + "'";
+
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+
+                if (resultSet.getString("PASSWORD").equals(password)) {
+                    System.out.println("Si");
+                    comprobar = true;
+                    break;
+                } else {
+                    System.out.println("Contrasenya Incorrecta");
+                }
+            }
+
+        }catch (Exception e){
+            System.out.println("Ha ocurrido un ERROR");
+            System.out.println(e);
+        }
+        if (comprobar == true) {
+            System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
+            mainVShop window = new mainVShop();
+        }
+        return comprobar;
     }
 }
