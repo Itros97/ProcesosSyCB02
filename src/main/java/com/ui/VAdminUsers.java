@@ -39,8 +39,8 @@ public class VAdminUsers extends JFrame{
                n1.setPassword(ftfpassword.getText());
                n1.setTarjetaCredito(Integer.parseInt(ftftarjeta.getText()));
                n1.setAdmin(false);
-               UsuarioDB.InsertarUsuarios(n1);
-               System.out.println("Creouser");
+               UsuarioDB.insertarUsuarios(n1);
+               System.out.println("Creo user");
            }
        });
     }
