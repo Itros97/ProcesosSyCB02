@@ -13,7 +13,7 @@ import com.jdo.Producto;
 import net.proteanit.sql.DbUtils;
 
 
-public class mainVShop extends JFrame{
+public class mainVShop extends JFrame {
     private JButton tiendaButton;
     private JButton carritoButton;
     private JButton historialButton;
@@ -21,11 +21,14 @@ public class mainVShop extends JFrame{
     private JPanel buttonPanel;
     private JPanel mainPanel;
     private JTable table;
+    private JButton adminButton;
+    private JButton searchButton;
+    private JPanel searchPanel;
+    private JFormattedTextField searchTextField;
 
     Connection con = ConexionDB.Conexion();
 
-    public mainVShop()
-    {
+    public mainVShop() {
         initialize();
         add(mainPanel);
         
@@ -38,7 +41,7 @@ public class mainVShop extends JFrame{
 
     }
 
-    public void initialize(){
+    public void initialize() {
         tiendaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -90,7 +93,7 @@ public class mainVShop extends JFrame{
         });
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         mainVShop window = new mainVShop();
         window.setVisible(true);
         window.setLocationRelativeTo(null);
