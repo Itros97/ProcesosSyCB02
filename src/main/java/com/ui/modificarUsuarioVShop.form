@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.ui.modificarUsuarioVShop">
-  <grid id="27dc6" binding="modificarUsuario" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="modU" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="524" height="400"/>
@@ -16,7 +16,7 @@
           <text value="Nombre:"/>
         </properties>
       </component>
-      <component id="2cadd" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="2cadd" class="javax.swing.JTextField" binding="txfnombre">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -32,7 +32,7 @@
           <text value="Correo:"/>
         </properties>
       </component>
-      <component id="cd144" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="cd144" class="javax.swing.JTextField" binding="txfcorreo">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -56,7 +56,7 @@
           <text value="Direccion:"/>
         </properties>
       </component>
-      <component id="f35e1" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="f35e1" class="javax.swing.JTextField" binding="txfpassword">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -64,7 +64,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="e7c03" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="e7c03" class="javax.swing.JTextField" binding="txfdireccion">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -88,7 +88,7 @@
           <text value="Tarjeta de credito:"/>
         </properties>
       </component>
-      <component id="bbc5d" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+      <component id="bbc5d" class="javax.swing.JTextField" binding="txfapellido1">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -96,7 +96,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="78532" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+      <component id="78532" class="javax.swing.JTextField" binding="txftarjetaCredito">
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -112,7 +112,7 @@
           <text value="Segundo apellido:"/>
         </properties>
       </component>
-      <component id="65900" class="javax.swing.JTextField" binding="textField7" default-binding="true">
+      <component id="65900" class="javax.swing.JTextField" binding="txfapellido2">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
