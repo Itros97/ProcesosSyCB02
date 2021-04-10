@@ -30,6 +30,7 @@ public class VAdminUsers extends JFrame{
        bcrear.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
+               //Falta verificar si existe el usuario
                Usuario n1 = new Usuario();
                n1.setNombre(ftfnombre.getText());
                n1.setApellido1(ftfapellido1.getText());
@@ -43,7 +44,15 @@ public class VAdminUsers extends JFrame{
                System.out.println("Creo user");
            }
        });
+        beliminarusuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String value = tfteliminarcorreo.getText();
+                UsuarioDB.eliminarUsuario(value);
+            }
+        });
     }
+
     //Para prueba unitarias
 
     public static void main(String[] args) {
