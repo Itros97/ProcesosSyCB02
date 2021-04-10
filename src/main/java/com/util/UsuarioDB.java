@@ -44,7 +44,7 @@ public class UsuarioDB {
 
 
     //ELIMINAR USUARIO
-    public void eliminarUsuario(String correo) {
+    public static void eliminarUsuario(String correo) {
 
         PreparedStatement preparedStatement= null;
         Connection con = ConexionDB.Conexion();
@@ -102,4 +102,5 @@ public class UsuarioDB {
         }
         return comprobar;
     }
+
 }
