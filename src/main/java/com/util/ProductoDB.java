@@ -1,6 +1,5 @@
 package com.util;
 
-import com.db.ConexionDB;
 import com.jdo.Producto;
 
 
@@ -20,9 +19,9 @@ public class ProductoDB {
         String createProducto = "CREATE TABLE PRODUCTO(" +
                 "IDPRODUCTO INTEGER PRIMARY KEY AUTO_INCREMENT," +
                 "NOMBRE VARCHAR(50) NOT NULL," +
-                "MARCA VARCHAR(20));" +
+                "MARCA VARCHAR(20)," +
                 "PRECIO DOUBLE NOT NULL," +
-                "DESCRIPCION VARCHAR(300),";
+                "DESCRIPCION VARCHAR(300));";
         try {
 
             preparedStatement = con.prepareStatement(createProducto);

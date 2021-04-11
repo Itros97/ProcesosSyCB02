@@ -1,6 +1,5 @@
 package com.util;
 
-import com.db.ConexionDB;
 import com.jdo.Compra;
 
 import java.sql.Connection;
@@ -11,7 +10,7 @@ import java.sql.SQLException;
 public class CompraDB {
 
     //CREAR TABLA COMPRA
-    protected static void CrearTablaUsuario(Connection con) {
+    protected static void crearTablaCompra(Connection con) {
         // TODO Auto-generated method stub
         PreparedStatement preparedStatement = null;
 
@@ -19,14 +18,14 @@ public class CompraDB {
         String createCompra = "CREATE TABLE COMPRA(" +
                 "IDCOMPRA INTEGER AUTO_INCREMENT," +
                 "CORREOELECTRONICO VARCHAR(50) NOT NULL," +
-                "IDPRODUCTO INTEGER AUTO_INCREMENT," +
-                "PRIMARY KEY(IDCOMPRA,CORREOELECTRONICO,IDPRODUCTO)," +
+                "IDPRODUCTO INTEGER NOT NULL," +
+                "PRIMARY KEY (IDCOMPRA,CORREOELECTRONICO,IDPRODUCTO)," +
                 "CONSTRAINT FOREIGN KEY (CORREOELECTRONICO)" +
-                "REFERENCES USUARIO(CORREOELECTRONICO)" +
-                "DELETE ON CASCADE," +
+                "REFERENCES USUARIO (CORREOELECTRONICO)" +
+                "ON DELETE CASCADE," +
                 "CONSTRAINT FOREIGN KEY (IDPRODUCTO)" +
-                "REFERENCES PRODUCTO(IDPRODUCTO)" +
-                "DELETE ON CASCADE," +
+                "REFERENCES PRODUCTO (IDPRODUCTO)" +
+                "ON DELETE CASCADE" +
                 ");";
         try {
 
@@ -39,7 +38,7 @@ public class CompraDB {
         }
     }
     //ELIMINAR TABLA
-    protected static void EliminarTablaCompra(Connection con) {
+    protected static void eliminarTablaCompra(Connection con) {
 
         PreparedStatement preparedStatement = null;
 
