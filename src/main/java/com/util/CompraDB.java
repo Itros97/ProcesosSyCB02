@@ -1,6 +1,5 @@
 package com.util;
 
-import com.db.ConexionDB;
 import com.jdo.Compra;
 
 import java.sql.Connection;
@@ -11,7 +10,7 @@ import java.sql.SQLException;
 public class CompraDB {
 
     //CREAR TABLA COMPRA
-    protected static void CrearTablaUsuario(Connection con) {
+    protected static void crearTablaCompra(Connection con) {
         // TODO Auto-generated method stub
         PreparedStatement preparedStatement = null;
 
@@ -39,7 +38,7 @@ public class CompraDB {
         }
     }
     //ELIMINAR TABLA
-    protected static void EliminarTablaCompra(Connection con) {
+    protected static void eliminarTablaCompra(Connection con) {
 
         PreparedStatement preparedStatement = null;
 

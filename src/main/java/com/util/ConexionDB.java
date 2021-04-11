@@ -1,8 +1,10 @@
-package com.db;
+package com.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.logging.Logger;
+import com.util.ProductoDB;
+
 
 public class ConexionDB {
 
@@ -25,5 +27,19 @@ public class ConexionDB {
         }
 
         return con;
+    }
+    //CREACION DE LA BASE DE DATOS
+    private void CrearBasesDeDatos(Connection con) {
+        UsuarioDB.crearTablaUsuario(con);
+        ProductoDB.crearTablaProducto(con);
+        CompraDB.crearTablaCompra(con);
+
+    }
+
+    //ELIMINACION DE LA BASE DE DATOS
+    private void BorrarBasesDeDatos(Connection con) {
+        UsuarioDB.eliminarTablaUsuario(con);
+        ProductoDB.eliminarTablaProducto(con);
+        CompraDB.eliminarTablaCompra(con);
     }
 }

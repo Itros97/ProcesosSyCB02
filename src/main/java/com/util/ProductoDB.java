@@ -1,6 +1,5 @@
 package com.util;
 
-import com.db.ConexionDB;
 import com.jdo.Producto;
 
 
