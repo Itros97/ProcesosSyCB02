@@ -5,6 +5,9 @@ import javax.jdo.annotations.*;
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Producto {
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
+    protected int idProducto;
 
     protected String nombre;
     protected String marca;
@@ -24,7 +27,7 @@ public class Producto {
         this.precio = 0.0f;
         this.descripcion = "";
     }
-/*
+
     public int getIdProducto() {
         return idProducto;
     }
@@ -32,7 +35,7 @@ public class Producto {
     public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
     }
-*/
+
     public String getNombre() {
         return nombre;
     }
