@@ -20,14 +20,14 @@ public class CompraDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO COMPRA (IDCOMPRA,IDUSUARIOCOMPRA,IDPRODUCTOCOMPRA)"
+            String query = " INSERT INTO COMPRA (IDCOMPRA,CORREOUSUARIO,IDPRODUCTOCOMPRA)"
                     + " VALUES (?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
 
 
             preparedStatement.setInt(1, nuevaCompra.getIdCompra());
-            preparedStatement.setInt(2, nuevaCompra.getIdUsuarioCompra());
+            preparedStatement.setString(2, nuevaCompra.getCorreoUsuario());
             preparedStatement.setInt(3, nuevaCompra.getIdProductoCompra());
             preparedStatement.execute();
 
@@ -51,15 +51,15 @@ public class CompraDB {
                 ResultSet rs = pst.executeQuery();
 
                 int id;
-                int idU;
+                String cus;
                 int idP;
 
                 while(rs.next()) {
                     id = rs.getInt("IDCOMPRA");
-                    idU = rs.getInt("IDUSUARIOCOMPRA");
+                    cus = rs.getString("CORREOUSUARIO");
                     idP = rs.getInt("IDPRODUCTOCOMPRA");
                     
-                    Compra e = new Compra(id, idU, idP);
+                    Compra e = new Compra(id, cus, idP);
                     return e;
 
                 }
