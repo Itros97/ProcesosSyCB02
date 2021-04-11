@@ -36,8 +36,8 @@ public class TestJdo {
         try
         {
             tx.begin();
-            producto p1 = new producto();
-            usuario u1 = new usuario();
+            Producto p1 = new Producto();
+            Usuario u1 = new Usuario();
             pm.makePersistent(p1);
             pm.makePersistent(u1);
 
@@ -54,5 +54,5 @@ public class TestJdo {
         }
         System.out.println("");
     }
-  */
+*/
 }
