@@ -142,6 +142,9 @@ public class UsuarioDB {
         if (comprobar == true) {
             System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
             mainVShop window = new mainVShop();
+            window.setVisible(true);
+            window.setTitle("Tienda");
+            window.setBounds(100, 100, 1280, 720);
         }
         return comprobar;
     }
