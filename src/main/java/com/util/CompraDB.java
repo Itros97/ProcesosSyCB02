@@ -10,6 +10,50 @@ import java.sql.SQLException;
 
 public class CompraDB {
 
+    //CREAR TABLA COMPRA
+    protected static void CrearTablaUsuario(Connection con) {
+        // TODO Auto-generated method stub
+        PreparedStatement preparedStatement = null;
+
+        //TABLA USUARIO
+        String createCompra = "CREATE TABLE COMPRA(" +
+                "IDCOMPRA INTEGER AUTO_INCREMENT," +
+                "CORREOELECTRONICO VARCHAR(50) NOT NULL," +
+                "IDPRODUCTO INTEGER AUTO_INCREMENT," +
+                "PRIMARY KEY(IDCOMPRA,CORREOELECTRONICO,IDPRODUCTO)," +
+                "CONSTRAINT FOREIGN KEY (CORREOELECTRONICO)" +
+                "REFERENCES USUARIO(CORREOELECTRONICO)" +
+                "DELETE ON CASCADE," +
+                "CONSTRAINT FOREIGN KEY (IDPRODUCTO)" +
+                "REFERENCES PRODUCTO(IDPRODUCTO)" +
+                "DELETE ON CASCADE," +
+                ");";
+        try {
+
+            preparedStatement = con.prepareStatement(createCompra);
+            preparedStatement.executeUpdate();
+            System.out.println("Tabla COMPRA creada correctamente.");
+
+        } catch (Exception e) {
+            System.err.println("Error al crear la tabla" +e+ "");
+        }
+    }
+    //ELIMINAR TABLA
+    protected static void EliminarTablaCompra(Connection con) {
+
+        PreparedStatement preparedStatement = null;
+
+        String EliminarCompra= "DROP TABLE IF EXISTS COMPRA";
+        try {
+            preparedStatement = con.prepareStatement(EliminarCompra);
+            preparedStatement.executeUpdate();
+
+            System.out.println("Tabla COMPRA eliminada correctamente.");
+
+        } catch (Exception e) {
+            System.err.println("Tabla COMPRA no ha podido crearse : "+e);
+        }
+    }
     //INSERTAR COMPRA
 
     public static void insertarCompra(Compra nuevaCompra)
@@ -20,7 +64,7 @@ public class CompraDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO COMPRA (IDCOMPRA,CORREOUSUARIO,IDPRODUCTOCOMPRA)"
+            String query = " INSERT INTO COMPRA (IDCOMPRA,CORREOELECTRONICO,IDPRODUCTOCOMPRA)"
                     + " VALUES (?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
