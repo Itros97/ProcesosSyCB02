@@ -58,16 +58,15 @@ public class ProductoDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO PRODUCTO (IDPRODUCTO,NOMBRE,MARCA,PRECIO,DESCRIPCION)"
-                    + " VALUES (?, ?, ?, ?, ?)";
+            String query = " INSERT INTO PRODUCTO (NOMBRE,MARCA,PRECIO,DESCRIPCION)"
+                    + " VALUES (?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
 
-            preparedStatement.setInt(1, nuevoProducto.getIdProducto());
-            preparedStatement.setString(2, nuevoProducto.getNombre());
-            preparedStatement.setString(3, nuevoProducto.getMarca());
-            preparedStatement.setFloat(4, nuevoProducto.getPrecio());
-            preparedStatement.setString(5, nuevoProducto.getDescripcion());
+            preparedStatement.setString(1, nuevoProducto.getNombre());
+            preparedStatement.setString(2, nuevoProducto.getMarca());
+            preparedStatement.setFloat(3, nuevoProducto.getPrecio());
+            preparedStatement.setString(4, nuevoProducto.getDescripcion());
             preparedStatement.execute();
 
             System.out.println("Insert existoso");
