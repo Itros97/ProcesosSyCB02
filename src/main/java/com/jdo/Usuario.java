@@ -14,15 +14,14 @@ import com.db.ConexionDB;
 public class Usuario {
 
     @PrimaryKey
-    @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
-    protected int idUsuario;
+    protected String correo;
+
     //Otros valores
     protected String nombre;
     protected String nickname;
     protected String password;
     protected String apellido1;
     protected String apellido2;
-    protected String correo;
     protected String direccion;
     protected int tarjetaCredito;
     protected boolean isAdmin;
@@ -40,7 +39,6 @@ public class Usuario {
     }
 
     public Usuario() {
-        this.idUsuario = 0;
         this.nickname = "";
         this.password= "";
         this.nombre = "";
@@ -50,14 +48,6 @@ public class Usuario {
         this.direccion = "";
         this.tarjetaCredito = 0;
         this.isAdmin = false;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     public String getNickname() {

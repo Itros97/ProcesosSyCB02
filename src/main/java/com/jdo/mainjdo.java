@@ -8,7 +8,10 @@ import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
 public class mainjdo {
-    @SuppressWarnings("unchecked")
+    //Puede dar problemas por el JDK del JDE
+    //1.mvn compile
+    //2.mvn datanucleus:example
+    //3.mvn exec:java
     public static void main(String[] args) {
 
         System.out.println("Starting ....");
