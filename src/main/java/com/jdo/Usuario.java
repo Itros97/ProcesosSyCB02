@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import com.db.ConexionDB;
 
 @PersistenceCapable
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Usuario {
 
     @PrimaryKey

@@ -3,6 +3,7 @@ package com.jdo;
 import javax.jdo.annotations.*;
 
 @PersistenceCapable
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Compra {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)

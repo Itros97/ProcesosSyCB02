@@ -58,14 +58,13 @@ public class ProductoDB {
                 String des;
 
                 while(rs.next()) {
-                    id = rs.getInt("IDPRODUCTO");
                     nom = rs.getString("NOMBRE");
                     mar = rs.getString("MARCA");
                     pre = rs.getFloat("PRECIO");
                     des = rs.getString("DESCRIPCION");
 
 
-                    Producto e = new Producto(id, nom, mar, pre, des);
+                    Producto e = new Producto(nom, mar, pre, des);
                     return e;
 
                 }
