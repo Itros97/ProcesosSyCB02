@@ -5,11 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.sql.*;
-import java.util.ArrayList;
 
-import com.db.ConexionDB;
-import com.jdo.Compra;
-import com.jdo.Producto;
+import com.util.ConexionDB;
 import net.proteanit.sql.DbUtils;
 
 
@@ -83,12 +80,6 @@ public class mainVShop extends JFrame {
                 JPanel panelHistorial = new JPanel();
                 panelHistorial.setBounds(0, 0, 360, 900);
                 panelHistorial.setLayout(null);
-
-                //ResultSet rs = anadir aqui metodo que devuelva historial de compras desde base de datos
-
-//                table.setModel(DbUtils.resultSetToTableModel(rs));
-//                table.setDefaultEditor(Object.class, null);
-
             }
         });
     }

@@ -1,31 +1,27 @@
 package com.jdo;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
+import javax.jdo.annotations.*;
 
 @PersistenceCapable
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Producto {
-
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     protected int idProducto;
-    //
+
     protected String nombre;
     protected String marca;
     protected float precio;
     protected String descripcion;
 
-    public Producto(int idProducto, String nombre, String marca, float precio, String descripcion) {
-        this.idProducto = idProducto;
+    public Producto(String nombre, String marca, float precio, String descripcion) {
         this.nombre = nombre;
         this.marca = marca;
         this.precio = precio;
         this.descripcion = descripcion;
     }
     public Producto() {
-        this.idProducto = 0;
+       // this.idProducto = 0;
         this.nombre = "";
         this.marca = "";
         this.precio = 0.0f;

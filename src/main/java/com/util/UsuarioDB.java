@@ -1,12 +1,55 @@
 package com.util;
 
-import com.db.ConexionDB;
 import com.jdo.Usuario;
 import com.ui.mainVShop;
 
 import java.sql.*;
 
 public class UsuarioDB {
+
+    //CREAR
+    protected static void crearTablaUsuario(Connection con) {
+        // TODO Auto-generated method stub
+        PreparedStatement preparedStatement = null;
+
+        //TABLA USUARIO
+        String createUsuario = "CREATE TABLE USUARIO(" +
+                "CORREOELECTRONICO VARCHAR(50) PRIMARY KEY NOT NULL," +
+                "NOMBRE VARCHAR(50)  NOT NULL," +
+                "NICKNAME VARCHAR(50)  NOT NULL," +
+                "PASSWORD VARCHAR(50) NOT NULL," +
+                "APELLIDO1 VARCHAR(50)  NOT NULL," +
+                "APELLIDO2 VARCHAR(50)  NOT NULL," +
+                "DIRECCION VARCHAR(250)," +
+                "TARJETA_CREDITO VARCHAR(50)," +
+                "ISADMIN BOOLEAN);";
+        try {
+
+            preparedStatement = con.prepareStatement(createUsuario);
+            preparedStatement.executeUpdate();
+            System.out.println("Tabla USUARIO creada correctamente.");
+
+        } catch (Exception e) {
+            System.err.println("Error al crear la tabla" +e+ "");
+        }
+    }
+    
+    //ELIMINAR TABLA
+    protected static void eliminarTablaUsuario(Connection con) {
+
+        PreparedStatement preparedStatement = null;
+
+        String EliminarUsuario= "DROP TABLE IF EXISTS USUARIO";
+        try {
+            preparedStatement = con.prepareStatement(EliminarUsuario);
+            preparedStatement.executeUpdate();
+
+            System.out.println("Tabla USUARIO eliminada correctamente.");
+
+        } catch (Exception e) {
+            System.err.println("Tabla usuario no ha podido crearse : "+e);
+        }
+    }
 
     //INSERTAR USUARIO
 
@@ -18,20 +61,20 @@ public class UsuarioDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO USUARIO (NOMBRE,PASSWORD,APELLIDO1,APELLIDO2,CORREO,DIRECCION,TARJETADECREDITO, ISADMIN)"
-                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = " INSERT INTO USUARIO (CORREOELECTRONICO,NOMBRE,NICKNAME,PASSWORD,APELLIDO1,APELLIDO2,DIRECCION,TARJETA_CREDITO, ISADMIN)"
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
 
-
-            preparedStatement.setString(1, nuevoUsuario.getNombre());
-            preparedStatement.setString(2, nuevoUsuario.getPassword());
-            preparedStatement.setString(3, nuevoUsuario.getApellido1());
-            preparedStatement.setString(4, nuevoUsuario.getApellido2());
-            preparedStatement.setString(5, nuevoUsuario.getCorreo());
-            preparedStatement.setString(6, nuevoUsuario.getDireccion());
-            preparedStatement.setInt(7, nuevoUsuario.getTarjetaCredito());
-            preparedStatement.setBoolean(8, nuevoUsuario.isAdmin());
+            preparedStatement.setString(1, nuevoUsuario.getCorreo());
+            preparedStatement.setString(2, nuevoUsuario.getNombre());
+            preparedStatement.setString(3, nuevoUsuario.getNickname());
+            preparedStatement.setString(4, nuevoUsuario.getPassword());
+            preparedStatement.setString(5, nuevoUsuario.getApellido1());
+            preparedStatement.setString(6, nuevoUsuario.getApellido2());
+            preparedStatement.setString(7, nuevoUsuario.getDireccion());
+            preparedStatement.setInt(8, nuevoUsuario.getTarjetaCredito());
+            preparedStatement.setBoolean(9, nuevoUsuario.isAdmin());
             preparedStatement.execute();
 
             System.out.println("Insert existoso");
@@ -51,7 +94,7 @@ public class UsuarioDB {
 
         try {
 
-            String query = "DELETE FROM USUARIO WHERE CORREO = '" + correo + "'";
+            String query = "DELETE FROM USUARIO WHERE CORREOELECTRONICO = '" + correo + "'";
 
             preparedStatement = con.prepareStatement(query);
 
@@ -99,6 +142,9 @@ public class UsuarioDB {
         if (comprobar == true) {
             System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
             mainVShop window = new mainVShop();
+            window.setVisible(true);
+            window.setTitle("Tienda");
+            window.setBounds(100, 100, 1280, 720);
         }
         return comprobar;
     }

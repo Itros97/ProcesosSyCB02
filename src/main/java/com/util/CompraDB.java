@@ -1,6 +1,5 @@
 package com.util;
 
-import com.db.ConexionDB;
 import com.jdo.Compra;
 
 import java.sql.Connection;
@@ -10,6 +9,50 @@ import java.sql.SQLException;
 
 public class CompraDB {
 
+    //CREAR TABLA COMPRA
+    protected static void crearTablaCompra(Connection con) {
+        // TODO Auto-generated method stub
+        PreparedStatement preparedStatement = null;
+
+        //TABLA USUARIO
+        String createCompra = "CREATE TABLE COMPRA(" +
+                "IDCOMPRA INTEGER AUTO_INCREMENT," +
+                "CORREOELECTRONICO VARCHAR(50) NOT NULL," +
+                "IDPRODUCTO INTEGER NOT NULL," +
+                "PRIMARY KEY (IDCOMPRA,CORREOELECTRONICO,IDPRODUCTO)," +
+                "CONSTRAINT FOREIGN KEY (CORREOELECTRONICO)" +
+                "REFERENCES USUARIO (CORREOELECTRONICO)" +
+                "ON DELETE CASCADE," +
+                "CONSTRAINT FOREIGN KEY (IDPRODUCTO)" +
+                "REFERENCES PRODUCTO (IDPRODUCTO)" +
+                "ON DELETE CASCADE" +
+                ");";
+        try {
+
+            preparedStatement = con.prepareStatement(createCompra);
+            preparedStatement.executeUpdate();
+            System.out.println("Tabla COMPRA creada correctamente.");
+
+        } catch (Exception e) {
+            System.err.println("Error al crear la tabla" +e+ "");
+        }
+    }
+    //ELIMINAR TABLA
+    protected static void eliminarTablaCompra(Connection con) {
+
+        PreparedStatement preparedStatement = null;
+
+        String EliminarCompra= "DROP TABLE IF EXISTS COMPRA";
+        try {
+            preparedStatement = con.prepareStatement(EliminarCompra);
+            preparedStatement.executeUpdate();
+
+            System.out.println("Tabla COMPRA eliminada correctamente.");
+
+        } catch (Exception e) {
+            System.err.println("Tabla COMPRA no ha podido crearse : "+e);
+        }
+    }
     //INSERTAR COMPRA
 
     public static void insertarCompra(Compra nuevaCompra)
@@ -20,14 +63,14 @@ public class CompraDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO COMPRA (IDCOMPRA,IDUSUARIOCOMPRA,IDPRODUCTOCOMPRA)"
+            String query = " INSERT INTO COMPRA (IDCOMPRA,CORREOELECTRONICO,IDPRODUCTOCOMPRA)"
                     + " VALUES (?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
 
 
             preparedStatement.setInt(1, nuevaCompra.getIdCompra());
-            preparedStatement.setInt(2, nuevaCompra.getIdUsuarioCompra());
+            preparedStatement.setString(2, nuevaCompra.getCorreoUsuario());
             preparedStatement.setInt(3, nuevaCompra.getIdProductoCompra());
             preparedStatement.execute();
 
@@ -51,15 +94,15 @@ public class CompraDB {
                 ResultSet rs = pst.executeQuery();
 
                 int id;
-                int idU;
+                String cus;
                 int idP;
 
                 while(rs.next()) {
                     id = rs.getInt("IDCOMPRA");
-                    idU = rs.getInt("IDUSUARIOCOMPRA");
+                    cus = rs.getString("CORREOUSUARIO");
                     idP = rs.getInt("IDPRODUCTOCOMPRA");
                     
-                    Compra e = new Compra(id, idU, idP);
+                    Compra e = new Compra(id, cus, idP);
                     return e;
 
                 }
