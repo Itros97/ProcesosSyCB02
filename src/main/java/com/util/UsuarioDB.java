@@ -20,9 +20,9 @@ public class UsuarioDB {
                 "PASSWORD VARCHAR(50) NOT NULL," +
                 "APELLIDO1 VARCHAR(50)  NOT NULL," +
                 "APELLIDO2 VARCHAR(50)  NOT NULL," +
-                "CALLE VARCHAR(250)," +
+                "DIRECCION VARCHAR(250)," +
                 "TARJETA_CREDITO VARCHAR(50)," +
-                "TIPO_CUENTA BOOLEAN);";
+                "ISADMIN BOOLEAN);";
         try {
 
             preparedStatement = con.prepareStatement(createUsuario);
@@ -61,20 +61,20 @@ public class UsuarioDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO USUARIO (NOMBRE,PASSWORD,APELLIDO1,APELLIDO2,CORREO,DIRECCION,TARJETADECREDITO, ISADMIN)"
-                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = " INSERT INTO USUARIO (CORREOELECTRONICO,NOMBRE,NICKNAME,PASSWORD,APELLIDO1,APELLIDO2,DIRECCION,TARJETA_CREDITO, ISADMIN)"
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
 
-
-            preparedStatement.setString(1, nuevoUsuario.getNombre());
-            preparedStatement.setString(2, nuevoUsuario.getPassword());
-            preparedStatement.setString(3, nuevoUsuario.getApellido1());
-            preparedStatement.setString(4, nuevoUsuario.getApellido2());
-            preparedStatement.setString(5, nuevoUsuario.getCorreo());
-            preparedStatement.setString(6, nuevoUsuario.getDireccion());
-            preparedStatement.setInt(7, nuevoUsuario.getTarjetaCredito());
-            preparedStatement.setBoolean(8, nuevoUsuario.isAdmin());
+            preparedStatement.setString(1, nuevoUsuario.getCorreo());
+            preparedStatement.setString(2, nuevoUsuario.getNombre());
+            preparedStatement.setString(3, nuevoUsuario.getNickname());
+            preparedStatement.setString(4, nuevoUsuario.getPassword());
+            preparedStatement.setString(5, nuevoUsuario.getApellido1());
+            preparedStatement.setString(6, nuevoUsuario.getApellido2());
+            preparedStatement.setString(7, nuevoUsuario.getDireccion());
+            preparedStatement.setInt(8, nuevoUsuario.getTarjetaCredito());
+            preparedStatement.setBoolean(9, nuevoUsuario.isAdmin());
             preparedStatement.execute();
 
             System.out.println("Insert existoso");
@@ -94,7 +94,7 @@ public class UsuarioDB {
 
         try {
 
-            String query = "DELETE FROM USUARIO WHERE CORREO = '" + correo + "'";
+            String query = "DELETE FROM USUARIO WHERE CORREOELECTRONICO = '" + correo + "'";
 
             preparedStatement = con.prepareStatement(query);
 
