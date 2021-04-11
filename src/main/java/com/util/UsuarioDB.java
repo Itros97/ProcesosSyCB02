@@ -8,6 +8,50 @@ import java.sql.*;
 
 public class UsuarioDB {
 
+    //CREAR
+    protected static void crearTablaUsuario(Connection con) {
+        // TODO Auto-generated method stub
+        PreparedStatement preparedStatement = null;
+
+        //TABLA USUARIO
+        String createUsuario = "CREATE TABLE USUARIO(" +
+                "CORREOELECTRONICO VARCHAR(50) PRIMARY KEY NOT NULL," +
+                "NOMBRE VARCHAR(50)  NOT NULL," +
+                "NICKNAME VARCHAR(50)  NOT NULL," +
+                "PASSWORD VARCHAR(50) NOT NULL," +
+                "APELLIDO1 VARCHAR(50)  NOT NULL," +
+                "APELLIDO2 VARCHAR(50)  NOT NULL," +
+                "CALLE VARCHAR(250)," +
+                "TARJETA_CREDITO VARCHAR(50)," +
+                "TIPO_CUENTA BOOLEAN);";
+        try {
+
+            preparedStatement = con.prepareStatement(createUsuario);
+            preparedStatement.executeUpdate();
+            System.out.println("Tabla USUARIO creada correctamente.");
+
+        } catch (Exception e) {
+            System.err.println("Error al crear la tabla" +e+ "");
+        }
+    }
+    
+    //ELIMINAR TABLA
+    protected static void eliminarTablaUsuario(Connection con) {
+
+        PreparedStatement preparedStatement = null;
+
+        String EliminarUsuario= "DROP TABLE IF EXISTS USUARIO";
+        try {
+            preparedStatement = con.prepareStatement(EliminarUsuario);
+            preparedStatement.executeUpdate();
+
+            System.out.println("Tabla USUARIO eliminada correctamente.");
+
+        } catch (Exception e) {
+            System.err.println("Tabla usuario no ha podido crearse : "+e);
+        }
+    }
+
     //INSERTAR USUARIO
 
     public static void insertarUsuarios(Usuario nuevoUsuario)
