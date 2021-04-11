@@ -20,6 +20,7 @@ public class VAdminUsers extends JFrame{
     private JFormattedTextField ftftarjeta;
     private JFormattedTextField tfteliminarcorreo;
     private JButton beliminarusuario;
+    private JFormattedTextField ftfNickname;
 
     public VAdminUsers()
     {
@@ -33,6 +34,7 @@ public class VAdminUsers extends JFrame{
                //Falta verificar si existe el usuario
                Usuario n1 = new Usuario();
                n1.setNombre(ftfnombre.getText());
+               n1.setNickname(ftfNickname.getText());
                n1.setApellido1(ftfapellido1.getText());
                n1.setApellido2(ftfapellido2.getText());
                n1.setCorreo(ftfcorreo.getText());
