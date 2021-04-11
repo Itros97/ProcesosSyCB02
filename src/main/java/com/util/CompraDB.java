@@ -18,14 +18,14 @@ public class CompraDB {
         String createCompra = "CREATE TABLE COMPRA(" +
                 "IDCOMPRA INTEGER AUTO_INCREMENT," +
                 "CORREOELECTRONICO VARCHAR(50) NOT NULL," +
-                "IDPRODUCTO INTEGER AUTO_INCREMENT," +
-                "PRIMARY KEY(IDCOMPRA,CORREOELECTRONICO,IDPRODUCTO)," +
+                "IDPRODUCTO INTEGER NOT NULL," +
+                "PRIMARY KEY (IDCOMPRA,CORREOELECTRONICO,IDPRODUCTO)," +
                 "CONSTRAINT FOREIGN KEY (CORREOELECTRONICO)" +
-                "REFERENCES USUARIO(CORREOELECTRONICO)" +
-                "DELETE ON CASCADE," +
+                "REFERENCES USUARIO (CORREOELECTRONICO)" +
+                "ON DELETE CASCADE," +
                 "CONSTRAINT FOREIGN KEY (IDPRODUCTO)" +
-                "REFERENCES PRODUCTO(IDPRODUCTO)" +
-                "DELETE ON CASCADE," +
+                "REFERENCES PRODUCTO (IDPRODUCTO)" +
+                "ON DELETE CASCADE" +
                 ");";
         try {
 
