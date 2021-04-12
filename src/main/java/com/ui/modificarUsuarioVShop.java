@@ -36,7 +36,7 @@ public class modificarUsuarioVShop extends JFrame{
         this.u = u;
     }
 
-    public void main(String[] args){
+    public static void main(String[] args){
         modificarUsuarioVShop window = new modificarUsuarioVShop();
         window.setVisible(true);
         window.setLocationRelativeTo(null);
@@ -46,8 +46,8 @@ public class modificarUsuarioVShop extends JFrame{
         window.setBounds(100, 100, 1280, 720);
         Usuario u = new Usuario();
         u.setNombre("Prueba Nombre");
-        setUser(u);
-        loadUser();
+        window.setUser(u);
+        window.loadUser();
 
     }
 
