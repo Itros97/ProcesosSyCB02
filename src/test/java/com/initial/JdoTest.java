@@ -10,7 +10,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
-public class TestJdo {
+public class JdoTest {
 /*
         private PersistenceManagerFactory pmf = null;
 
