@@ -4,7 +4,7 @@ import com.jdo.Producto;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class TestProducto {
+public class ProductoTest {
 
     @Test
     public void testNombre(){
