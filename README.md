@@ -1,5 +1,8 @@
 # ProcesosSyCB02
 -Paso 1 (En la consola SQL del XAMPP en el localhost)(Crear BD y superuser)
+//Si se usa el de defecto(root sin password)
+CREATE DATABASE EStoreDB;
+//Si se usa usuario creado(spq y password spq)
 CREATE DATABASE EStoreDB;
 CREATE USER IF NOT EXISTS 'spq'@'localhost' IDENTIFIED BY 'spq';
 GRANT ALL ON EStoreDB.* TO 'spq'@'localhost';
