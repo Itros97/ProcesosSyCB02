@@ -11,4 +11,3 @@ Introduce el comando:
 "mvn datanucleus:schema-create"
 -Paso 4
 Introduce el comando
-"mvn exec:java"(Para iniciar el servidor,introducir datos a la BD e iniciar el cliente)

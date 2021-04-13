@@ -32,7 +32,7 @@ public class mainjdo {
             Usuario u1 = new Usuario("jose","jose","jose","jose","jose","jose@jose.jose","jose",1234,false);
 
             pm.makePersistent(p1);
-         //   pm.makePersistent(u1);
+            pm.makePersistent(u1);
 
 
             tx.commit();
