@@ -32,12 +32,12 @@ public class loginVShop extends JFrame {
 
     public void initialize(){
 
-        ingresarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                UsuarioDB.loginUsuario(usuariotf.getText(), contrasenyatf.getText());
-            }
-        });
+      ingresarButton.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+              UsuarioDB.loginUsuario(usuariotf.getText(), contrasenyatf.getText());
+          }
+      });
 
         crearButton.addActionListener(new ActionListener() {
             @Override
