@@ -1,8 +1,8 @@
 # ProcesosSyCB02
 -Paso 1 (En la consola SQL del XAMPP en el localhost)(Crear BD y superuser)
 CREATE DATABASE EStoreDB;
-CREATE USER IF NOT EXISTS 'root'@'localhost' IDENTIFIED BY 'root';
-GRANT ALL ON EStoreDB.* TO 'root'@'localhost';
+CREATE USER IF NOT EXISTS 'spq'@'localhost' IDENTIFIED BY 'spq';
+GRANT ALL ON EStoreDB.* TO 'spq'@'localhost';
 -Paso 2 (Compilar proyecto)
 Una vez encima de la carpeta del proyecto
 En la cmd "mvn clean compile"

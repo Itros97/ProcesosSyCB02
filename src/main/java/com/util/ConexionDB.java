@@ -25,8 +25,7 @@ public class ConexionDB {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            //Conexion con la BD de XAMPP(EN MI CASO USO EL PUERTO 3307 EN VEZ DEL 3306 YA QUE NO ME DEJA ACCEDER A ESTE PRIMERO)
-            //Lo que esta entre parentesis igual que el  datanuclus, user, password
+            //Lo que esta entre parentesis igual que el  datanuclus, user, password (Si uso puerto )
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EStoreDB", "root", "root");
             System.out.printf("Conexion lograda");
 

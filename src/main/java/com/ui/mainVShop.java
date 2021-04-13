@@ -40,7 +40,6 @@ public class mainVShop extends JFrame {
 
     public void initialize() {
 
-
         añadirCarritoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
