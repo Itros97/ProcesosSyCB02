@@ -4,3 +4,4 @@
 .project
 /.idea/
 datanucleus.log
+datanucleus.properties
