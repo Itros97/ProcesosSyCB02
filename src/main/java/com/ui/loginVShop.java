@@ -31,6 +31,7 @@ public class loginVShop extends JFrame {
     }
 
     public void initialize(){
+
         ingresarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

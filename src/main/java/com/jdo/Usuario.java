@@ -7,7 +7,7 @@ import javax.jdo.annotations.*;
 public class Usuario {
 
     @PrimaryKey
-    protected String correo;
+    protected String correo = null;
 
     //Otros valores
     protected String nombre;

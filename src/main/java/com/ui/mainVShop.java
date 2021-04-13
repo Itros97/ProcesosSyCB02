@@ -39,22 +39,7 @@ public class mainVShop extends JFrame {
     }
 
     public void initialize() {
-        tiendaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try{
-                    String query = "SELECT NOMBRE, MARCA, PRECIO, DESCRIPCION FROM PRODUCTO";
-                    PreparedStatement pst = con.prepareStatement(query);
-                    ResultSet rs = pst.executeQuery();
 
-
-                    table.setModel(DbUtils.resultSetToTableModel(rs));
-                    table.setDefaultEditor(Object.class, null);
-                } catch(Exception e1){
-                    e1.printStackTrace();
-                }
-            }
-        });
 
         añadirCarritoButton.addActionListener(new ActionListener() {
             @Override
