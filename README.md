@@ -5,6 +5,7 @@
 CREATE DATABASE EStoreDB;
 
 //Si se usa usuario creado(spq y password spq)(Hay que cambiar en ConexionDB y Datanucleus, el user y password)
+//Linea 29 en ConexionesBD y en datanucleus 11 y12
 CREATE DATABASE EStoreDB;
 CREATE USER IF NOT EXISTS 'spq'@'localhost' IDENTIFIED BY 'spq';
 GRANT ALL ON EStoreDB.* TO 'spq'@'localhost';
