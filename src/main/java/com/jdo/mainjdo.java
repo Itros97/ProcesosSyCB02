@@ -28,10 +28,12 @@ public class mainjdo {
         {
             tx.begin();
             System.out.println("Persisting products");
-            Producto p1 = new Producto();
-            Usuario u1 = new Usuario();
+            Producto p1 = new Producto("NvidiaGTX3070","Gigabyte",499.99f,"La ultima remesa de graficas");
+            Usuario u1 = new Usuario("jose","jose","jose","jose","jose","jose@jose.jose","jose",1234,false);
+
             pm.makePersistent(p1);
             pm.makePersistent(u1);
+
 
             tx.commit();
             System.out.println("Producto y Usuario han persistido");
