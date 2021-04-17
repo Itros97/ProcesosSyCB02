@@ -66,6 +66,15 @@ public class mainVShop extends JFrame {
                 panelHistorial.setLayout(null);
             }
         });
+
+        adminButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JPanel panelAdmin = new JPanel();
+                panelAdmin.setBounds(0, 0, 360, 900);
+                panelAdmin.setLayout(null);
+            }
+        });
     }
 
     public static void main(String[] args) {

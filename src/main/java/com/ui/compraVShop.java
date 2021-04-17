@@ -1,7 +1,16 @@
 package com.ui;
 
+import net.proteanit.sql.DbUtils;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.util.*;
 
 public class compraVShop extends JFrame{
     private JPanel compraMainPanel;
@@ -16,6 +25,9 @@ public class compraVShop extends JFrame{
     private JLabel precioLabel;
     private JPanel buttonPanel;
     private JPanel pagoPanel;
+    private JButton closeButton;
+
+    static Connection conn = null;
 
     public compraVShop(){
         initialize();
@@ -31,8 +43,36 @@ public class compraVShop extends JFrame{
 
     public void initialize(){
 
-    }
+        deleteCestaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+            }
+        });
+
+        deleteProductoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        compraButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //JOptionPane.showMessageDialog(window, "Compra Realizada");
+
+            }
+        });
+
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //window.dispose();
+            }
+        });
+
+    }
 
     public static void main(String[] args) {
         compraVShop window = new compraVShop();
