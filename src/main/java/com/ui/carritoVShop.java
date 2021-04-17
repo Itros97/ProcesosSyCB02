@@ -1,6 +1,7 @@
 package com.ui;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class carritoVShop extends JFrame{
     private JTable tabla;
@@ -8,6 +9,8 @@ public class carritoVShop extends JFrame{
     private JButton botonCesta;
     private JPanel panelPrincipal;
     private JPanel panelBotones;
+
+    private DefaultTableModel modelo;
 
 
     public carritoVShop() {
@@ -18,7 +21,11 @@ public class carritoVShop extends JFrame{
     }
 
     public void initialize() {
+        String[] nombresColumnas = { "NICKNAME", "NOMBRE", "PRECIO CARRITO" };
+        modelo = new DefaultTableModel(null, nombresColumnas);
 
+        //tabla = new JTable(modelo);
+        tabla.setModel(modelo);
 
     }
 
@@ -31,5 +38,6 @@ public class carritoVShop extends JFrame{
         frame.setTitle("Carrito");
 
     }
+
 
 }
