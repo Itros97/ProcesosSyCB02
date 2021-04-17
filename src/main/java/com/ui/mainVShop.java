@@ -52,9 +52,8 @@ public class mainVShop extends JFrame {
         carritoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JPanel panelCarrito = new JPanel();
-                panelCarrito.setBounds(0, 0, 360, 900);
-                panelCarrito.setLayout(null);
+
+                carritoVShop.main(null);
             }
         });
 
@@ -70,9 +69,8 @@ public class mainVShop extends JFrame {
         adminButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JPanel panelAdmin = new JPanel();
-                panelAdmin.setBounds(0, 0, 360, 900);
-                panelAdmin.setLayout(null);
+
+                VAdminUsers.main(null);
             }
         });
     }
@@ -84,7 +82,7 @@ public class mainVShop extends JFrame {
         window.pack();
         window.setTitle("VShop");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setBounds(100, 100, 1280, 720);
+        window.setBounds(0, 0, 1280, 720);
 
     }
 
