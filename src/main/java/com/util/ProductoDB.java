@@ -122,7 +122,7 @@ public class ProductoDB {
 
 
     //ELIMINAR PRODUCTO
-    public void eliminarProducto(String nombre) {
+    public static void eliminarProducto(String nombre) {
 
         PreparedStatement preparedStatement= null;
         Connection con = ConexionDB.Conexion();
