@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.sql.*;
 
 import com.util.ConexionDB;
+import com.util.ProductoDB;
 
 
 public class mainVShop extends JFrame {
@@ -70,6 +71,14 @@ public class mainVShop extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 adminUsersVShop.main(null);
+            }
+        });
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String buscar = searchTextField.getText();
+                ProductoDB.seleccionarProducto(buscar);
             }
         });
     }
