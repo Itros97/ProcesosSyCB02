@@ -4,6 +4,7 @@ import com.jdo.Carrito;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class CarritoDB {
 
@@ -47,14 +48,15 @@ public class CarritoDB {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO CARRITO (NICKNAME,NOMBRE,PRECIO)"
-                    + " VALUES (?, ?, ?)";
+            String query = " INSERT INTO CARRITO (IDCARRITO, NICKNAME,NOMBRE,PRECIO)"
+                    + " VALUES (?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
 
-            preparedStatement.setString(1, carro.getNickname());
-            preparedStatement.setString(2, carro.getNombre());
-            preparedStatement.setLong(3, (long) carro.getPrecioCarrito());
+            preparedStatement.setInt(1, carro.getIdCarrito());
+            preparedStatement.setString(2, carro.getNickname());
+            preparedStatement.setString(3, carro.getNombre());
+            preparedStatement.setLong(4, (long) carro.getPrecioCarrito());
 
             preparedStatement.execute();
 
@@ -62,6 +64,26 @@ public class CarritoDB {
 
         } catch (Exception e) {
             System.out.println("Ha ocurrido un ERROR");
+            System.out.println(e);
+        }
+    }
+
+    public static void deleteCarrito(int idCarrito) {
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+
+        try {
+
+            String query = "DELETE FROM CARRITO WHERE IDCARRITO = '" + idCarrito + "'";
+
+            preparedStatement = con.prepareStatement(query);
+
+            preparedStatement.execute();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+
+            System.out.println("No se pudo eliminar el carrito");
             System.out.println(e);
         }
     }
