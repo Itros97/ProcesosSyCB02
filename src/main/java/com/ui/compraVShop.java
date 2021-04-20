@@ -7,10 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
-import com.util.*;
 
 public class compraVShop extends JFrame{
     private JPanel compraMainPanel;
@@ -46,29 +43,29 @@ public class compraVShop extends JFrame{
         deleteCestaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //CarritoDB.deleteCarrito(); Falta insertar carrito
             }
         });
 
         deleteProductoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //ProductoDB.eliminarProducto(); Faltan insertar productos
             }
         });
 
         compraButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //JOptionPane.showMessageDialog(window, "Compra Realizada");
-                
+                JOptionPane.showMessageDialog(null,"Compra Realizada");
+
             }
         });
 
         closeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //window.dispose();
+                dispose();
             }
         });
 
