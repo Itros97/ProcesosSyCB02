@@ -84,7 +84,7 @@ public class ProductoDB {
         Connection con = ConexionDB.Conexion();
         try {
             try {
-                PreparedStatement pst = con.prepareStatement("SELECT * FROM PRODUCTO WHERE NOMBRE = '" + nombre + "'");
+                    PreparedStatement pst = con.prepareStatement("SELECT * FROM PRODUCTO WHERE NOMBRE = '" + nombre + "'");
                 ResultSet rs = pst.executeQuery();
 
                 int id;
