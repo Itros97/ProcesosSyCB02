@@ -61,7 +61,7 @@ public class compraVShop extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 //JOptionPane.showMessageDialog(window, "Compra Realizada");
-
+                
             }
         });
 
