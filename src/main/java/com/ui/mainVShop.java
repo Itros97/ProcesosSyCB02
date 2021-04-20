@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 import java.sql.*;
 
 import com.util.ConexionDB;
-import net.proteanit.sql.DbUtils;
 
 
 public class mainVShop extends JFrame {
@@ -70,7 +69,7 @@ public class mainVShop extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                VAdminUsers.main(null);
+                adminUsersVShop.main(null);
             }
         });
     }
