@@ -13,7 +13,8 @@
     "mvn clean compile"
 
 **Crear las tablas de la base de datos**
-
+    
+    "mvn datanucleus:enhance"
     "mvn datanucleus:schema-create"
 
 **Datos de prueba**
