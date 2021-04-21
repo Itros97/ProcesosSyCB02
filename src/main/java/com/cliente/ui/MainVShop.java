@@ -1,4 +1,4 @@
-package com.ui;
+package com.cliente.ui;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -6,10 +6,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
-import com.util.ConexionDB;
+import com.cliente.ui.AdminUsersVShop;
+import com.cliente.ui.CarritoVShop;
+import com.database.ConexionDB;
+import com.database.ProductoDB;
+import com.database.*;
 
 
-public class mainVShop extends JFrame {
+public class MainVShop extends JFrame {
     private JButton tiendaButton;
     private JButton carritoButton;
     private JButton historialButton;
@@ -24,7 +28,7 @@ public class mainVShop extends JFrame {
 
     Connection con = ConexionDB.Conexion();
 
-    public mainVShop() {
+    public MainVShop() {
         initialize();
         add(mainPanel);
         
@@ -52,7 +56,7 @@ public class mainVShop extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                carritoVShop.main(null);
+                CarritoVShop.main(null);
             }
         });
 
@@ -69,7 +73,7 @@ public class mainVShop extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                adminUsersVShop.main(null);
+                AdminUsersVShop.main(null);
             }
         });
 
@@ -83,7 +87,7 @@ public class mainVShop extends JFrame {
     }
 
     public static void main(String[] args) {
-        mainVShop window = new mainVShop();
+        MainVShop window = new MainVShop();
         window.setVisible(true);
         window.setLocationRelativeTo(null);
         window.pack();
