@@ -113,25 +113,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
@@ -143,7 +124,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.initial.Main</mainClass>
+                    <mainClass>com.server.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
@@ -166,7 +147,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <mainClass>com.ui.loginVShop</mainClass>
+                            <mainClass>com.cliente.ui.loginVShop</mainClass>
                         </configuration>
                     </plugin>
                 </plugins>
