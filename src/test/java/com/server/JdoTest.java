@@ -1,14 +1,4 @@
-package com.initial;
-
-import com.jdo.Producto;
-import com.jdo.Usuario;
-import org.junit.Before;
-import org.junit.Test;
-
-import javax.jdo.JDOHelper;
-import javax.jdo.PersistenceManager;
-import javax.jdo.PersistenceManagerFactory;
-import javax.jdo.Transaction;
+package com.server;
 
 public class JdoTest {
 /*

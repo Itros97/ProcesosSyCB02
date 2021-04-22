@@ -1,13 +1,13 @@
-package com.ui;
+package com.cliente.ui;
 
-import com.jdo.Usuario;
-import com.util.UsuarioDB;
+import com.cliente.jdo.Usuario;
+import com.database.UsuarioDB;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class VAdminUsers extends JFrame{
+public class AdminUsersVShop extends JFrame{
     private JTabbedPane tabbedPane1;
     private JPanel MainPanel;
     private JButton bcrear;
@@ -22,7 +22,7 @@ public class VAdminUsers extends JFrame{
     private JButton beliminarusuario;
     private JFormattedTextField ftfNickname;
 
-    public VAdminUsers()
+    public AdminUsersVShop()
     {
         initialize();
         add(MainPanel);
@@ -58,7 +58,7 @@ public class VAdminUsers extends JFrame{
     //Para prueba unitarias
 
     public static void main(String[] args) {
-        VAdminUsers va1 = new VAdminUsers();
+        AdminUsersVShop va1 = new AdminUsersVShop();
         va1.setVisible(true);
         va1.setTitle("Admin View");
         va1.pack();

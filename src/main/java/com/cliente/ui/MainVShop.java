@@ -1,4 +1,6 @@
-package com.ui;
+package com.cliente.ui;
+
+import com.database.ConexionDB;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -6,11 +8,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
-import com.util.ConexionDB;
-import net.proteanit.sql.DbUtils;
 
 
-public class mainVShop extends JFrame {
+
+public class MainVShop extends JFrame {
     private JButton tiendaButton;
     private JButton carritoButton;
     private JButton historialButton;
@@ -25,7 +26,7 @@ public class mainVShop extends JFrame {
 
     Connection con = ConexionDB.Conexion();
 
-    public mainVShop() {
+    public MainVShop() {
         initialize();
         add(mainPanel);
         
@@ -40,7 +41,6 @@ public class mainVShop extends JFrame {
 
     public void initialize() {
 
-
         añadirCarritoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,9 +53,8 @@ public class mainVShop extends JFrame {
         carritoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JPanel panelCarrito = new JPanel();
-                panelCarrito.setBounds(0, 0, 360, 900);
-                panelCarrito.setLayout(null);
+
+                CarritoVShop.main(null);
             }
         });
 
@@ -67,16 +66,24 @@ public class mainVShop extends JFrame {
                 panelHistorial.setLayout(null);
             }
         });
+
+        adminButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+              AdminUsersVShop.main(null);
+            }
+        });
     }
 
     public static void main(String[] args) {
-        mainVShop window = new mainVShop();
+        MainVShop window = new MainVShop();
         window.setVisible(true);
         window.setLocationRelativeTo(null);
         window.pack();
         window.setTitle("VShop");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setBounds(100, 100, 1280, 720);
+        window.setBounds(0, 0, 1280, 720);
 
     }
 

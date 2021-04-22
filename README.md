@@ -1,14 +1,30 @@
 # ProcesosSyCB02
--Paso 1 (En la consola SQL del XAMPP en el localhost)(Crear BD y superuser)
-CREATE DATABASE EStoreDB;
-CREATE USER IF NOT EXISTS 'root'@'localhost' IDENTIFIED BY 'root';
-GRANT ALL ON EStoreDB.* TO 'root'@'localhost';
--Paso 2 (Compilar proyecto)
-Una vez encima de la carpeta del proyecto
-En la cmd "mvn clean compile"
--Paso 3 (Crear tablas)
-Introduce el comando:
-"mvn datanucleus:schema-create"
-(Tambien se puede hacer en la pestaña maven del proyecto)
--Paso 4
-Introduce el comando
+
+**Crear la base de datos y darle permisos a un usuario**
+
+    CREATE DATABASE EStoreDB;
+
+    CREATE DATABASE EStoreDB;
+    CREATE USER IF NOT EXISTS 'spq'@'localhost' IDENTIFIED BY 'spq';
+    GRANT ALL ON EStoreDB.* TO 'spq'@'localhost';
+
+**Compilar el proyecto**
+
+    "mvn clean compile"
+
+**Crear las tablas de la base de datos**
+    
+    "mvn datanucleus:enhance"
+    "mvn datanucleus:schema-create"
+
+**Datos de prueba**
+
+**Lanzar servidor cliente**
+
+*4.1-Lanzar server*
+
+    "mvn exec:java"
+
+*4.2-Lanzar cliente*
+
+    "mvn -Pcliente exec:java" 

@@ -1,4 +1,4 @@
-package com.initial;
+package com.server;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

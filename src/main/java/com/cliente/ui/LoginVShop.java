@@ -1,13 +1,13 @@
-package com.ui;
+package com.cliente.ui;
+
+import com.cliente.jdo.Usuario;
+import com.database.UsuarioDB;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.jdo.Usuario;
-import com.util.UsuarioDB;
-
-public class loginVShop extends JFrame {
+public class LoginVShop extends JFrame {
 
     private JPanel mainPanel;
     private JTabbedPane tabbedPane1;
@@ -24,7 +24,7 @@ public class loginVShop extends JFrame {
     private JFormattedTextField ftftarjeta;
     private JFormattedTextField ftfnickname;
 
-    public loginVShop(){
+    public LoginVShop(){
         initialize();
         this.setContentPane(mainPanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,9 +59,10 @@ public class loginVShop extends JFrame {
     }
 
     public static void main(String[] args){
-        JFrame frame = new loginVShop();
+        JFrame frame = new LoginVShop();
         frame.setVisible(true);
         frame.setSize(500,500);
         frame.setTitle("Login");
     }
 }
+

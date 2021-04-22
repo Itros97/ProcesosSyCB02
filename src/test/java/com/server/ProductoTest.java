@@ -1,6 +1,6 @@
-package com.initial;
+package com.server;
 
-import com.jdo.Producto;
+import com.cliente.jdo.Producto;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 

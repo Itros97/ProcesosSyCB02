@@ -1,4 +1,4 @@
-package com.initial;
+package com.server;
 
 public class prueba {
 

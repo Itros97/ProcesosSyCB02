@@ -1,7 +1,7 @@
-package com.util;
+package com.database;
 
-import com.jdo.Usuario;
-import com.ui.mainVShop;
+import com.cliente.jdo.Usuario;
+
 
 import java.sql.*;
 
@@ -141,12 +141,46 @@ public class UsuarioDB {
         }
         if (comprobar == true) {
             System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
-            mainVShop window = new mainVShop();
+
+          /*
+            com.ui.mainVShop window = new com.ui.mainVShop();
             window.setVisible(true);
             window.setTitle("Tienda");
             window.setBounds(100, 100, 1280, 720);
+        */
         }
+
         return comprobar;
     }
-
+    //Obtener usuario logeado
+    public static Usuario getUsuario(String correo)
+    {
+        Usuario user = new Usuario();
+        PreparedStatement preparedStatement= null;
+        Connection con = ConexionDB.Conexion();
+        try {
+            String query = "SELECT NICKNAME,PASSWORD,ISADMIN FROM USUARIO WHERE CORREO = '" + correo + "'";
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while(resultSet.next())
+            {
+                if(resultSet.getString("CORREO").equals(correo))
+                {
+                    user.setNickname(correo);
+                    user.setPassword(resultSet.getString("PASSWORD"));
+                    user.setAdmin(resultSet.getBoolean("ISADMIN"));
+                }
+                else
+                {
+                    System.err.println("No hay usuario asi");
+                }
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        System.out.println(user.getNickname());
+        System.out.println(user.getPassword());
+        System.out.println(user.isAdmin());
+        return user;
+    }
 }

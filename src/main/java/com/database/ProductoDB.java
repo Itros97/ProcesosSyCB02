@@ -1,6 +1,6 @@
-package com.util;
+package com.database;
 
-import com.jdo.Producto;
+import com.cliente.jdo.Producto;
 
 
 import java.sql.Connection;
@@ -122,7 +122,7 @@ public class ProductoDB {
 
 
     //ELIMINAR PRODUCTO
-    public void eliminarProducto(String nombre) {
+    public static void eliminarProducto(int nombre) {
 
         PreparedStatement preparedStatement= null;
         Connection con = ConexionDB.Conexion();

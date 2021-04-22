@@ -1,11 +1,9 @@
-package com.util;
+package com.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.logging.Logger;
 
-import com.jdo.Producto;
-import com.util.ProductoDB;
+import com.cliente.jdo.Producto;
 
 
 public class ConexionDB {
@@ -25,9 +23,8 @@ public class ConexionDB {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            //Conexion con la BD de XAMPP(EN MI CASO USO EL PUERTO 3307 EN VEZ DEL 3306 YA QUE NO ME DEJA ACCEDER A ESTE PRIMERO)
-            //Lo que esta entre parentesis igual que el  datanuclus, user, password
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EStoreDB", "root", "root");
+            //Lo que esta entre parentesis igual que el  datanuclus, user, password (Si uso puerto )
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EStoreDB", "root", "");
             System.out.printf("Conexion lograda");
 
         } catch (Exception e) {

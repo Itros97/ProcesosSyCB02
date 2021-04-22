@@ -1,4 +1,4 @@
-package com.jdo;
+package com.cliente.jdo;
 
 import javax.jdo.annotations.*;
 
@@ -115,4 +115,18 @@ public class Usuario {
         isAdmin = admin;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "correo='" + correo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", password='" + password + '\'' +
+                ", apellido1='" + apellido1 + '\'' +
+                ", apellido2='" + apellido2 + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", tarjetaCredito=" + tarjetaCredito +
+                ", isAdmin=" + isAdmin +
+                '}';
+    }
 }

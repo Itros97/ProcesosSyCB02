@@ -1,4 +1,4 @@
-package com.jdo;
+package com.cliente.jdo;
 
 import javax.jdo.annotations.*;
 

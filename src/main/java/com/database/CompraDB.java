@@ -1,6 +1,6 @@
-package com.util;
+package com.database;
 
-import com.jdo.Compra;
+import com.cliente.jdo.Compra;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -70,8 +70,8 @@ public class CompraDB {
 
 
             preparedStatement.setInt(1, nuevaCompra.getIdCompra());
-            preparedStatement.setString(2, nuevaCompra.getCorreoUsuario());
-            preparedStatement.setInt(3, nuevaCompra.getIdProductoCompra());
+            preparedStatement.setObject(2, nuevaCompra.getCorreoUsuario().getCorreo());
+            preparedStatement.setObject(3, nuevaCompra.getIdProductoCompra().getIdProducto());
             preparedStatement.execute();
 
             System.out.println("Insert existoso");
@@ -83,7 +83,7 @@ public class CompraDB {
     }
 
     //SELECT COMPRA
-
+/*
     public static Compra seleccionarCompra(int idC){
         PreparedStatement preparedStatement = null;
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
@@ -121,7 +121,7 @@ public class CompraDB {
 
         return null;
     }
-
+*/
 
     //ELIMINAR COMPRA
     public void eliminarCompra(int idCompra) {
