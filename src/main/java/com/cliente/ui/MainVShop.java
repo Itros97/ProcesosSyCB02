@@ -1,14 +1,16 @@
 package com.cliente.ui;
 
-import com.database.ConexionDB;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.sql.*;
 
-
+import com.cliente.ui.AdminUsersVShop;
+import com.cliente.ui.CarritoVShop;
+import com.database.ConexionDB;
+import com.database.ProductoDB;
+import com.database.*;
 
 
 public class MainVShop extends JFrame {
@@ -71,7 +73,15 @@ public class MainVShop extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-              AdminUsersVShop.main(null);
+                AdminUsersVShop.main(null);
+            }
+        });
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String buscar = searchTextField.getText();
+                ProductoDB.seleccionarProducto(buscar);
             }
         });
     }
