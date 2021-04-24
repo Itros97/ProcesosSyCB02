@@ -1,4 +1,4 @@
-package com.server;
+package com.cliente.jdo;
 
 import com.cliente.jdo.Producto;
 import org.junit.Test;

@@ -1,6 +1,6 @@
-package com.server;
+package com.cliente.jdo;
 
-public class JdoTest {
+public class MainJDOTest {
 /*
         private PersistenceManagerFactory pmf = null;
 

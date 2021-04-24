@@ -5,7 +5,7 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
-public class mainjdo {
+public class MainJDO {
     //Puede dar problemas por el JDK del JDE
     //1.mvn clean
     //2.mvn compile
