@@ -19,15 +19,6 @@ public class Compra {
         CorreoUsuario = correoUsuario;
         this.idProductoCompra = idProductoCompra;
     }
-/*
-    public int getIdCompra() {
-        return idCompra;
-    }
-
-    public void setIdCompra(int idCompra) {
-        this.idCompra = idCompra;
-    }
-*/
 
     public int getIdCompra() {
         return idCompra;
