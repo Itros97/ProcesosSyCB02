@@ -3,9 +3,10 @@ package com.cliente.jdo;
 import javax.jdo.annotations.*;
 
 @PersistenceCapable
-
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 public class Carrito {
-
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     public int idCarrito;
     public String nickname;
     public String nombre;
@@ -13,6 +14,12 @@ public class Carrito {
 
     public Carrito(int idCarrito, String nickname, String nombre, double precioCarrito) {
         this.idCarrito = idCarrito;
+        this.nickname = nickname;
+        this.nombre = nombre;
+        this.precioCarrito = precioCarrito;
+    }
+
+    public Carrito(String nickname, String nombre, double precioCarrito) {
         this.nickname = nickname;
         this.nombre = nombre;
         this.precioCarrito = precioCarrito;
@@ -55,5 +62,15 @@ public class Carrito {
 
     public void setPrecioCarrito(double precioCarrito) {
         this.precioCarrito = precioCarrito;
+    }
+
+    @Override
+    public String toString() {
+        return "Carrito{" +
+                "idCarrito= " + idCarrito +
+                ", nickname= " + nickname +
+                ", nombre= " + nombre +
+                ", precioCarrito= " + precioCarrito +
+                '}';
     }
 }
