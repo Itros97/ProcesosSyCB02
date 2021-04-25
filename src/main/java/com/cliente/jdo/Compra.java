@@ -11,12 +11,12 @@ public class Compra {
     //Datos
     //Key Externas
     @PrimaryKey
-    protected Usuario CorreoUsuario;
+    protected String CorreoUsuario;
     @PrimaryKey
-    protected Producto idProductoCompra;
+    protected int idProductoCompra;
 
-    public Compra(Usuario correoUsuario, Producto idProductoCompra) {
-        CorreoUsuario = correoUsuario;
+    public Compra(String correoUsuario, int idProductoCompra) {
+        this.CorreoUsuario = correoUsuario;
         this.idProductoCompra = idProductoCompra;
     }
 
@@ -28,28 +28,24 @@ public class Compra {
         this.idCompra = idCompra;
     }
 
-    public Usuario getCorreoUsuario() {
+    public String getCorreoUsuario() {
         return CorreoUsuario;
     }
 
-    public void setCorreoUsuario(Usuario correoUsuario) {
+    public void setCorreoUsuario(String correoUsuario) {
         CorreoUsuario = correoUsuario;
     }
 
-    public Producto getIdProductoCompra() {
+    public int getIdProductoCompra() {
         return idProductoCompra;
     }
 
-    public void setIdProductoCompra(Producto idProductoCompra) {
+    public void setIdProductoCompra(int idProductoCompra) {
         this.idProductoCompra = idProductoCompra;
     }
 
     @Override
     public String toString() {
-        return "Compra{" +
-                "idCompra=" + idCompra +
-                ", CorreoUsuario=" + CorreoUsuario +
-                ", idProductoCompra=" + idProductoCompra +
-                '}';
+        return "Compra{" +"CorreoUsuario= " + CorreoUsuario + ", idProductoCompra= " + idProductoCompra +'}';
     }
 }
