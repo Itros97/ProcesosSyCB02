@@ -1,32 +1,50 @@
 package com.cliente.jdo;
 
 import com.cliente.jdo.Producto;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class ProductoTest {
-
+    private Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
+    private String des;
     @Test
     public void testNombre(){
-        Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
         assertEquals("Chocolate", p.getNombre());
     }
 
     @Test
     public void testMarca(){
-        Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
         assertEquals("Nestle", p.getMarca());
     }
 
     @Test
     public void testPrecio(){
-        Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
         assertEquals(1.5f, 1.5f, p.getPrecio());
     }
 
     @Test
     public void testDescripcion(){
-        Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
         assertEquals("Chocolate blanco", p.getDescripcion());
+    }
+    @Test
+    public void setnombre(){
+        p.setNombre("Chocula");
+        assertEquals("Chocula",p.getNombre());
+    }
+    @Test
+    public void setmarca(){
+        p.setMarca("Lindt");
+        assertEquals("Lindt",p.getMarca());
+    }
+    @Test
+    public void setprecio(){
+        p.setPrecio(2.0f);
+        assertEquals(2.0f,p.getPrecio(),1);
+    }
+    @Test
+    public void setdescripcion(){
+        p.setDescripcion("Descripicion de prueba");
+        assertEquals("Descripicion de prueba",p.getDescripcion());
     }
 }

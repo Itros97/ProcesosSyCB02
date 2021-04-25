@@ -48,4 +48,5 @@ public class Compra {
     public String toString() {
         return "Compra{" +"CorreoUsuario= " + CorreoUsuario + ", idProductoCompra= " + idProductoCompra +'}';
     }
+
 }
