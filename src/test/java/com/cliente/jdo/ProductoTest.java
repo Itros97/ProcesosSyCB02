@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ProductoTest {
     private Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
-    private String des;
+
     @Test
     public void testNombre(){
         assertEquals("Chocolate", p.getNombre());
@@ -46,5 +46,17 @@ public class ProductoTest {
     public void setdescripcion(){
         p.setDescripcion("Descripicion de prueba");
         assertEquals("Descripicion de prueba",p.getDescripcion());
+    }
+    @Test
+    public void testtostring()
+    {
+        String expected ="Producto{" +
+                "nombre='" + p.getNombre() + '\'' +
+                ", marca='" + p.getMarca() + '\'' +
+                ", precio=" + p.getPrecio() +
+                ", descripcion='" + p.getDescripcion() + '\'' +
+                '}';
+
+        assertEquals(expected, p.toString());
     }
 }
