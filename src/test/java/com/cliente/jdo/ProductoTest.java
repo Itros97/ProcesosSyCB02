@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class ProductoTest {
-    private Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");;
+    private Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
     private String des;
     @Test
     public void testNombre(){

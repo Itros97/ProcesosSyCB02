@@ -1,62 +1,131 @@
 package com.cliente.jdo;
 
-import com.cliente.jdo.Usuario;
+import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 
-public class UsuarioTest {
-    Usuario u = new Usuario("Mikel", "Mik", "1234", "De", "La", "mikel.gmail.com", "Bilbao", 123, false);
-    @Test
-    public void testNombre(){
+import static org.junit.Assert.*;
 
-        assertEquals("Mikel", u.getNombre());
+public class UsuarioTest extends Usuario {
+    Usuario u;
+
+    @Before
+    public void setUp() throws Exception {
+      u = new Usuario("Mikel", "Mik", "1234", "De", "La", "mikel.gmail.com", "Bilbao", 123, false);
     }
 
     @Test
-    public void testNickname(){
-
-        assertEquals("Mik", u.getNickname());
+    public void testGetNickname() {
+        assertEquals("Mik",u.getNickname());
     }
 
     @Test
-    public void testPassword(){
-
-        assertEquals("1234", u.getPassword());
+    public void testSetNickname() {
+        u.setNickname("Jose");
+        assertEquals("Jose",u.getNickname());
     }
 
     @Test
-    public void testAppelido1(){
-
-        assertEquals("De", u.getApellido1());
+    public void testGetPassword() {
+        assertEquals("1234",u.getPassword());
     }
 
     @Test
-    public void testAppelido2(){
-
-        assertEquals("La", u.getApellido2());
+    public void testSetPassword() {
+        u.setPassword("12345");
+        assertEquals("12345",u.getPassword());
     }
 
     @Test
-    public void testCorreo(){
-
-        assertEquals("mikel.gmail.com", u.getCorreo());
+    public void testGetNombre() {
+        assertEquals("Mikel",u.getNombre());
     }
 
     @Test
-    public void testDireccion(){
-
-        assertEquals("Bilbao", u.getDireccion());
+    public void testSetNombre() {
+        u.setNombre("Josea");
+        assertEquals("Josea",u.getNombre());
     }
 
     @Test
-    public void testTarjetaCredito(){
-
-        assertEquals(123, u.getTarjetaCredito());
+    public void testGetApellido1() {
+        assertEquals("De",u.getApellido1());
     }
 
     @Test
-    public void testIsAdmin(){
-     
-        assertEquals(false, u.isAdmin());
+    public void testSetApellido1() {
+        u.setApellido1("De");
+        assertEquals("De",u.getApellido1());
+    }
+
+    @Test
+    public void testGetApellido2() {
+        assertEquals("La",u.getApellido2());
+    }
+
+    @Test
+    public void testSetApellido2() {
+        u.setApellido1("La");
+        assertEquals("La",u.getApellido2());
+    }
+
+    @Test
+    public void testGetCorreo() {
+        assertEquals("mikel.gmail.com",u.getCorreo());
+    }
+
+    @Test
+    public void testSetCorreo() {
+        u.setCorreo("josetxo");
+        assertEquals("josetxo",u.getCorreo());
+    }
+
+    @Test
+    public void testGetDireccion() {
+        assertEquals("Bilbao",u.getDireccion());
+
+    }
+
+    @Test
+    public void testSetDireccion() {
+        u.setDireccion("Basurto");
+        assertEquals("Basurto",u.getDireccion());
+    }
+
+    @Test
+    public void testGetTarjetaCredito() {
+        assertEquals(123,u.getTarjetaCredito());
+    }
+
+    @Test
+    public void testSetTarjetaCredito() {
+        u.setCorreo("josetxo");
+        assertEquals("josetxo",u.getCorreo());
+    }
+
+    @Test
+    public void testIsAdmin() {
+        assertEquals(false,u.isAdmin());
+    }
+
+    @Test
+    public void testSetAdmin() {
+        u.setAdmin(true);
+        assertEquals(true,u.isAdmin());
+    }
+
+    @Test
+    public void testToString() {
+            String expected ="Usuario{" +
+                    "correo='" + u.getCorreo() + '\'' +
+                    ", nombre='" + u.getNombre() + '\'' +
+                    ", nickname='" + u.getNickname() + '\'' +
+                    ", password='" + u.getPassword() + '\'' +
+                    ", apellido1='" + u.getApellido1() + '\'' +
+                    ", apellido2='" + u.getApellido2() + '\'' +
+                    ", direccion='" + u.getDireccion() + '\'' +
+                    ", tarjetaCredito=" + u.getTarjetaCredito() +
+                    ", isAdmin=" + u.isAdmin() +
+                    '}';
+            assertEquals(expected, u.toString());
     }
 }
