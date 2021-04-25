@@ -5,32 +5,33 @@ import static org.junit.Assert.assertEquals;
 
 public class CompraTest {
 
-    @Test
-    public void testCorreoUsuario(){
-        Usuario u = new Usuario("Mikel", "Mik", "1234", "De", "La", "mikel.gmail.com", "Bilbao", 123, false);
-        Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
+    Compra c = new Compra("mikel.gmail.com", 5);
 
-        Compra c = new Compra(u, p);
-        assertEquals("mikel.gmail.com", c.getCorreoUsuario().getCorreo());
+    @Test
+    public void testGetCorreoUsuario(){
+        assertEquals("mikel.gmail.com", c.getCorreoUsuario());
     }
 
     @Test
-    public void testIdProductoCompra(){
-        Usuario u = new Usuario("Mikel", "Mik", "1234", "De", "La", "mikel.gmail.com", "Bilbao", 123, false);
-        Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
+    public void testGetIdProductoCompra(){
+        assertEquals(5, c.getIdProductoCompra());
+    }
 
-        Compra c = new Compra(u, p);
-        assertEquals(0, c.getIdProductoCompra().getIdProducto());
+    @Test
+    public void testSetCorreoUsuario(){
+        c.setCorreoUsuario("prueba@gamil.com");
+        assertEquals("prueba@gamil.com", c.getCorreoUsuario());
+    }
+
+    @Test
+    public void testSetIdProductoCompra(){
+        c.setIdProductoCompra(5);
+        assertEquals(5, c.getIdProductoCompra());
     }
 
     @Test
     public void testToString() {
-        Usuario u = new Usuario("Mikel", "Mik", "1234", "De", "La", "mikel.gmail.com", "Bilbao", 123, false);
-        Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
-
-        Compra c = new Compra(u, p);
-        String expected = "Compra{idCompra=" + c.idCompra +", CorreoUsuario=" + c.CorreoUsuario +", idProductoCompra="+ c.idProductoCompra+'}';
+        String expected = "Compra{CorreoUsuario= " + c.CorreoUsuario +", idProductoCompra= "+ c.idProductoCompra+'}';
         assertEquals(expected, c.toString());
     }
-
 }

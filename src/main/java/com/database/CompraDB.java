@@ -70,8 +70,8 @@ public class CompraDB {
 
 
             preparedStatement.setInt(1, nuevaCompra.getIdCompra());
-            preparedStatement.setObject(2, nuevaCompra.getCorreoUsuario().getCorreo());
-            preparedStatement.setObject(3, nuevaCompra.getIdProductoCompra().getIdProducto());
+            preparedStatement.setString(2, nuevaCompra.getCorreoUsuario());
+            preparedStatement.setInt(3, nuevaCompra.getIdProductoCompra());
             preparedStatement.execute();
 
             System.out.println("Insert existoso");
