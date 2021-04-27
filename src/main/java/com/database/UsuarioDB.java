@@ -3,6 +3,7 @@ package com.database;
 import com.cliente.jdo.Usuario;
 
 
+import javax.swing.*;
 import java.sql.*;
 
 public class UsuarioDB {
@@ -61,7 +62,7 @@ public class UsuarioDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO USUARIO (CORREOELECTRONICO,NOMBRE,NICKNAME,PASSWORD,APELLIDO1,APELLIDO2,DIRECCION,TARJETA_CREDITO, ISADMIN)"
+            String query = " INSERT INTO USUARIO (CORREO,NOMBRE,NICKNAME,PASSWORD,APELLIDO1,APELLIDO2,DIRECCION,TARJETACREDITO, ISADMIN)"
                     + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
@@ -110,16 +111,65 @@ public class UsuarioDB {
     }
 
     //LOGIN
-
-    public static boolean loginUsuario(String nickname, String password) {
+    public static boolean LoginUsuario(String nickname, String password) {
 
         boolean comprobar = false;
 
-        try{
+        try {
             PreparedStatement preparedStatement;
             Connection con = ConexionDB.Conexion();
 
             String query = "SELECT PASSWORD FROM USUARIO WHERE NICKNAME = '" + nickname + "'";
+
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+
+                if (resultSet.getString("PASSWORD").equals(password)) {
+                    System.out.println("Si");
+                    if(getUsuario(nickname).isAdmin() == true)
+                    {
+                        //Tengo que hacer el enable del boton Administrar
+                        System.out.println("Es Admin");
+                    }
+                    else {
+                        System.out.println("No es admin");
+                    }
+                    comprobar = true;
+                    break;
+                } else {
+                    System.out.println("Contrasenya Incorrecta");
+                    JOptionPane.showMessageDialog(null, "EMAIL O CONTRASENYA INCORRECTAS");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("A ocurrido un ERROR");
+            System.out.println(e);
+        }
+        if (comprobar == true) {
+            System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
+            com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
+            window.setVisible(true);
+            window.setTitle("Tienda");
+            window.setBounds(100, 100, 1280, 720);
+        }else{
+            System.out.println("Problema de conexion");
+        }
+        //Unicamente para ver que esto es cierto
+        return comprobar;
+    }
+/*
+    public static boolean loginUsuario(String nickname, String password) {
+
+        boolean comprobar = false;
+        System.out.println("Voy a entrar por el try");
+        try{
+            PreparedStatement preparedStatement = null;
+            Connection con = ConexionDB.Conexion();
+
+            String query = "SELECT PASSWORD FROM USUARIO WHERE NICKNAME = '" + nickname + "'";
+            System.out.println("Se va a ejecutar query");
 
             Statement statement = con.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
@@ -142,16 +192,16 @@ public class UsuarioDB {
         if (comprobar == true) {
             System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
 
-          /*
-            com.ui.mainVShop window = new com.ui.mainVShop();
+
+            com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
             window.setVisible(true);
             window.setTitle("Tienda");
             window.setBounds(100, 100, 1280, 720);
-        */
-        }
 
+        }
         return comprobar;
     }
+    */
     //Obtener usuario logeado
     public static Usuario getUsuario(String correo)
     {
