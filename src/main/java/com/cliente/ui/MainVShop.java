@@ -54,9 +54,8 @@ public class MainVShop extends JFrame {
         historialButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JPanel panelHistorial = new JPanel();
-                panelHistorial.setBounds(0, 0, 360, 900);
-                panelHistorial.setLayout(null);
+
+                HistorialVShop.main(null);
             }
         });
 
