@@ -43,15 +43,6 @@ public class MainVShop extends JFrame {
 
     public void initialize() {
 
-        añadirCarritoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JPanel panelCuenta = new JPanel();
-                panelCuenta.setBounds(0, 0, 360, 900);
-                panelCuenta.setLayout(null);
-            }
-        });
-
         carritoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,6 +75,15 @@ public class MainVShop extends JFrame {
                 ProductoDB.seleccionarProducto(buscar);
             }
         });
+        añadirCarritoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JPanel panelCuenta = new JPanel();
+                panelCuenta.setBounds(0, 0, 360, 900);
+                panelCuenta.setLayout(null);
+            }
+        });
+
     }
 
     public static void main(String[] args) {

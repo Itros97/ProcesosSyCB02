@@ -6,10 +6,7 @@ import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
 public class MainJDO {
-    //Puede dar problemas por el JDK del JDE
-    //1.mvn clean
-    //2.mvn compile
-    //3.mvn datanucleus-schemacreate
+
     public static void main(String[] args) {
 
             PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
