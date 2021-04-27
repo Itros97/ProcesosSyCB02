@@ -36,7 +36,7 @@ public class LoginVShop extends JFrame {
            @Override
            public void actionPerformed(ActionEvent e) {
                System.out.println("Conexion");
-               UsuarioDB.loginUsuario(usuariotf.getText(),contrasenyatf.getText());
+               UsuarioDB.LoginUsuario(usuariotf.getText(),contrasenyatf.getText());
            }
        });
 
