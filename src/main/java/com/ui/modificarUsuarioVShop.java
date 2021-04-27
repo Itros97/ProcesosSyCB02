@@ -1,6 +1,6 @@
 package com.ui;
 
-import com.jdo.Usuario;
+import com.cliente.jdo.Usuario;
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
