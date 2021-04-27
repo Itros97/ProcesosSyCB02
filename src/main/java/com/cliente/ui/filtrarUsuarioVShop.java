@@ -1,4 +1,4 @@
-package com.ui;
+package com.cliente.ui;
 
 import javax.swing.*;
 

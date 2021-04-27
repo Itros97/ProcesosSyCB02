@@ -1,15 +1,11 @@
-package com.ui;
+package com.cliente.ui;
 
 import com.cliente.jdo.Usuario;
-import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public class modificarUsuarioVShop extends JFrame{
 
