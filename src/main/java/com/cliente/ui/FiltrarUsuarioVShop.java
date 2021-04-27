@@ -2,7 +2,7 @@ package com.cliente.ui;
 
 import javax.swing.*;
 
-public class filtrarUsuarioVShop extends JFrame{
+public class FiltrarUsuarioVShop extends JFrame{
     private JPanel panel1;
     private JList usersConList;
 

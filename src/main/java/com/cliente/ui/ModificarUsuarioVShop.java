@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class modificarUsuarioVShop extends JFrame{
+public class ModificarUsuarioVShop extends JFrame{
 
     private JPanel modU;
     private JTextField txfnombre;
@@ -20,7 +20,7 @@ public class modificarUsuarioVShop extends JFrame{
     private JButton modificarUsuarioButton;
     private Usuario u;
 
-    public modificarUsuarioVShop() {
+    public ModificarUsuarioVShop() {
         add(modU);
     }
 
@@ -33,7 +33,7 @@ public class modificarUsuarioVShop extends JFrame{
     }
 
     public static void main(String[] args){
-        modificarUsuarioVShop window = new modificarUsuarioVShop();
+        ModificarUsuarioVShop window = new ModificarUsuarioVShop();
         window.setVisible(true);
         window.setLocationRelativeTo(null);
         window.pack();
@@ -57,7 +57,7 @@ public class modificarUsuarioVShop extends JFrame{
         txfapellido2.setText(getUser().getApellido2());
     }
 
-    public modificarUsuarioVShop(final Usuario u) {
+    public ModificarUsuarioVShop(final Usuario u) {
         modificarUsuarioButton.addActionListener(new ActionListener() {
             private Label txftarjeta;
 
