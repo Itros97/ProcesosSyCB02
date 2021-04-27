@@ -24,7 +24,7 @@ public class ConexionDB {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             //Lo que esta entre parentesis igual que el  datanuclus, user, password (Si uso puerto )
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EStoreDB", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EStoreDB", "spq", "spq");
             System.out.printf("Conexion lograda");
 
         } catch (Exception e) {

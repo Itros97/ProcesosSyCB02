@@ -61,7 +61,7 @@ public class UsuarioDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO USUARIO (CORREOELECTRONICO,NOMBRE,NICKNAME,PASSWORD,APELLIDO1,APELLIDO2,DIRECCION,TARJETA_CREDITO, ISADMIN)"
+            String query = " INSERT INTO USUARIO (CORREO,NOMBRE,NICKNAME,PASSWORD,APELLIDO1,APELLIDO2,DIRECCION,TARJETACREDITO, ISADMIN)"
                     + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
@@ -142,12 +142,12 @@ public class UsuarioDB {
         if (comprobar == true) {
             System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
 
-          /*
-            com.ui.mainVShop window = new com.ui.mainVShop();
+
+            com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
             window.setVisible(true);
             window.setTitle("Tienda");
             window.setBounds(100, 100, 1280, 720);
-        */
+
         }
 
         return comprobar;
