@@ -16,13 +16,7 @@ public class CarritoVShop extends JFrame{
 
 
     public CarritoVShop() {
-        initialize();
 
-
-        add(panelPrincipal);
-    }
-
-    public void initialize() {
         String[] nombresColumnas = { "NICKNAME", "NOMBRE", "PRECIO CARRITO" };
         modelo = new DefaultTableModel(null, nombresColumnas);
 
@@ -48,6 +42,7 @@ public class CarritoVShop extends JFrame{
 
     public static void main(String[] args) {
         CarritoVShop frame = new CarritoVShop();
+        frame.setContentPane(new CarritoVShop().panelPrincipal);
         frame.setBounds(100, 100, 1000, 600);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);

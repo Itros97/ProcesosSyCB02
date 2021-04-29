@@ -26,7 +26,6 @@ public class LoginVShop extends JFrame {
 
     public LoginVShop() {
 
-        //  JButton ingresarButton = new JButton("Ingresar");
         ingresarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -34,7 +33,7 @@ public class LoginVShop extends JFrame {
                 UsuarioDB.LoginUsuario(usuariotf.getText(), contrasenyatf.getText());
             }
         });
-        //    JButton crearButton = new JButton("Crear");
+
         crearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

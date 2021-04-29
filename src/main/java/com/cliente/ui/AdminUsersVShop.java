@@ -22,12 +22,8 @@ public class AdminUsersVShop extends JFrame{
     private JButton beliminarusuario;
     private JFormattedTextField ftfNickname;
 
-    public AdminUsersVShop()
-    {
-        initialize();
-        add(MainPanel);
-    }
-    private void initialize() {
+    public AdminUsersVShop() {
+
        bcrear.addActionListener(new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
@@ -59,6 +55,7 @@ public class AdminUsersVShop extends JFrame{
 
     public static void main(String[] args) {
         AdminUsersVShop va1 = new AdminUsersVShop();
+        va1.setContentPane(new AdminUsersVShop().MainPanel);
         va1.setVisible(true);
         va1.setTitle("Admin View");
         va1.pack();

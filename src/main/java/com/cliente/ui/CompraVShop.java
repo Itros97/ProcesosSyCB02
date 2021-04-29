@@ -26,13 +26,48 @@ public class CompraVShop extends JFrame{
     private ArrayList<Carrito> carrito = new ArrayList<>();
 
     public CompraVShop(){
-        initialize();
-        add(mainPanel);
 
         table.addMouseListener(new java.awt.event.MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
+            }
+        });
+
+        deleteCarritoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //CarritoDB.deleteCarrito(); Falta insertar carrito
+            }
+        });
+
+        deleteProductoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //ProductoDB.eliminarProducto(); Faltan insertar productos
+            }
+        });
+
+
+
+        compraButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //CompraDB.insertarCompra(); faltan insertar los parametros
+                JOptionPane.showMessageDialog(null, "Compra Realizada", null, JOptionPane.INFORMATION_MESSAGE);
+
+                printTicket(carrito); // ticket vacio ya que no hay productos
+
+            }
+        });
+
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //window.dispose();
+                dispose();
             }
         });
     }
@@ -64,52 +99,9 @@ public class CompraVShop extends JFrame{
 
     }
 
-
-    public void initialize(){
-
-
-
-        deleteCarritoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                //CarritoDB.deleteCarrito(); Falta insertar carrito
-            }
-        });
-
-        deleteProductoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                //ProductoDB.eliminarProducto(); Faltan insertar productos
-            }
-        });
-
-
-
-        compraButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //CompraDB.insertarCompra(); faltan insertar los parametros
-                JOptionPane.showMessageDialog(null, "Compra Realizada", null, JOptionPane.INFORMATION_MESSAGE);
-
-               printTicket(carrito); // ticket vacio ya que no hay productos
-
-            }
-        });
-
-        closeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //window.dispose();
-                dispose();
-            }
-        });
-
-    }
-
     public static void main(String[] args) {
         CompraVShop window = new CompraVShop();
+        window.setContentPane(new CompraVShop().mainPanel);
         window.setBounds(100, 100, 1000, 600);
         window.setVisible(true);
         window.setLocationRelativeTo(null);
