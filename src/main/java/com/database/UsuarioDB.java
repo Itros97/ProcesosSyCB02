@@ -148,10 +148,12 @@ public class UsuarioDB {
         }
         if (comprobar == true) {
             System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
+
             com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
             window.setVisible(true);
             window.setTitle("Tienda");
             window.setBounds(100, 100, 1280, 720);
+
         } else {
             System.out.println("Problema de conexion");
         }
