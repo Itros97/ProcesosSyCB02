@@ -21,7 +21,7 @@
 
 **Datos de prueba**
 
-    "mvn -Pdatos exec:java" 
+    "mvn -Pdatos exec:java"
 
 **Lanzar servidor cliente**
 
