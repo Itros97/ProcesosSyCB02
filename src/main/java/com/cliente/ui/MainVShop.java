@@ -17,7 +17,7 @@ public class MainVShop extends JFrame {
     private JButton tiendaButton;
     private JButton carritoButton;
     private JButton historialButton;
-    private JButton añadirCarritoButton;
+    private JButton anyadirCarritoButton;
     private JPanel buttonPanel;
     private JPanel mainPanel;
     private JTable table;
@@ -75,7 +75,7 @@ public class MainVShop extends JFrame {
                 ProductoDB.seleccionarProducto(buscar);
             }
         });
-        añadirCarritoButton.addActionListener(new ActionListener() {
+        anyadirCarritoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JPanel panelCuenta = new JPanel();
@@ -96,5 +96,6 @@ public class MainVShop extends JFrame {
         window.setBounds(0, 0, 1280, 720);
 
     }
+
 
 }
