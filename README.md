@@ -19,6 +19,8 @@
 
 **Datos de prueba**
 
+    "mvn -Pdatos exec:java" 
+
 **Lanzar servidor cliente**
 
 *4.1-Lanzar server*
