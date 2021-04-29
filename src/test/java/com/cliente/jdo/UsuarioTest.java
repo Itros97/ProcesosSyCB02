@@ -64,7 +64,7 @@ public class UsuarioTest extends Usuario {
 
     @Test
     public void testSetApellido2() {
-        u.setApellido1("La");
+        u.setApellido2("La");
         assertEquals("La",u.getApellido2());
     }
 
@@ -98,8 +98,8 @@ public class UsuarioTest extends Usuario {
 
     @Test
     public void testSetTarjetaCredito() {
-        u.setCorreo("josetxo");
-        assertEquals("josetxo",u.getCorreo());
+        u.setTarjetaCredito(456);
+        assertEquals(456,u.getTarjetaCredito());
     }
 
     @Test

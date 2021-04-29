@@ -7,6 +7,24 @@ import static org.junit.Assert.assertEquals;
 
 public class ProductoTest {
     private Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");
+    Producto p1 = new Producto(1, "Chocolate", "Nestle", 1.5f, "Chocolate blanco");
+    Producto vacio = new Producto();
+
+    @Test
+    public void testVacio(){
+        assertEquals("Producto{nombre='', marca='', precio=0.0, descripcion=''}", "Producto{nombre='', marca='', precio=0.0, descripcion=''}");
+    }
+
+    @Test
+    public void testGetIdProducto() {
+        assertEquals(1, p1.getIdProducto());
+    }
+
+    @Test
+    public void testSetIdProducto() {
+        p1.setIdProducto(2);
+        assertEquals(2, p1.getIdProducto());
+    }
 
     @Test
     public void testNombre(){

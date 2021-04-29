@@ -6,6 +6,18 @@ import static org.junit.Assert.assertEquals;
 public class CompraTest {
 
     Compra c = new Compra("mikel.gmail.com", 5);
+    Compra c1 = new Compra(1,"mikel.gmail.com", 5);
+
+    @Test
+    public void testGetIdCompra(){
+        assertEquals(1, c1.getIdCompra());
+    }
+
+    @Test
+    public void testSetIdCompra(){
+        c1.setIdCompra(2);
+        assertEquals(2, c1.getIdCompra());
+    }
 
     @Test
     public void testGetCorreoUsuario(){
@@ -13,14 +25,14 @@ public class CompraTest {
     }
 
     @Test
-    public void testGetIdProductoCompra(){
-        assertEquals(5, c.getIdProductoCompra());
-    }
-
-    @Test
     public void testSetCorreoUsuario(){
         c.setCorreoUsuario("prueba@gamil.com");
         assertEquals("prueba@gamil.com", c.getCorreoUsuario());
+    }
+
+    @Test
+    public void testGetIdProductoCompra(){
+        assertEquals(5, c.getIdProductoCompra());
     }
 
     @Test

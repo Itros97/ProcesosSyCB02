@@ -116,14 +116,6 @@
                     <verbose>true</verbose>
                     <props>${config.files.dir}/datanucleus.properties</props>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>enhance</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -179,7 +171,29 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <mainClass>com.cliente.ui.loginVShop</mainClass>
+                            <mainClass>com.cliente.ui.LoginVShop</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>datos</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <mainClass>com.cliente.jdo.MainJDO</mainClass>
                         </configuration>
                     </plugin>
                 </plugins>
