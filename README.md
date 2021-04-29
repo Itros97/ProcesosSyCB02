@@ -10,16 +10,18 @@
 
 **Compilar el proyecto**
 
-    "mvn clean test"
+    "mvn clean"
+    "mvn compile"
+    "mvn datanucleus:enhance"
+    "mvn test"
 
 **Crear las tablas de la base de datos**
-    
-    "mvn datanucleus:enhance"
+
     "mvn datanucleus:schema-create"
 
 **Datos de prueba**
 
-    "mvn -Pdatos exec:java" 
+    "mvn -Pdatos exec:java"
 
 **Lanzar servidor cliente**
 
