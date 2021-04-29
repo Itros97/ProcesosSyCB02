@@ -3,10 +3,8 @@ package com.database;
 import com.cliente.jdo.Producto;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class ProductoDB {
 
@@ -140,6 +138,32 @@ public class ProductoDB {
 
             System.out.println("No se pudo eliminar el producto");
             System.out.println(e);
+        }
+
+    }
+
+    public static void getAllProducts(ArrayList<Producto> productos){
+
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+
+        try{
+            String query = "SELECT * FROM PRODUCTO";
+            Statement statement = con.createStatement();
+            ResultSet resulSet = statement.executeQuery(query);
+
+            while (resulSet.next()){
+                Producto p = new Producto();
+                productos.add(p);
+            }
+
+            for (int i = 1; i < productos.size(); i++){
+                System.out.println("Numero de vueltas: " +i);
+            }
+
+
+        }catch (Exception e){
+
         }
 
     }
