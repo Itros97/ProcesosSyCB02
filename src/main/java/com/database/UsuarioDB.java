@@ -1,6 +1,7 @@
 package com.database;
 
 import com.cliente.jdo.Usuario;
+import com.cliente.ui.MainVShop;
 
 
 import javax.swing.*;
@@ -149,10 +150,12 @@ public class UsuarioDB {
         }
         if (comprobar == true) {
             System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
-            com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
+            MainVShop.main(null);
+            /*com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
             window.setVisible(true);
             window.setTitle("Tienda");
-            window.setBounds(100, 100, 1280, 720);
+            window.setBounds(100, 100, 1280, 720);*/
+            JOptionPane.showMessageDialog(null, "Tienda");
         }else{
             System.out.println("Problema de conexion");
         }
