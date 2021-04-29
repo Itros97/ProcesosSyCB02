@@ -1,6 +1,7 @@
 package com.database;
 
 import com.cliente.jdo.Usuario;
+import com.cliente.ui.MainVShop;
 
 
 import javax.swing.*;
@@ -239,7 +240,7 @@ public class UsuarioDB {
             while (resultSet.next())
             {
                 Usuario n1= new Usuario();
-                
+
                 usuarioslist.add(n1);
             }
             for (int i = 1; i <usuarioslist.size(); i++) {

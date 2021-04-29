@@ -6,10 +6,23 @@ import static org.junit.Assert.assertEquals;
 public class CarritoTest {
 
     Carrito c = new Carrito(1, "CarritoPrueba", "Carrito", 25.5);
+    Carrito c1 = new Carrito("Carrito", "Prueba", 45.5);
+    Carrito vacio = new Carrito();
 
     @Test
-    public void testIdCarrito(){
+    public void testVacio(){
+        assertEquals("Carrito{idCarrito=0, nickname='', nombre='', precioCarrito=0.0}", "Carrito{idCarrito=0, nickname='', nombre='', precioCarrito=0.0}");
+    }
+
+    @Test
+    public void testGetIdCarrito(){
         assertEquals(1, c.getIdCarrito());
+    }
+
+    @Test
+    public void testSetIdCarrito(){
+        c.setIdCarrito(2);
+        assertEquals(2, c.getIdCarrito());
     }
 
     @Test
