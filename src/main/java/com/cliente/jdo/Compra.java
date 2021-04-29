@@ -20,6 +20,12 @@ public class Compra {
         this.idProductoCompra = idProductoCompra;
     }
 
+    public Compra(int idCompra, String correoUsuario, int idProductoCompra) {
+        this.idCompra = idCompra;
+        CorreoUsuario = correoUsuario;
+        this.idProductoCompra = idProductoCompra;
+    }
+
     public int getIdCompra() {
         return idCompra;
     }

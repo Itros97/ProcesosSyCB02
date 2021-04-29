@@ -1,5 +1,13 @@
 package com.cliente.jdo;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import javax.jdo.JDOHelper;
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
+import javax.jdo.Transaction;
+
 public class MainJDOTest {
 /*
         private PersistenceManagerFactory pmf = null;
