@@ -5,6 +5,7 @@ import com.cliente.jdo.Usuario;
 
 import javax.swing.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UsuarioDB {
 
@@ -31,16 +32,16 @@ public class UsuarioDB {
             System.out.println("Tabla USUARIO creada correctamente.");
 
         } catch (Exception e) {
-            System.err.println("Error al crear la tabla" +e+ "");
+            System.err.println("Error al crear la tabla" + e + "");
         }
     }
-    
+
     //ELIMINAR TABLA
     protected static void eliminarTablaUsuario(Connection con) {
 
         PreparedStatement preparedStatement = null;
 
-        String EliminarUsuario= "DROP TABLE IF EXISTS USUARIO";
+        String EliminarUsuario = "DROP TABLE IF EXISTS USUARIO";
         try {
             preparedStatement = con.prepareStatement(EliminarUsuario);
             preparedStatement.executeUpdate();
@@ -48,14 +49,13 @@ public class UsuarioDB {
             System.out.println("Tabla USUARIO eliminada correctamente.");
 
         } catch (Exception e) {
-            System.err.println("Tabla usuario no ha podido crearse : "+e);
+            System.err.println("Tabla usuario no ha podido crearse : " + e);
         }
     }
 
     //INSERTAR USUARIO
 
-    public static void insertarUsuarios(Usuario nuevoUsuario)
-    {
+    public static void insertarUsuarios(Usuario nuevoUsuario) {
         //Puede que sea necesarario efectuar algunos cambios en estas sentencias
         //ya que esto es SQL puro y estamos trabajando con JDO
         PreparedStatement preparedStatement = null;
@@ -90,7 +90,7 @@ public class UsuarioDB {
     //ELIMINAR USUARIO
     public static void eliminarUsuario(String correo) {
 
-        PreparedStatement preparedStatement= null;
+        PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
 
         try {
@@ -128,12 +128,10 @@ public class UsuarioDB {
 
                 if (resultSet.getString("PASSWORD").equals(password)) {
                     System.out.println("Si");
-                    if(getUsuario(nickname).isAdmin() == true)
-                    {
+                    if (getUsuario(nickname).isAdmin() == true) {
                         //Tengo que hacer el enable del boton Administrar
                         System.out.println("Es Admin");
-                    }
-                    else {
+                    } else {
                         System.out.println("No es admin");
                     }
                     comprobar = true;
@@ -153,75 +151,71 @@ public class UsuarioDB {
             window.setVisible(true);
             window.setTitle("Tienda");
             window.setBounds(100, 100, 1280, 720);
-        }else{
+        } else {
             System.out.println("Problema de conexion");
         }
         //Unicamente para ver que esto es cierto
         return comprobar;
     }
-/*
-    public static boolean loginUsuario(String nickname, String password) {
 
-        boolean comprobar = false;
-        System.out.println("Voy a entrar por el try");
-        try{
-            PreparedStatement preparedStatement = null;
-            Connection con = ConexionDB.Conexion();
+    /*
+        public static boolean loginUsuario(String nickname, String password) {
 
-            String query = "SELECT PASSWORD FROM USUARIO WHERE NICKNAME = '" + nickname + "'";
-            System.out.println("Se va a ejecutar query");
+            boolean comprobar = false;
+            System.out.println("Voy a entrar por el try");
+            try{
+                PreparedStatement preparedStatement = null;
+                Connection con = ConexionDB.Conexion();
 
-            Statement statement = con.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
+                String query = "SELECT PASSWORD FROM USUARIO WHERE NICKNAME = '" + nickname + "'";
+                System.out.println("Se va a ejecutar query");
 
-            while (resultSet.next()) {
+                Statement statement = con.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
 
-                if (resultSet.getString("PASSWORD").equals(password)) {
-                    System.out.println("Si");
-                    comprobar = true;
-                    break;
-                } else {
-                    System.out.println("Contrasenya Incorrecta");
+                while (resultSet.next()) {
+
+                    if (resultSet.getString("PASSWORD").equals(password)) {
+                        System.out.println("Si");
+                        comprobar = true;
+                        break;
+                    } else {
+                        System.out.println("Contrasenya Incorrecta");
+                    }
                 }
+
+            }catch (Exception e){
+                System.out.println("Ha ocurrido un ERROR");
+                System.out.println(e);
             }
+            if (comprobar == true) {
+                System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
 
-        }catch (Exception e){
-            System.out.println("Ha ocurrido un ERROR");
-            System.out.println(e);
+
+                com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
+                window.setVisible(true);
+                window.setTitle("Tienda");
+                window.setBounds(100, 100, 1280, 720);
+
+            }
+            return comprobar;
         }
-        if (comprobar == true) {
-            System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
-
-
-            com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
-            window.setVisible(true);
-            window.setTitle("Tienda");
-            window.setBounds(100, 100, 1280, 720);
-
-        }
-        return comprobar;
-    }
-    */
+        */
     //Obtener usuario logeado
-    public static Usuario getUsuario(String correo)
-    {
+    public static Usuario getUsuario(String correo) {
         Usuario user = new Usuario();
-        PreparedStatement preparedStatement= null;
+        PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
         try {
             String query = "SELECT NICKNAME,PASSWORD,ISADMIN FROM USUARIO WHERE CORREO = '" + correo + "'";
             Statement statement = con.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-            while(resultSet.next())
-            {
-                if(resultSet.getString("CORREO").equals(correo))
-                {
+            while (resultSet.next()) {
+                if (resultSet.getString("CORREO").equals(correo)) {
                     user.setNickname(correo);
                     user.setPassword(resultSet.getString("PASSWORD"));
                     user.setAdmin(resultSet.getBoolean("ISADMIN"));
-                }
-                else
-                {
+                } else {
                     System.err.println("No hay usuario asi");
                 }
             }
@@ -232,5 +226,28 @@ public class UsuarioDB {
         System.out.println(user.getPassword());
         System.out.println(user.isAdmin());
         return user;
+    }
+
+    public static void getAllUsers (ArrayList<Usuario>usuarioslist) {
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+
+        try {
+            String query = "SELECT * FROM USUARIO";
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next())
+            {
+                Usuario n1= new Usuario();
+                
+                usuarioslist.add(n1);
+            }
+            for (int i = 1; i <usuarioslist.size(); i++) {
+                System.out.println("Vuelta n: "+i);
+
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 }
