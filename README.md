@@ -10,7 +10,7 @@
 
 **Compilar el proyecto**
 
-    "mvn clean compile"
+    "mvn clean test"
 
 **Crear las tablas de la base de datos**
     
