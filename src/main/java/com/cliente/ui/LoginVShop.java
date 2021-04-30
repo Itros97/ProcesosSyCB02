@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import com.database.UsuarioDB;
 
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -21,6 +22,7 @@ public class LoginVShop {
 	/**
 	 * Launch the application.
 	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -34,9 +36,6 @@ public class LoginVShop {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public LoginVShop() {
 		initialize();
 	}
@@ -84,3 +83,4 @@ public class LoginVShop {
 	}
 	
 }
+
