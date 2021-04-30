@@ -17,7 +17,7 @@ public class UsuarioDB {
 
         //TABLA USUARIO
         String createUsuario = "CREATE TABLE USUARIO(" +
-                "CORREOELECTRONICO VARCHAR(50) PRIMARY KEY NOT NULL," +
+                "CORREO VARCHAR(50) PRIMARY KEY NOT NULL," +
                 "NOMBRE VARCHAR(50)  NOT NULL," +
                 "NICKNAME VARCHAR(50)  NOT NULL," +
                 "PASSWORD VARCHAR(50) NOT NULL," +
@@ -96,7 +96,7 @@ public class UsuarioDB {
 
         try {
 
-            String query = "DELETE FROM USUARIO WHERE CORREOELECTRONICO = '" + correo + "'";
+            String query = "DELETE FROM USUARIO WHERE CORREO = '" + correo + "'";
 
             preparedStatement = con.prepareStatement(query);
 
