@@ -58,7 +58,7 @@ public class CarritoVShop {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
+				frame.dispose();
 			}
 		});
 		JButton ComprarButton = new JButton("Comprar");
