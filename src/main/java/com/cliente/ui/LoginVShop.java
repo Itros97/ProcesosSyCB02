@@ -24,21 +24,15 @@ public class LoginVShop extends JFrame {
     private JFormattedTextField ftftarjeta;
     private JFormattedTextField ftfnickname;
 
-    public LoginVShop(){
-        initialize();
-        this.setContentPane(mainPanel);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
+    public LoginVShop() {
 
-    public void initialize(){
-
-       ingresarButton.addActionListener(new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               System.out.println("Conexion");
-               UsuarioDB.LoginUsuario(usuariotf.getText(),contrasenyatf.getText());
-           }
-       });
+        ingresarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Conexion");
+                UsuarioDB.LoginUsuario(usuariotf.getText(), contrasenyatf.getText());
+            }
+        });
 
         crearButton.addActionListener(new ActionListener() {
             @Override
@@ -59,8 +53,11 @@ public class LoginVShop extends JFrame {
 
     }
 
+
+
     public static void main(String[] args){
-        JFrame frame = new LoginVShop();
+        JFrame frame = new JFrame();
+        frame.setContentPane(new LoginVShop().mainPanel);
         frame.setVisible(true);
         frame.setSize(500,500);
         frame.setTitle("Login");

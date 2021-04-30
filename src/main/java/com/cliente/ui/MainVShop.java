@@ -29,8 +29,6 @@ public class MainVShop extends JFrame {
     Connection con = ConexionDB.Conexion();
 
     public MainVShop() {
-        initialize();
-        add(mainPanel);
         
         table.addMouseListener(new java.awt.event.MouseAdapter(){
             @Override
@@ -38,10 +36,6 @@ public class MainVShop extends JFrame {
                 super.mouseClicked(e);
             }
         });
-
-    }
-
-    public void initialize() {
 
         carritoButton.addActionListener(new ActionListener() {
             @Override
@@ -83,10 +77,18 @@ public class MainVShop extends JFrame {
             }
         });
 
+        tiendaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+
     }
 
     public static void main(String[] args) {
         MainVShop window = new MainVShop();
+        window.setContentPane(new MainVShop().mainPanel);
         window.setVisible(true);
         window.setLocationRelativeTo(null);
         window.pack();
