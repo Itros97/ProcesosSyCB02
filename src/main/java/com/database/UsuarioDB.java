@@ -1,7 +1,6 @@
 package com.database;
 
 import com.cliente.jdo.Usuario;
-import com.cliente.ui.MainVShop;
 
 
 import javax.swing.*;
@@ -17,7 +16,7 @@ public class UsuarioDB {
 
         //TABLA USUARIO
         String createUsuario = "CREATE TABLE USUARIO(" +
-                "CORREOELECTRONICO VARCHAR(50) PRIMARY KEY NOT NULL," +
+                "CORREO VARCHAR(50) PRIMARY KEY NOT NULL," +
                 "NOMBRE VARCHAR(50)  NOT NULL," +
                 "NICKNAME VARCHAR(50)  NOT NULL," +
                 "PASSWORD VARCHAR(50) NOT NULL," +
@@ -96,7 +95,7 @@ public class UsuarioDB {
 
         try {
 
-            String query = "DELETE FROM USUARIO WHERE CORREOELECTRONICO = '" + correo + "'";
+            String query = "DELETE FROM USUARIO WHERE CORREO = '" + correo + "'";
 
             preparedStatement = con.prepareStatement(query);
 
@@ -252,5 +251,44 @@ public class UsuarioDB {
         } catch (Exception e) {
             // TODO: handle exception
         }
+    }
+
+    public static Usuario getUserDB (String nick){
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+        Usuario u = new Usuario();
+
+        try {
+            String query = "SELECT * FROM USUARIO WHERE NICKNAME = " + nick;
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+
+            if (resultSet.next()){
+                String nombre = resultSet.getString("NOMBRE");
+                String nickname = resultSet.getString("NICKNAME");
+                String password = resultSet.getString("PASSWORD");
+                String apellido1 = resultSet.getString("APELLIDO1");
+                String apellido2 = resultSet.getString("APELLIDO2");
+                String direccion = resultSet.getString("DIRECCION");
+                int tarjetaCredito = resultSet.getInt("TARJETACREDITO");
+                Boolean isAdmin = resultSet.getBoolean("ISADMIN");
+
+
+                u.setNombre(nombre);
+                u.setNickname(nickname);
+                u.setPassword(password);
+                u.setApellido1(apellido1);
+                u.setApellido2(apellido2);
+                u.setDireccion(direccion);
+                u.setTarjetaCredito(tarjetaCredito);
+                u.setAdmin(isAdmin);
+
+            }
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return u;
     }
 }
