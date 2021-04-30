@@ -58,6 +58,7 @@ public class LoginVShop extends JFrame {
     public static void main(String[] args){
         JFrame frame = new JFrame();
         frame.setContentPane(new LoginVShop().mainPanel);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setSize(500,500);
         frame.setTitle("Login");
