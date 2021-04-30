@@ -42,8 +42,9 @@ public class CarritoVShop {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setTitle("CarritoVShop");
 		
 		tablacarrito = new JTable();
 		tablacarrito.setBounds(10, 11, 414, 217);
