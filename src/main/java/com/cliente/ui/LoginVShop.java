@@ -1,67 +1,86 @@
 package com.cliente.ui;
 
-import com.cliente.jdo.Usuario;
-import com.database.UsuarioDB;
-
-import javax.swing.*;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginVShop extends JFrame {
+import javax.swing.JFrame;
+import javax.swing.JTextField;
 
-    private JPanel mainPanel;
-    private JTabbedPane tabbedPane1;
-    private JTextField contrasenyatf;
-    private JTextField usuariotf;
-    private JButton ingresarButton;
-    private JButton crearButton;
-    private JFormattedTextField ftfapellido2;
-    private JFormattedTextField ftfapellido1;
-    private JFormattedTextField ftfpassword;
-    private JFormattedTextField ftfnombre;
-    private JFormattedTextField ftfcorreo;
-    private JFormattedTextField ftfdireccion;
-    private JFormattedTextField ftftarjeta;
-    private JFormattedTextField ftfnickname;
-
-    public LoginVShop() {
-
-        ingresarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Conexion");
-                UsuarioDB.LoginUsuario(usuariotf.getText(), contrasenyatf.getText());
-            }
-        });
-
-        crearButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Usuario u = new Usuario();
-                u.setNombre(ftfnombre.getText());
-                u.setApellido1(ftfapellido1.getText());
-                u.setApellido2(ftfapellido2.getText());
-                u.setCorreo(ftfcorreo.getText());
-                u.setDireccion(ftfdireccion.getText());
-                u.setPassword(ftfpassword.getText());
-                u.setTarjetaCredito(Integer.parseInt(ftftarjeta.getText()));
-                u.setNickname(ftfnickname.getText());
-                u.setAdmin(false);
-                UsuarioDB.insertarUsuarios(u);
-            }
-        });
-
-    }
+import com.database.UsuarioDB;
 
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
-    public static void main(String[] args){
-        JFrame frame = new JFrame();
-        frame.setContentPane(new LoginVShop().mainPanel);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.setSize(500,500);
-        frame.setTitle("Login");
-    }
+public class LoginVShop {
+
+	private JFrame frame;
+	private JTextField usuariotf;
+	private JTextField passwordtf;
+
+	/**
+	 * Launch the application.
+	 */
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginVShop window = new LoginVShop();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public LoginVShop() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		usuariotf = new JTextField();
+		usuariotf.setBounds(137, 67, 163, 20);
+		frame.getContentPane().add(usuariotf);
+		usuariotf.setColumns(10);
+		
+		passwordtf = new JTextField();
+		passwordtf.setBounds(137, 154, 163, 20);
+		frame.getContentPane().add(passwordtf);
+		passwordtf.setColumns(10);
+		
+		JButton Ingresar = new JButton("New button");
+		Ingresar.setBounds(176, 227, 89, 23);
+		frame.getContentPane().add(Ingresar);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(193, 42, 46, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(193, 129, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		Ingresar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				UsuarioDB.LoginUsuario(usuariotf.getText(), passwordtf.getText());
+				
+			}
+		});
+		
+	}
+	
 }
 
