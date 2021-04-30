@@ -21,15 +21,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>jitpack</id>
-            <url>https://jitpack.io</url>
-        </pluginRepository>
-    </pluginRepositories>
-
-
-
     <dependencies>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
@@ -105,18 +96,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>com.github.BenjaminFaal</groupId>
-                <artifactId>intellij-idea-gui-designer-maven-plugin</artifactId>
-                <version>2020.3.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile-forms</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
