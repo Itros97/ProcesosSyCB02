@@ -1,8 +1,8 @@
 package com.cliente.jdo;
 
+import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
-import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
 public class MainJDO {

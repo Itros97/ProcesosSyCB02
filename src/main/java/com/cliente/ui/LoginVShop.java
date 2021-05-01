@@ -4,18 +4,16 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import com.cliente.jdo.Usuario;
 import com.database.UsuarioDB;
-
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTabbedPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 
 public class LoginVShop {
 
@@ -85,8 +83,11 @@ public class LoginVShop {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				UsuarioDB.LoginUsuario(usuariotf.getText(), passwordField.getText());
-				MainVShop.main(null);
-				frame.dispose();
+				if(UsuarioDB.correcto== true) 
+				{
+					frame.dispose();
+				}
+			
 				
 			}
 		});

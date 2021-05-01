@@ -1,9 +1,8 @@
 package com.cliente.jdo;
 
-import com.cliente.jdo.Producto;
-import org.junit.Before;
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 public class ProductoTest {
     private Producto p = new Producto("Chocolate", "Nestle", 1.5f, "Chocolate blanco");

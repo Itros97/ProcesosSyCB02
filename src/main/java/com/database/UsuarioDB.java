@@ -1,14 +1,21 @@
 package com.database;
 
-import com.cliente.jdo.Usuario;
-
-//import com.cliente.ui.MainVShop;
-
-import javax.swing.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
+//import com.cliente.ui.MainVShop;
+import javax.swing.JOptionPane;
+
+import com.cliente.jdo.Usuario;
+import com.cliente.ui.MainVShop;
+
 public class UsuarioDB {
+	
+	public static boolean correcto;
 
     //CREAR
     protected static void crearTablaUsuario(Connection con) {
@@ -113,7 +120,8 @@ public class UsuarioDB {
 
     //LOGIN
     public static boolean LoginUsuario(String nickname, String password) {
-
+    	
+    	correcto = false;
         boolean comprobar = false;
 
         try {
@@ -149,12 +157,10 @@ public class UsuarioDB {
         if (comprobar == true) {
             System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
 
-/*
-            com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
-            window.setVisible(true);
-            window.setTitle("Tienda");
-            window.setBounds(100, 100, 1280, 720);
-*/
+           correcto = true;
+           MainVShop.main(null);
+          
+        
         } else {
             System.out.println("Problema de conexion");
         }

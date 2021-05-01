@@ -1,11 +1,10 @@
 package com.database;
 
-import com.cliente.jdo.Compra;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.cliente.jdo.Compra;
 
 public class CompraDB {
 

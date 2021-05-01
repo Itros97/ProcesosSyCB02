@@ -1,7 +1,8 @@
 package com.cliente.jdo;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 public class CarritoTest {
 
