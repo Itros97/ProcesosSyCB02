@@ -1,14 +1,17 @@
 package com.database;
 
-import com.cliente.jdo.Usuario;
-import com.cliente.ui.LoginVShop;
-import com.cliente.ui.MainVShop;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 //import com.cliente.ui.MainVShop;
+import javax.swing.JOptionPane;
 
-import javax.swing.*;
-import java.sql.*;
-import java.util.ArrayList;
+import com.cliente.jdo.Usuario;
+import com.cliente.ui.MainVShop;
 
 public class UsuarioDB {
 	

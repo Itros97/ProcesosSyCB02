@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <USER userid='1' first_name='Vinod' last_name='Kashyap' />
- 
-    <USER userid='2' first_name='Dhwani' last_name='Kashyap' />
- 
-    <USER userid='3' first_name='Asmi' last_name='Kashyap' />
+    <USUARIO correo='admin' apellido1='admin' apellido2='admin' direccion='admin' isadmin='1' nickname='admin' nombre='admin' password='admin' tarjetacredito='0'  />
 </dataset>

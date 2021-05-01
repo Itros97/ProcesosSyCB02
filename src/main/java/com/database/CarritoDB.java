@@ -1,9 +1,10 @@
 package com.database;
 
-import com.cliente.jdo.Carrito;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import com.cliente.jdo.Carrito;
 
 public class CarritoDB {
 
