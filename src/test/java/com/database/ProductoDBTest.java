@@ -11,11 +11,11 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
 public class ProductoDBTest {
-	
-	
-	
-  	/*public ProductoDBTest() {
-       
+
+
+/*
+	public ProductoDBTest() {
+
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:mysql://localhost/EStoreDB");
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "spq");
@@ -30,20 +30,20 @@ public class ProductoDBTest {
 	public void testInsertarProducto() {
 		assertEquals(false, false);
 	}
-	
+
 	@Test
 	public void testeliminarProducto() {
 		assertEquals(false, false);
 	}
-	
+
 	@Test
 	public void testSeleccionarProducto() {
 		assertEquals(false, false);
 	}
-	
+
 	@Test
 	public void testgetAllProducts() {
 		assertEquals(false, false);
 	}
-	*/
+	 */
 }

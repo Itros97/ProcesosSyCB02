@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <CARRITO idcarrito='1' nickname='admin' nombre='admin' preciocarrito= '2.5' isadmin='1'/>
+</dataset>
