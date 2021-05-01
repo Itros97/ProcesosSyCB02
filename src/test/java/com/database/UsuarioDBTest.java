@@ -32,7 +32,7 @@ import com.server.Main;
 
 
 public class UsuarioDBTest {
-    /* 
+    
     public UsuarioDBTest() {
         
 
@@ -86,10 +86,17 @@ public class UsuarioDBTest {
 	//		List<Usuario> users = target.path("usuarios").request(MediaType.APPLICATION_JSON).get(genericType);
 	//	assertEquals(1, users.size());
 	}
+	@Test
+	public void testrowcount() 
+	{
+		int data = UsuarioDB.rowcount();
+		
+		assertEquals(1, data);
+	}
 
 }
 	
 
-*/
-}
+
+
 
