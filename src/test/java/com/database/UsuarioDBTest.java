@@ -29,7 +29,7 @@ import com.cliente.jdo.Usuario;
 import com.mysql.cj.xdevapi.Result;
 import com.server.Main;
 
-public class UsuarioDBTest extends DBTestCase {
+public class UsuarioDBTest {
 
     public UsuarioDBTest() {
         
@@ -44,7 +44,6 @@ public class UsuarioDBTest extends DBTestCase {
     @Mock
     private Usuario u1 = new Usuario("jose","jose","jose","jose","jose","jose","jose",123,false);
     
-	@Override
 	protected IDataSet getDataSet() throws Exception {
 		  return new FlatXmlDataSetBuilder().build(new FileInputStream("dbsample/usuarios.xml"));
 	}
