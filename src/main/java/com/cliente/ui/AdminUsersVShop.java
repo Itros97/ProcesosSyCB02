@@ -15,6 +15,7 @@ import com.database.UsuarioDB;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
 
 public class AdminUsersVShop {
 
@@ -29,6 +30,7 @@ public class AdminUsersVShop {
 	private JTextField ape1;
 	private JTextField ape2;
 	private JPasswordField password;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -194,6 +196,9 @@ public class AdminUsersVShop {
 		JPanel panelModificar = new JPanel();
 		tabbedPane.addTab("Modificar", null, panelModificar, null);
 		panelModificar.setLayout(null);
+		
+		table = new JTable();
+		table.setBounds(10, 11, 456, 290);
+		panelModificar.add(table);
 	}
-
 }
