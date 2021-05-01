@@ -64,7 +64,7 @@ public class CompraDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO COMPRA (IDCOMPRA,CORREOELECTRONICO,IDPRODUCTOCOMPRA)"
+            String query = " INSERT INTO COMPRA (IDCOMPRA,CORREOUSUARIO,IDPRODUCTOCOMPRA)"
                     + " VALUES (?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
@@ -125,7 +125,7 @@ public class CompraDB {
 */
 
     //ELIMINAR COMPRA
-    public void eliminarCompra(int idCompra) {
+    public static void eliminarCompra(int idCompra) {
 
         PreparedStatement preparedStatement= null;
         Connection con = ConexionDB.Conexion();
