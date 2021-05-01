@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.0
+- https://www.phpmyadmin.net
+-
+- Servidor: 127.0.0.1
+- Tiempo de generación: 01-05-2021 a las 12:19:11
+- Versión del servidor: 10.4.18-MariaDB
+- Versión de PHP: 8.0.3
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="estoredb" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="carrito">
+                CREATE TABLE `carrito` (
+                  `IDCARRITO` int(11) NOT NULL,
+                  `NICKNAME` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `NOMBRE` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `PRECIOCARRITO` double NOT NULL,
+                  PRIMARY KEY (`IDCARRITO`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="compra">
+                CREATE TABLE `compra` (
+                  `CORREOUSUARIO` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+                  `IDCOMPRA` int(11) NOT NULL,
+                  `IDPRODUCTOCOMPRA` int(11) NOT NULL,
+                  PRIMARY KEY (`CORREOUSUARIO`,`IDCOMPRA`,`IDPRODUCTOCOMPRA`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="producto">
+                CREATE TABLE `producto` (
+                  `IDPRODUCTO` int(11) NOT NULL,
+                  `DESCRIPCION` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `MARCA` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `NOMBRE` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `PRECIO` float NOT NULL,
+                  PRIMARY KEY (`IDPRODUCTO`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="sequence_table">
+                CREATE TABLE `sequence_table` (
+                  `SEQUENCE_NAME` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+                  `NEXT_VAL` bigint(20) NOT NULL,
+                  PRIMARY KEY (`SEQUENCE_NAME`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="usuario">
+                CREATE TABLE `usuario` (
+                  `CORREO` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+                  `APELLIDO1` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `APELLIDO2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `DIRECCION` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `ISADMIN` bit(1) NOT NULL,
+                  `NICKNAME` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `NOMBRE` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `PASSWORD` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+                  `TARJETACREDITO` int(11) NOT NULL,
+                  PRIMARY KEY (`CORREO`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Base de datos: 'estoredb'
+    -->
+    <database name="estoredb">
+        <!-- Tabla carrito -->
+        <!-- Tabla compra -->
+        <!-- Tabla producto -->
+        <table name="producto">
+            <column name="IDPRODUCTO">1</column>
+            <column name="DESCRIPCION">Grafica series 3000</column>
+            <column name="MARCA">Gygabyte</column>
+            <column name="NOMBRE">NVidiaGTX</column>
+            <column name="PRECIO">300</column>
+        </table>
+        <!-- Tabla sequence_table -->
+        <table name="sequence_table">
+            <column name="SEQUENCE_NAME">com.cliente.jdo.Producto</column>
+            <column name="NEXT_VAL">21</column>
+        </table>
+        <!-- Tabla usuario -->
+        <table name="usuario">
+            <column name="CORREO">ad</column>
+            <column name="APELLIDO1">ad</column>
+            <column name="APELLIDO2">ad</column>
+            <column name="DIRECCION">ad</column>
+            <column name="ISADMIN">0</column>
+            <column name="NICKNAME">ad</column>
+            <column name="NOMBRE">ad</column>
+            <column name="PASSWORD">ad</column>
+            <column name="TARJETACREDITO">1234</column>
+        </table>
+        <table name="usuario">
+            <column name="CORREO">gnomo</column>
+            <column name="APELLIDO1"></column>
+            <column name="APELLIDO2"></column>
+            <column name="DIRECCION"></column>
+            <column name="ISADMIN">1</column>
+            <column name="NICKNAME">Newton</column>
+            <column name="NOMBRE">Isaac</column>
+            <column name="PASSWORD"></column>
+            <column name="TARJETACREDITO">12</column>
+        </table>
+        <table name="usuario">
+            <column name="CORREO">jdo</column>
+            <column name="APELLIDO1"></column>
+            <column name="APELLIDO2"></column>
+            <column name="DIRECCION"></column>
+            <column name="ISADMIN">0</column>
+            <column name="NICKNAME">Smith</column>
+            <column name="NOMBRE">John</column>
+            <column name="PASSWORD"></column>
+            <column name="TARJETACREDITO">1</column>
+        </table>
+        <table name="usuario">
+            <column name="CORREO">mekatorke</column>
+            <column name="APELLIDO1"></column>
+            <column name="APELLIDO2"></column>
+            <column name="DIRECCION"></column>
+            <column name="ISADMIN">0</column>
+            <column name="NICKNAME">Einstein</column>
+            <column name="NOMBRE">Albert</column>
+            <column name="PASSWORD"></column>
+            <column name="TARJETACREDITO">1</column>
+        </table>
+    </database>
+</pma_xml_export>
