@@ -16,7 +16,6 @@ import com.cliente.jdo.Usuario;
 
 public class CompraDBTest {
 
-	/*
 	public CompraDBTest() {
 
 		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
@@ -45,6 +44,13 @@ public class CompraDBTest {
 		CompraDB.eliminarCompra(c1.getIdCompra());
 		assertEquals(1, CompraDB.rowcount());
 	}
-*/
+	
+	@Test
+	public void testrowcount() {
+		
+		int data = CompraDB.rowcount();
+		
+		assertEquals(1, data);
+	}
 
 }
