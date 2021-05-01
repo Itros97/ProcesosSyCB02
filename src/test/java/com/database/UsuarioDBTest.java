@@ -29,10 +29,10 @@ import com.cliente.jdo.Usuario;
 import com.mysql.cj.xdevapi.Result;
 import com.server.Main;
 
-    /* 
+
 
 public class UsuarioDBTest {
-
+    /* 
     public UsuarioDBTest() {
         
 
