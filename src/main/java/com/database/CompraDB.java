@@ -2,7 +2,9 @@ package com.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import com.cliente.jdo.Compra;
 
@@ -143,6 +145,24 @@ public class CompraDB {
             System.out.println(e);
         }
 
+    }
+    public static int rowcount () {
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+        int count=0;
+        try {
+            String query = "SELECT * FROM COMPRA";
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next())
+            {
+              count++;
+            }
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return count;
     }
 
 

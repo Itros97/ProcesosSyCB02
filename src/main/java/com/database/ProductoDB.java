@@ -170,5 +170,23 @@ public class ProductoDB {
         }
 
     }
+    public static int rowcount () {
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+        int count=0;
+        try {
+            String query = "SELECT * FROM PRODUCTO";
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next())
+            {
+              count++;
+            }
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return count;
+    }
 
 }

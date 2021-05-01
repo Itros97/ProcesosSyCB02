@@ -67,13 +67,8 @@ public class ProductoTest {
     @Test
     public void testtostring()
     {
-        String expected ="Producto{" +
-                "nombre='" + p.getNombre() + '\'' +
-                ", marca='" + p.getMarca() + '\'' +
-                ", precio=" + p.getPrecio() +
-                ", descripcion='" + p.getDescripcion() + '\'' +
-                '}';
-
+        String expected =p.getNombre()+","+ p.getMarca() +
+                ", precio=" + p.getPrecio();
         assertEquals(expected, p.toString());
     }
 }

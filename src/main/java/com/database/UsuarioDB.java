@@ -260,4 +260,25 @@ public class UsuarioDB {
             // TODO: handle exception
         }
     }
+    
+
+    
+    public static int rowcount () {
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+        int count=0;
+        try {
+            String query = "SELECT * FROM USUARIO";
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next())
+            {
+              count++;
+            }
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return count;
+    }
 }
