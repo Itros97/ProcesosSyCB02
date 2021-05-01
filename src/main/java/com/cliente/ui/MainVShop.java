@@ -85,6 +85,11 @@ public class MainVShop {
 		});
 		
 		JButton botonHistorial = new JButton("HISTORIAL");
+		botonHistorial.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HistorialVShop.main(null);
+			}
+		});
 		botonHistorial.setBounds(10, 318, 150, 45);
 		frame.getContentPane().add(botonHistorial);
 		

@@ -30,7 +30,6 @@ public class AdminUsersVShop {
 	private JTextField ape1;
 	private JTextField ape2;
 	private JPasswordField password;
-	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -197,8 +196,15 @@ public class AdminUsersVShop {
 		tabbedPane.addTab("Modificar", null, panelModificar, null);
 		panelModificar.setLayout(null);
 		
-		table = new JTable();
-		table.setBounds(10, 11, 456, 290);
-		panelModificar.add(table);
+		JButton btnNewButton = new JButton("MODIFICAR USUARIO");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton.setBounds(10, 278, 456, 23);
+		panelModificar.add(btnNewButton);
+		
+		
 	}
 }
