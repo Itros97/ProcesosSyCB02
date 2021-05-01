@@ -68,6 +68,11 @@ public class CompraVShop {
 		frame.getContentPane().add(botonCerrar);
 		
 		JButton botonComprar = new JButton("COMPRAR");
+		botonComprar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		botonComprar.setBounds(370, 380, 117, 43);
 		frame.getContentPane().add(botonComprar);
 		

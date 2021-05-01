@@ -91,7 +91,7 @@ public class MainVShop {
 		JButton botonAdmin = new JButton("ADMINISTRADOR");
 		botonAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdminUsersVShop.main(null);
+				AdminVShop.main(null);
 			}
 		});
 		botonAdmin.setBounds(10, 401, 150, 45);
