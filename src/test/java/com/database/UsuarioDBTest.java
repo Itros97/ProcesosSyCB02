@@ -11,9 +11,9 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
 public class UsuarioDBTest {//extends DBTestCase {
-
+    /* 
     public UsuarioDBTest() {
-      /*  
+   
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:mysql://localhost/EStoreDB");
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "spq");
@@ -54,7 +54,8 @@ public class UsuarioDBTest {//extends DBTestCase {
 	{
 		assertEquals(false, false);
 	}
+
+}
 	
 */
-}
 }
