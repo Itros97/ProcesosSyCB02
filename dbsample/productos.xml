@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <PRODUCTO idproducto='admin' nombre='admin' marca='admin' precio='admin' descripcion='1'/>
+    <PRODUCTO idproducto='1' nombre='admin' marca='admin' precio='2.2' descripcion='admin'/>
 </dataset>
