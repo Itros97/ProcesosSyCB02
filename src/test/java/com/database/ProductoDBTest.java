@@ -8,8 +8,8 @@ import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
-public class ProductoDBTest extends DBTestCase {
-	
+public class ProductoDBTest {
+	/*
 	  public ProductoDBTest() {
 	        
 	        System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
@@ -22,4 +22,5 @@ public class ProductoDBTest extends DBTestCase {
 		protected IDataSet getDataSet() throws Exception {
 			  return new FlatXmlDataSetBuilder().build(new FileInputStream("dbsample/usuarios.xml"));
 		}
+		*/
 }
