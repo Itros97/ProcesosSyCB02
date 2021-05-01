@@ -1,113 +1,97 @@
 package com.cliente.ui;
 
-import com.cliente.jdo.Carrito;
-import com.database.CompraDB;
+import java.awt.EventQueue;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JTable;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 
-public class CompraVShop extends JFrame{
-    private JTable table;
-    private JPanel mainPanel;
-    private JButton deleteCarritoButton;
-    private JButton deleteProductoButton;
-    private JTextField descuentoTextField;
-    private JTextField precioTotalTextField;
-    private JButton compraButton;
-    private JButton closeButton;
-    private JPanel buttonPanel;
-    private JLabel precioTotalLabel;
-    private JLabel descuentoLabel;
-    private ArrayList<Carrito> carrito = new ArrayList<>();
+public class CompraVShop {
 
-    public CompraVShop(){
+	private JFrame frame;
+	private JTextField codDes;
+	private JTextField textField;
+	private JTable table;
 
-        table.addMouseListener(new java.awt.event.MouseAdapter(){
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-            }
-        });
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CompraVShop window = new CompraVShop();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-        deleteCarritoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+	/**
+	 * Create the application.
+	 */
+	public CompraVShop() {
+		initialize();
+	}
 
-                //CarritoDB.deleteCarrito(); Falta insertar carrito
-            }
-        });
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 682, 563);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		frame.setTitle("CompraVShop");
+		
+		JButton botonEliminarCarrito = new JButton("ELIMINAR CARRITO");
+		botonEliminarCarrito.setBounds(10, 37, 170, 62);
+		frame.getContentPane().add(botonEliminarCarrito);
+		
+		JButton botonEliminarProducto = new JButton("ELIMINAR PRODUCTO");
+		botonEliminarProducto.setBounds(10, 144, 170, 62);
+		frame.getContentPane().add(botonEliminarProducto);
+		
+		JButton botonCerrar = new JButton("CERRAR");
+		botonCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+		botonCerrar.setBounds(137, 425, 129, 43);
+		frame.getContentPane().add(botonCerrar);
+		
+		JButton botonComprar = new JButton("COMPRAR");
+		botonComprar.setBounds(370, 380, 117, 43);
+		frame.getContentPane().add(botonComprar);
+		
+		JLabel labelDescuento = new JLabel("Código Descuento:");
+		labelDescuento.setBounds(10, 308, 129, 24);
+		frame.getContentPane().add(labelDescuento);
+		
+		codDes = new JTextField();
+		codDes.setBounds(137, 310, 195, 22);
+		frame.getContentPane().add(codDes);
+		codDes.setColumns(10);
+		
+		JLabel precioTotal = new JLabel("Precio Total:");
+		precioTotal.setBounds(348, 308, 117, 24);
+		frame.getContentPane().add(precioTotal);
+		
+		textField = new JTextField();
+		textField.setBounds(471, 310, 187, 22);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		table = new JTable();
+		table.setBounds(216, 37, 427, 243);
+		frame.getContentPane().add(table);
+	}
 
-        deleteProductoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                //ProductoDB.eliminarProducto(); Faltan insertar productos
-            }
-        });
-
-
-
-        compraButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //CompraDB.insertarCompra(); faltan insertar los parametros
-                JOptionPane.showMessageDialog(null, "Compra Realizada", null, JOptionPane.INFORMATION_MESSAGE);
-
-                printTicket(carrito); // ticket vacio ya que no hay productos
-
-            }
-        });
-
-        closeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //window.dispose();
-                dispose();
-            }
-        });
-    }
-
-    private void printTicket(ArrayList<Carrito> carro) {
-        try {
-            double precio =0;
-            FileWriter writter = new FileWriter("ticket/Ticket.txt");
-            for (int i = 0; i < carro.size(); i++) {
-                writter.write("Datos prod: \n");
-                writter.write(carro.get(i).toString());
-                precio =+carro.get(i).getPrecioCarrito();
-                System.out.println(precio);
-                writter.write("\n");
-                if(carro.size()-i > 1 ) {
-                    writter.write("-----");
-                    writter.write("\n");
-                }
-            }
-            writter.write("--------------- \n");
-            writter.write("Precio Total: \n");
-
-            writter.write((int) precio);
-            writter.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-    }
-
-    public static void main(String[] args) {
-        CompraVShop window = new CompraVShop();
-        window.setContentPane(new CompraVShop().mainPanel);
-        window.setBounds(100, 100, 1000, 600);
-        window.setVisible(true);
-        window.setLocationRelativeTo(null);
-        window.setTitle("Compra");
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-    }
 }

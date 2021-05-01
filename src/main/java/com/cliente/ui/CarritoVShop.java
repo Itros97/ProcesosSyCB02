@@ -1,55 +1,78 @@
 package com.cliente.ui;
 
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CarritoVShop extends JFrame{
-    private JTable tabla;
-    private JButton botonAtras;
-    private JButton botonComprar;
-    private JPanel panelPrincipal;
-    private JPanel panelBotones;
+import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.JButton;
 
-    private DefaultTableModel modelo;
+public class CarritoVShop {
 
+	private JFrame frame;
+	private JTable tablacarrito;
 
-    public CarritoVShop() {
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CarritoVShop window = new CarritoVShop();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-        String[] nombresColumnas = { "NICKNAME", "NOMBRE", "PRECIO CARRITO" };
-        modelo = new DefaultTableModel(null, nombresColumnas);
+	/**
+	 * Create the application.
+	 */
+	public CarritoVShop() {
+		initialize();
+	}
 
-        //tabla = new JTable(modelo);
-        tabla.setModel(modelo);
-
-        botonAtras.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
-
-        botonComprar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               // compraVShop.main(null);
-                dispose();
-            }
-        });
-
-    }
-
-    public static void main(String[] args) {
-        CarritoVShop frame = new CarritoVShop();
-        frame.setContentPane(new CarritoVShop().panelPrincipal);
-        frame.setBounds(100, 100, 1000, 600);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        frame.setTitle("Carrito");
-
-    }
-
-
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		frame.setTitle("CarritoVShop");
+		
+		tablacarrito = new JTable();
+		tablacarrito.setBounds(10, 11, 414, 217);
+		frame.getContentPane().add(tablacarrito);
+		
+		JButton CerrarButton = new JButton("Cerrar");
+		CerrarButton.setBounds(10, 239, 150, 23);
+		frame.getContentPane().add(CerrarButton);
+		
+		CerrarButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				frame.dispose();
+			}
+		});
+		JButton ComprarButton = new JButton("Comprar");
+		ComprarButton.setBounds(274, 239, 150, 23);
+		frame.getContentPane().add(ComprarButton);
+		
+		ComprarButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
 }
