@@ -29,10 +29,13 @@ import com.cliente.jdo.Usuario;
 import com.mysql.cj.xdevapi.Result;
 import com.server.Main;
 
+    /* 
+
 public class UsuarioDBTest {
 
     public UsuarioDBTest() {
         
+
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:mysql://localhost/EStoreDB");
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "spq");
@@ -83,7 +86,10 @@ public class UsuarioDBTest {
 	//		List<Usuario> users = target.path("usuarios").request(MediaType.APPLICATION_JSON).get(genericType);
 	//	assertEquals(1, users.size());
 	}
+
+}
 	
 
+*/
 }
 
