@@ -12,7 +12,7 @@ import javax.jdo.annotations.PrimaryKey;
 public class Producto {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
-    protected int idProducto;
+    protected int idProducto = 0;
 
     protected String nombre;
     protected String marca;

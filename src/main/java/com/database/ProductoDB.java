@@ -8,6 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.cliente.jdo.Producto;
+import com.cliente.jdo.Usuario;
+import java.util.List;
+import javax.swing.JList;
 
 public class ProductoDB {
 
@@ -59,15 +62,16 @@ public class ProductoDB {
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO PRODUCTO (NOMBRE,MARCA,PRECIO,DESCRIPCION)"
-                    + " VALUES (?, ?, ?, ?)";
+            String query = " INSERT INTO PRODUCTO (IDPRODUCTO,NOMBRE,MARCA,PRECIO,DESCRIPCION)"
+                    + " VALUES (?, ?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
 
-            preparedStatement.setString(1, nuevoProducto.getNombre());
-            preparedStatement.setString(2, nuevoProducto.getMarca());
-            preparedStatement.setFloat(3, nuevoProducto.getPrecio());
-            preparedStatement.setString(4, nuevoProducto.getDescripcion());
+            preparedStatement.setInt(1, nuevoProducto.getIdProducto());
+            preparedStatement.setString(2, nuevoProducto.getNombre());
+            preparedStatement.setString(3, nuevoProducto.getMarca());
+            preparedStatement.setFloat(4, nuevoProducto.getPrecio());
+            preparedStatement.setString(5, nuevoProducto.getDescripcion());
             preparedStatement.execute();
 
             System.out.println("Insert existoso");
@@ -95,13 +99,14 @@ public class ProductoDB {
                 String des;
 
                 while(rs.next()) {
+                	id = rs.getInt("IDPRODUCTO");
                     nom = rs.getString("NOMBRE");
                     mar = rs.getString("MARCA");
                     pre = rs.getFloat("PRECIO");
                     des = rs.getString("DESCRIPCION");
 
 
-                    Producto e = new Producto(nom, mar, pre, des);
+                    Producto e = new Producto(id, nom, mar, pre, des);
                     return e;
 
                 }
@@ -145,19 +150,34 @@ public class ProductoDB {
 
     }
 
-    public static void getAllProducts(ArrayList<Producto> productos){
+    public static void getAllProducts(ArrayList<Producto> productos) {
 
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
+        
 
+        int id;
+        String des;
+        String ma;
+        String n;
+        float pr;
+        
         try{
             String query = "SELECT * FROM PRODUCTO";
             Statement statement = con.createStatement();
             ResultSet resulSet = statement.executeQuery(query);
 
             while (resulSet.next()){
-                Producto p = new Producto();
+            	id = resulSet.getInt("IDPRODUCTO");
+            	des = resulSet.getString("DESCRIPCION");
+            	ma = resulSet.getString("MARCA");
+            	n = resulSet.getString("NOMBRE");
+            	pr = resulSet.getFloat("PRECIO");
+            	
+            	
+                Producto p = new Producto(n, ma, pr, des);
                 productos.add(p);
+                
             }
 
             for (int i = 1; i < productos.size(); i++){
@@ -168,6 +188,7 @@ public class ProductoDB {
         }catch (Exception e){
 
         }
+
 
     }
     public static int rowcount () {

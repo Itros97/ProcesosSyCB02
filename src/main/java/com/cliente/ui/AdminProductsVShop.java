@@ -9,6 +9,12 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
+import com.cliente.jdo.Producto;
+import com.database.ProductoDB;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class AdminProductsVShop {
 
 	private JFrame frame;
@@ -84,6 +90,13 @@ public class AdminProductsVShop {
 		panelCrear.add(botonImagen);
 		
 		JButton botonCrear = new JButton("CREAR PRODUCTO");
+		botonCrear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Producto p = new Producto(2,nombre.getText(), marca.getText(), Float.parseFloat(precio.getText()), descripcion.getText());
+				ProductoDB.insertarProducto(p);
+			}
+		});
 		botonCrear.setBounds(10, 313, 529, 34);
 		panelCrear.add(botonCrear);
 		
