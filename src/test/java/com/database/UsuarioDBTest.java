@@ -10,8 +10,8 @@ import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.junit.Test;
 
-public class UsuarioDBTest {//extends DBTestCase {
-    /* 
+public class UsuarioDBTest {
+    /*
     public UsuarioDBTest() {
    
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver");
@@ -19,8 +19,6 @@ public class UsuarioDBTest {//extends DBTestCase {
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "spq");
         System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "spq");
     }
-
-	@Override
 	protected IDataSet getDataSet() throws Exception {
 		  return new FlatXmlDataSetBuilder().build(new FileInputStream("dbsample/usuarios.xml"));
 	}
@@ -53,9 +51,7 @@ public class UsuarioDBTest {//extends DBTestCase {
 	public void testgetAllUsers() 
 	{
 		assertEquals(false, false);
-	}
-
-}
 	
-*/
+}
+	*/
 }
