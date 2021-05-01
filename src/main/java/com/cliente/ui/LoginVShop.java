@@ -85,8 +85,11 @@ public class LoginVShop {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				UsuarioDB.LoginUsuario(usuariotf.getText(), passwordField.getText());
-				MainVShop.main(null);
-				frame.dispose();
+				if(UsuarioDB.correcto== true) 
+				{
+					frame.dispose();
+				}
+			
 				
 			}
 		});
