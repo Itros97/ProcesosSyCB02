@@ -70,8 +70,8 @@ public class CarritoVShop {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+				CompraVShop.main(null);
+				frame.dispose();
 			}
 		});
 	}

@@ -2,6 +2,7 @@ package com.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import com.cliente.jdo.Producto;
 
@@ -35,7 +36,10 @@ public class ConexionDB {
 
         return con;
     }
-
+    public int executeQuery(String query) throws ClassNotFoundException, SQLException {
+    	Connection con = Conexion();
+    	return con.createStatement().executeUpdate(query);
+    }
     //CREACION DE LA BASE DE DATOS
     private void CrearBasesDeDatos(Connection con) {
         UsuarioDB.crearTablaUsuario(con);

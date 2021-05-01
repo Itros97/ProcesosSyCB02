@@ -248,8 +248,20 @@ public class UsuarioDB {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next())
             {
-                Usuario n1= new Usuario();
-
+            	
+            	String correo = resultSet.getString("CORREO");
+            	String ape1 = resultSet.getString("APELLIDO1");
+            	String ape2 = resultSet.getString("APELLIDO2");
+            	String dir = resultSet.getString("DIRECCION");
+            	Boolean ad = resultSet.getBoolean("ISADMIN");
+            	String ni = resultSet.getString("NICKNAME");
+            	String no = resultSet.getString("NOMBRE");
+            	String p = resultSet.getString("PASSWORD");
+            	int t = resultSet.getInt("TARJETACREDITO");
+            	
+                Usuario n1= new Usuario(p, ni, no, ape1, ape2, correo, dir, t, ad);
+                System.out.println(n1.toString());
+                
                 usuarioslist.add(n1);
             }
             for (int i = 1; i <usuarioslist.size(); i++) {
@@ -259,5 +271,26 @@ public class UsuarioDB {
         } catch (Exception e) {
             // TODO: handle exception
         }
+    }
+    
+
+    
+    public static int rowcount () {
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+        int count=0;
+        try {
+            String query = "SELECT * FROM USUARIO";
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next())
+            {
+              count++;
+            }
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return count;
     }
 }
