@@ -4,6 +4,7 @@ package com.cliente.ui;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -19,6 +20,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
+import com.cliente.jdo.Carrito;
 import com.cliente.jdo.Producto;
 
 public class MainVShop {
@@ -28,6 +30,7 @@ public class MainVShop {
 	
 	private Client client;
 	
+	public static ArrayList<Carrito> carrito = new ArrayList<Carrito>();
 	
 
 	/**

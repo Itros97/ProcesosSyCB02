@@ -3,12 +3,17 @@ package com.cliente.ui;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+
+import com.cliente.jdo.Carrito;
 
 public class CompraVShop {
 
@@ -70,6 +75,8 @@ public class CompraVShop {
 		JButton botonComprar = new JButton("COMPRAR");
 		botonComprar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				printTicket(MainVShop.carrito);
+				
 				
 			}
 		});
@@ -99,4 +106,32 @@ public class CompraVShop {
 		frame.getContentPane().add(table);
 	}
 
+	private void printTicket(ArrayList<Carrito> carro) {
+        try {
+            double precio =0;
+            FileWriter writter = new FileWriter("ticket/Ticket.txt");
+            for (int i = 0; i < carro.size(); i++) {
+                writter.write("Datos prod: \n");
+                writter.write(carro.get(i).toString());
+                precio =+carro.get(i).getPrecioCarrito();
+                System.out.println(precio);
+                writter.write("\n");
+                if(carro.size()-i > 1 ) {
+                    writter.write("-----");
+                    writter.write("\n");
+                }
+            }
+            writter.write("--------------- \n");
+            writter.write("Precio Total: \n");
+
+            writter.write((int) precio);
+            writter.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+	
 }
