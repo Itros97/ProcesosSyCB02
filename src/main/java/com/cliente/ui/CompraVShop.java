@@ -117,18 +117,15 @@ public class CompraVShop {
 	private void printTicket(List<Producto> carro) {
         try {
             double precio =0;
-            FileWriter writter = new FileWriter("ticket/Ticket.txt");
-            for (int i = 0; i < carro.size(); i++) {
-                writter.write("Datos prod: \n");
-                writter.write(carro.get(i).toString());
-                precio =+carro.get(i).getPrecio();
+            FileWriter writter = new FileWriter("ticket/Ticket.txt");           
+            for (Producto p : carro) {
+            	writter.write("Datos prod: \n");
+                writter.write(p.toString());
+                precio =+p.getPrecio();
                 System.out.println(precio);
                 writter.write("\n");
-                if(carro.size()-i > 1 ) {
-                    writter.write("-----");
-                    writter.write("\n");
-                }
-            }
+                
+			}                  
             writter.write("--------------- \n");
             writter.write("Precio Total: \n");
 

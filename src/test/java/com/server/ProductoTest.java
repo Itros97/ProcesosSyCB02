@@ -50,7 +50,7 @@ public class ProductoTest {
     @PerfTest(invocations = 100, threads = 40)
     public void testGetProductos() {
     	GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
-    	List<Producto> productos = target.path("productos").request(MediaType.APPLICATION_JSON).get(genericType);
+    	List<Producto> productos = target.path("producto").request(MediaType.APPLICATION_JSON).get(genericType);
         assertEquals(1, productos.size());
     }
 
