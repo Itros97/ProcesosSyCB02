@@ -33,6 +33,7 @@ public class MainJDO {
 
 
             } finally {
+            	
                 if (tx.isActive()) {
                     tx.rollback();
                 }
