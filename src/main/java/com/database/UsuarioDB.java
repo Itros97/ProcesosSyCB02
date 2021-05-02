@@ -14,52 +14,8 @@ import com.cliente.jdo.Usuario;
 import com.cliente.ui.MainVShop;
 
 public class UsuarioDB {
-	
+
 	public static boolean correcto;
-
-    //CREAR
-    protected static void crearTablaUsuario(Connection con) {
-        // TODO Auto-generated method stub
-        PreparedStatement preparedStatement = null;
-
-        //TABLA USUARIO
-        String createUsuario = "CREATE TABLE USUARIO(" +
-                "CORREO VARCHAR(50) PRIMARY KEY NOT NULL," +
-                "NOMBRE VARCHAR(50)  NOT NULL," +
-                "NICKNAME VARCHAR(50)  NOT NULL," +
-                "PASSWORD VARCHAR(50) NOT NULL," +
-                "APELLIDO1 VARCHAR(50)  NOT NULL," +
-                "APELLIDO2 VARCHAR(50)  NOT NULL," +
-                "DIRECCION VARCHAR(250)," +
-                "TARJETA_CREDITO VARCHAR(50)," +
-                "ISADMIN BOOLEAN);";
-        try {
-
-            preparedStatement = con.prepareStatement(createUsuario);
-            preparedStatement.executeUpdate();
-            System.out.println("Tabla USUARIO creada correctamente.");
-
-        } catch (Exception e) {
-            System.err.println("Error al crear la tabla" + e + "");
-        }
-    }
-
-    //ELIMINAR TABLA
-    protected static void eliminarTablaUsuario(Connection con) {
-
-        PreparedStatement preparedStatement = null;
-
-        String EliminarUsuario = "DROP TABLE IF EXISTS USUARIO";
-        try {
-            preparedStatement = con.prepareStatement(EliminarUsuario);
-            preparedStatement.executeUpdate();
-
-            System.out.println("Tabla USUARIO eliminada correctamente.");
-
-        } catch (Exception e) {
-            System.err.println("Tabla usuario no ha podido crearse : " + e);
-        }
-    }
 
     //INSERTAR USUARIO
 
@@ -120,7 +76,7 @@ public class UsuarioDB {
 
     //LOGIN
     public static boolean LoginUsuario(String nickname, String password) {
-    	
+
     	correcto = false;
         boolean comprobar = false;
 
@@ -159,8 +115,8 @@ public class UsuarioDB {
 
            correcto = true;
            MainVShop.main(null);
-          
-        
+
+
         } else {
             System.out.println("Problema de conexion");
         }
@@ -248,7 +204,19 @@ public class UsuarioDB {
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next())
             {
-                Usuario n1= new Usuario();
+
+            	String correo = resultSet.getString("CORREO");
+            	String ape1 = resultSet.getString("APELLIDO1");
+            	String ape2 = resultSet.getString("APELLIDO2");
+            	String dir = resultSet.getString("DIRECCION");
+            	Boolean ad = resultSet.getBoolean("ISADMIN");
+            	String ni = resultSet.getString("NICKNAME");
+            	String no = resultSet.getString("NOMBRE");
+            	String p = resultSet.getString("PASSWORD");
+            	int t = resultSet.getInt("TARJETACREDITO");
+
+                Usuario n1= new Usuario(p, ni, no, ape1, ape2, correo, dir, t, ad);
+                System.out.println(n1.toString());
 
                 usuarioslist.add(n1);
             }
@@ -261,42 +229,24 @@ public class UsuarioDB {
         }
     }
 
-    public static Usuario getUserDB (String nick){
+
+
+    public static int rowcount () {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
-        Usuario u = new Usuario();
-
+        int count=0;
         try {
-            String query = "SELECT * FROM USUARIO WHERE NICKNAME = " + nick;
+            String query = "SELECT * FROM USUARIO";
             Statement statement = con.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-
-
-            if (resultSet.next()){
-                String nombre = resultSet.getString("NOMBRE");
-                String nickname = resultSet.getString("NICKNAME");
-                String password = resultSet.getString("PASSWORD");
-                String apellido1 = resultSet.getString("APELLIDO1");
-                String apellido2 = resultSet.getString("APELLIDO2");
-                String direccion = resultSet.getString("DIRECCION");
-                int tarjetaCredito = resultSet.getInt("TARJETACREDITO");
-                Boolean isAdmin = resultSet.getBoolean("ISADMIN");
-
-
-                u.setNombre(nombre);
-                u.setNickname(nickname);
-                u.setPassword(password);
-                u.setApellido1(apellido1);
-                u.setApellido2(apellido2);
-                u.setDireccion(direccion);
-                u.setTarjetaCredito(tarjetaCredito);
-                u.setAdmin(isAdmin);
-
+            while (resultSet.next())
+            {
+              count++;
             }
 
         } catch (Exception e) {
             // TODO: handle exception
         }
-        return u;
+        return count;
     }
 }

@@ -4,6 +4,7 @@ package com.cliente.ui;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -19,6 +20,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
+import com.cliente.jdo.Carrito;
 import com.cliente.jdo.Producto;
 
 public class MainVShop {
@@ -28,6 +30,7 @@ public class MainVShop {
 	
 	private Client client;
 	
+	public static List<Producto> carrito = new ArrayList<>();
 	
 
 	/**
@@ -71,9 +74,7 @@ public class MainVShop {
 		
 		
 		
-		JButton botonAnyadirCarrito = new JButton("AÑADIR CARRITO");
-		botonAnyadirCarrito.setBounds(10, 148, 150, 45);
-		frame.getContentPane().add(botonAnyadirCarrito);
+		
 		
 		JButton botonCarrito = new JButton("CARRITO");
 		botonCarrito.setBounds(10, 237, 150, 45);
@@ -96,7 +97,7 @@ public class MainVShop {
 		JButton botonAdmin = new JButton("ADMINISTRADOR");
 		botonAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AdminUsersVShop.main(null);
+				AdminVShop.main(null);
 			}
 		});
 		botonAdmin.setBounds(10, 401, 150, 45);
@@ -112,8 +113,18 @@ public class MainVShop {
 		frame.getContentPane().add(botonBuscar);
 		
 	    final DefaultListModel<Producto> productListModel = new DefaultListModel<>();
-        JList<Producto> productList = new JList<>(productListModel);
+        final JList<Producto> productList = new JList<>(productListModel);
 		productList.setBounds(170, 65, 464, 381);
+		
+		JButton botonAnyadirCarrito = new JButton("AÑADIR CARRITO");
+		botonAnyadirCarrito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//System.out.println(productList.getSelectedValue());
+				carrito.add(productList.getSelectedValue());
+			}
+		});
+		botonAnyadirCarrito.setBounds(10, 148, 150, 45);
+		frame.getContentPane().add(botonAnyadirCarrito);
 
 		
 		JButton botonTienda = new JButton("TIENDA");
