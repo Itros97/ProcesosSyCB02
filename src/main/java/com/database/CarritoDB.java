@@ -10,42 +10,6 @@ import com.cliente.jdo.Carrito;
 
 public class CarritoDB {
 
-    //CREAR TABLA
-    protected static void crearTablaCarrito(Connection con) {
-
-        PreparedStatement preparedStatement = null;
-
-        String createcarrito = "CREATE TABLE CARRITO(" +
-                "IDCARRITO INTEGER PRIMARY KEY AUTO_INCREMENT," +
-                "NICKNAME VARCHAR(50),"+
-                "NOMBRE VARCHAR(50),"+
-                "PRECIOCARRITO DOUBLE);";
-        try {
-
-            preparedStatement = con.prepareStatement(createcarrito);
-            preparedStatement.executeUpdate();
-
-        } catch (Exception e) {
-            System.err.println("Error al crear la tabla");
-        }
-    }
-    //ELIMINAR TABLA
-    protected static void eliminarTablaCarrito(Connection con) {
-
-        PreparedStatement preparedStatement = null;
-
-        String eliminarCarrito= "DROP TABLE IF EXISTS CARRITO";
-        try {
-            preparedStatement = con.prepareStatement(eliminarCarrito);
-            preparedStatement.executeUpdate();
-
-            System.out.println("Tabla CARRITO eliminada correctamente");
-
-        } catch (Exception e) {
-            System.err.println("Tabla CARRITO no ha podido eliminarse");
-        }
-    }
-
     public static void insertarCarrito(Carrito carro) {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
