@@ -132,7 +132,7 @@ public class CompraDB {
 
         try {
 
-            String query = "DELETE FROM COMPRA WHERE ID = '" + idCompra + "'";
+            String query = "DELETE FROM COMPRA WHERE IDCOMPRA = '" + idCompra + "'";
 
             preparedStatement = con.prepareStatement(query);
 

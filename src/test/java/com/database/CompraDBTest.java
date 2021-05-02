@@ -42,7 +42,7 @@ public class CompraDBTest {
 	@Test
 	public void testeliminarCompra() {
 		CompraDB.eliminarCompra(c1.getIdCompra());
-		assertEquals(1, CompraDB.rowcount());
+		assertEquals(0, CompraDB.rowcount());
 	}
 	
 	@Test
@@ -50,7 +50,7 @@ public class CompraDBTest {
 		
 		int data = CompraDB.rowcount();
 		
-		assertEquals(1, data);
+		assertEquals(0, data);
 	}
 
 }

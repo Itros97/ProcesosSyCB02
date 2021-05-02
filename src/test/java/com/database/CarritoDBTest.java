@@ -38,7 +38,7 @@ public class CarritoDBTest {
 
 		CarritoDB.insertarCarrito(c);
 
-		assertEquals(0, CarritoDB.rowcount());
+		assertEquals(1, CarritoDB.rowcount());
 	}
 
 	@Test
@@ -54,7 +54,7 @@ public class CarritoDBTest {
 
 		int data = CarritoDB.rowcount();
 
-		assertEquals(0, data);
+		assertEquals(1, data);
 	}
 
 }

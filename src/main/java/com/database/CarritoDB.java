@@ -50,7 +50,7 @@ public class CarritoDB {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO CARRITO (IDCARRITO, NICKNAME,NOMBRE,PRECIO)"
+            String query = " INSERT INTO CARRITO (IDCARRITO,NICKNAME,NOMBRE,PRECIOCARRITO)"
                     + " VALUES (?, ?, ?, ?)";
 
             preparedStatement = con.prepareStatement(query);
@@ -58,7 +58,7 @@ public class CarritoDB {
             preparedStatement.setInt(1, carro.getIdCarrito());
             preparedStatement.setString(2, carro.getNickname());
             preparedStatement.setString(3, carro.getNombre());
-            preparedStatement.setLong(4, (long) carro.getPrecioCarrito());
+            preparedStatement.setDouble(4, carro.getPrecioCarrito());
 
             preparedStatement.execute();
 
