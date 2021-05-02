@@ -30,7 +30,7 @@ public class MainVShop {
 	
 	private Client client;
 	
-	public static ArrayList<Carrito> carrito = new ArrayList<Carrito>();
+	public static List<Producto> carrito = new ArrayList<>();
 	
 
 	/**
@@ -74,9 +74,7 @@ public class MainVShop {
 		
 		
 		
-		JButton botonAnyadirCarrito = new JButton("AÑADIR CARRITO");
-		botonAnyadirCarrito.setBounds(10, 148, 150, 45);
-		frame.getContentPane().add(botonAnyadirCarrito);
+		
 		
 		JButton botonCarrito = new JButton("CARRITO");
 		botonCarrito.setBounds(10, 237, 150, 45);
@@ -110,8 +108,18 @@ public class MainVShop {
 		frame.getContentPane().add(botonBuscar);
 		
 	    final DefaultListModel<Producto> productListModel = new DefaultListModel<>();
-        JList<Producto> productList = new JList<>(productListModel);
+        final JList<Producto> productList = new JList<>(productListModel);
 		productList.setBounds(170, 65, 464, 381);
+		
+		JButton botonAnyadirCarrito = new JButton("AÑADIR CARRITO");
+		botonAnyadirCarrito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//System.out.println(productList.getSelectedValue());
+				carrito.add(productList.getSelectedValue());
+			}
+		});
+		botonAnyadirCarrito.setBounds(10, 148, 150, 45);
+		frame.getContentPane().add(botonAnyadirCarrito);
 
 		
 		JButton botonTienda = new JButton("TIENDA");

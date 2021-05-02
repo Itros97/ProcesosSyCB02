@@ -5,22 +5,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import com.cliente.jdo.Carrito;
+import com.cliente.jdo.Producto;
 
 public class CompraVShop {
 
 	private JFrame frame;
 	private JTextField codDes;
 	private JTextField textField;
-	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -101,19 +103,25 @@ public class CompraVShop {
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		table = new JTable();
-		table.setBounds(216, 37, 427, 243);
-		frame.getContentPane().add(table);
+		final DefaultListModel<Producto> productListModel = new DefaultListModel<>();
+		JList<Producto> list = new JList<>(productListModel);
+		list.setBounds(216, 37, 427, 243);
+		frame.getContentPane().add(list);
+		
+		for (int i = 0; i < MainVShop.carrito.size(); i++) {
+			productListModel.add(i, MainVShop.carrito.get(i));
+		}
+		
 	}
 
-	private void printTicket(ArrayList<Carrito> carro) {
+	private void printTicket(List<Producto> carro) {
         try {
             double precio =0;
             FileWriter writter = new FileWriter("ticket/Ticket.txt");
             for (int i = 0; i < carro.size(); i++) {
                 writter.write("Datos prod: \n");
                 writter.write(carro.get(i).toString());
-                precio =+carro.get(i).getPrecioCarrito();
+                precio =+carro.get(i).getPrecio();
                 System.out.println(precio);
                 writter.write("\n");
                 if(carro.size()-i > 1 ) {
