@@ -10,50 +10,6 @@ import com.cliente.jdo.Compra;
 
 public class CompraDB {
 
-    //CREAR TABLA COMPRA
-    protected static void crearTablaCompra(Connection con) {
-        // TODO Auto-generated method stub
-        PreparedStatement preparedStatement = null;
-
-        //TABLA USUARIO
-        String createCompra = "CREATE TABLE COMPRA(" +
-                "IDCOMPRA INTEGER AUTO_INCREMENT," +
-                "CORREOELECTRONICO VARCHAR(50) NOT NULL," +
-                "IDPRODUCTO INTEGER NOT NULL," +
-                "PRIMARY KEY (IDCOMPRA,CORREOELECTRONICO,IDPRODUCTO)," +
-                "CONSTRAINT FOREIGN KEY (CORREOELECTRONICO)" +
-                "REFERENCES USUARIO (CORREOELECTRONICO)" +
-                "ON DELETE CASCADE," +
-                "CONSTRAINT FOREIGN KEY (IDPRODUCTO)" +
-                "REFERENCES PRODUCTO (IDPRODUCTO)" +
-                "ON DELETE CASCADE" +
-                ");";
-        try {
-
-            preparedStatement = con.prepareStatement(createCompra);
-            preparedStatement.executeUpdate();
-            System.out.println("Tabla COMPRA creada correctamente.");
-
-        } catch (Exception e) {
-            System.err.println("Error al crear la tabla" +e+ "");
-        }
-    }
-    //ELIMINAR TABLA
-    protected static void eliminarTablaCompra(Connection con) {
-
-        PreparedStatement preparedStatement = null;
-
-        String EliminarCompra= "DROP TABLE IF EXISTS COMPRA";
-        try {
-            preparedStatement = con.prepareStatement(EliminarCompra);
-            preparedStatement.executeUpdate();
-
-            System.out.println("Tabla COMPRA eliminada correctamente.");
-
-        } catch (Exception e) {
-            System.err.println("Tabla COMPRA no ha podido crearse : "+e);
-        }
-    }
     //INSERTAR COMPRA
 
     public static void insertarCompra(Compra nuevaCompra)

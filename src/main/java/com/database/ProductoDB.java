@@ -14,44 +14,6 @@ import javax.swing.JList;
 
 public class ProductoDB {
 
-    //CREAR TABLA
-    protected static void crearTablaProducto(Connection con) {
-
-        PreparedStatement preparedStatement = null;
-
-        //TABLA PRODUCTO
-        String createProducto = "CREATE TABLE PRODUCTO(" +
-                "IDPRODUCTO INTEGER PRIMARY KEY AUTO_INCREMENT," +
-                "NOMBRE VARCHAR(50) NOT NULL," +
-                "MARCA VARCHAR(20)," +
-                "PRECIO DOUBLE NOT NULL," +
-                "DESCRIPCION VARCHAR(300));";
-        try {
-
-            preparedStatement = con.prepareStatement(createProducto);
-            preparedStatement.executeUpdate();
-
-        } catch (Exception e) {
-            System.err.println("Error al crear la tabla" +e+ "");
-        }
-    }
-    //ELIMINAR TABLA
-    protected static void eliminarTablaProducto(Connection con) {
-
-        PreparedStatement preparedStatement = null;
-
-        String EliminarUsuario= "DROP TABLE IF EXISTS PRODUCTO";
-        try {
-            preparedStatement = con.prepareStatement(EliminarUsuario);
-            preparedStatement.executeUpdate();
-
-            System.out.println("Tabla PRODUCTO eliminada correctamente.");
-
-        } catch (Exception e) {
-            System.err.println("Tabla Producto no ha podido crearse : "+e);
-        }
-    }
-
     //INSERTAR PRODUCTO
 
     public static void insertarProducto(Producto nuevoProducto)

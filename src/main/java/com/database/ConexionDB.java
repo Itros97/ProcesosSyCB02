@@ -9,14 +9,14 @@ import com.cliente.jdo.Producto;
 
 public class ConexionDB {
 
-
+/*
     public void ReiniciarBasesDeDatos() {
         Connection con = Conexion();
         BorrarBasesDeDatos(con);
         CrearBasesDeDatos(con);
 
-    }
-
+    }*/
+	
     //CODIGO PARA LA CONEXION CON LA BASE DE DATOS
     public static Connection Conexion() {
 
@@ -39,21 +39,6 @@ public class ConexionDB {
     public int executeQuery(String query) throws ClassNotFoundException, SQLException {
     	Connection con = Conexion();
     	return con.createStatement().executeUpdate(query);
-    }
-    //CREACION DE LA BASE DE DATOS
-    private void CrearBasesDeDatos(Connection con) {
-        UsuarioDB.crearTablaUsuario(con);
-        ProductoDB.crearTablaProducto(con);
-        CompraDB.crearTablaCompra(con);
-
-    }
-
-    //ELIMINACION DE LA BASE DE DATOS
-    private void BorrarBasesDeDatos(Connection con) {
-        CompraDB.eliminarTablaCompra(con);
-        UsuarioDB.eliminarTablaUsuario(con);
-        ProductoDB.eliminarTablaProducto(con);
-
     }
 
     //INSERT PRODUCTOS
