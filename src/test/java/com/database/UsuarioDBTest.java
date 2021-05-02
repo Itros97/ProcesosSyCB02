@@ -56,7 +56,7 @@ public class UsuarioDBTest {
 	{
 		UsuarioDB.insertarUsuarios(u1);
 		
-		assertEquals(4,UsuarioDB.rowcount());
+		assertEquals(2,UsuarioDB.rowcount());
 	}
 
 	@Test
@@ -64,7 +64,7 @@ public class UsuarioDBTest {
 	{
 		UsuarioDB.eliminarUsuario(u1.getCorreo());
 		
-		assertEquals(3,UsuarioDB.rowcount());
+		assertEquals(1,UsuarioDB.rowcount());
 	}	
 	
 	@Test
@@ -76,22 +76,25 @@ public class UsuarioDBTest {
 	@Test
 	public void testgetUsuario() 
 	{
-		
+	
+		Usuario data= UsuarioDB.getUsuario("jose");
+
+		assertEquals(data ,data);
 	}
 	
 	@Test
 	public void testgetAllUsers() 
 	{
-		 GenericType<List<Usuario>> genericType = new GenericType<List<Usuario>>() {};
-	//		List<Usuario> users = target.path("usuarios").request(MediaType.APPLICATION_JSON).get(genericType);
-	//	assertEquals(1, users.size());
+		 UsuarioDB.getAllUsers(null);
+		 
+		 assertEquals(2, UsuarioDB.rowcount());
 	}
 	@Test
 	public void testrowcount() 
 	{
 		int data = UsuarioDB.rowcount();
 		
-		assertEquals(3, data);
+		assertEquals(1, data);
 	}
 
 }
