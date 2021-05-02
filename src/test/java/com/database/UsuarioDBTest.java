@@ -56,7 +56,7 @@ public class UsuarioDBTest {
 	{
 		UsuarioDB.insertarUsuarios(u1);
 		
-		assertEquals(2,UsuarioDB.rowcount());
+		assertEquals(4,UsuarioDB.rowcount());
 	}
 
 	@Test
@@ -64,7 +64,7 @@ public class UsuarioDBTest {
 	{
 		UsuarioDB.eliminarUsuario(u1.getCorreo());
 		
-		assertEquals(1,UsuarioDB.rowcount());
+		assertEquals(3,UsuarioDB.rowcount());
 	}	
 	
 	@Test
@@ -91,7 +91,7 @@ public class UsuarioDBTest {
 	{
 		int data = UsuarioDB.rowcount();
 		
-		assertEquals(1, data);
+		assertEquals(3, data);
 	}
 
 }
