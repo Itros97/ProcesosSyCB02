@@ -13,11 +13,15 @@
     "mvn clean"
     "mvn compile"
     "mvn datanucleus:enhance"
-    "mvn test"
+    
 
 **Crear las tablas de la base de datos**
 
     "mvn datanucleus:schema-create"
+
+**Testear el proyecto**
+
+    "mvn test"
 
 **Datos de prueba**
 
