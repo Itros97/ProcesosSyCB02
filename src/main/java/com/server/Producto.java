@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.database.ProductoDB;
 
-@Path("productos")
+@Path("producto")
 public class Producto {
 
     @GET
