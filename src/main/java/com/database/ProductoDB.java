@@ -153,6 +153,54 @@ public class ProductoDB {
 
 
     }
+    
+    
+    
+    public static void busquedaNombre(String nombre) {
+
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+        
+        ArrayList<Producto> productos = new ArrayList<Producto>();
+
+        int id;
+        String des;
+        String ma;
+        String n;
+        float pr;
+        
+        String filter = ""+nombre+"";
+        
+        try{
+            String query = "SELECT * FROM PRODUCTO WHERE NOMBRE LIKE"+'"'+filter+'"';
+            Statement statement = con.createStatement();
+            ResultSet resulSet = statement.executeQuery(query);
+
+            while (resulSet.next()){
+            	id = resulSet.getInt("IDPRODUCTO");
+            	des = resulSet.getString("DESCRIPCION");
+            	ma = resulSet.getString("MARCA");
+            	n = resulSet.getString("NOMBRE");
+            	pr = resulSet.getFloat("PRECIO");
+            	
+            	
+                Producto p = new Producto(n, ma, pr, des);
+                productos.add(p);
+                
+            }
+
+            
+
+
+        }catch (Exception e){
+
+        }
+
+
+    }
+    
+    
+    
     public static int rowcount () {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
