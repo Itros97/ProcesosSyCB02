@@ -1,5 +1,7 @@
 package com.miscelaneus;
 
+import java.util.Random;
+
 public class Codigo {
 	
 	protected final char[] letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
