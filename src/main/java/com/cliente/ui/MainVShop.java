@@ -31,6 +31,7 @@ public class MainVShop {
 	private Client client;
 	
 	public static List<Producto> carrito = new ArrayList<>();
+	public static List<Producto> favorito = new ArrayList<>();
 	
 
 	/**
@@ -131,7 +132,24 @@ public class MainVShop {
 		botonTienda.setBounds(10, 51, 150, 45);
 		frame.getContentPane().add(botonTienda);
 		frame.getContentPane().add(productList);
-		frame.setLocationRelativeTo(null);
+		
+		JButton botonAnyadirFavorito = new JButton("AÑADIR FAVORITO");
+		botonAnyadirFavorito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				favorito.add(productList.getSelectedValue());
+			}
+		});
+		botonAnyadirFavorito.setBounds(244, 469, 150, 45);
+		frame.getContentPane().add(botonAnyadirFavorito);
+		
+		JButton botonFavorito = new JButton("FAVORITOS");
+		botonFavorito.setBounds(404, 469, 150, 45);
+		frame.getContentPane().add(botonFavorito);
+		botonFavorito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FavProductVShop.main(null);
+			}
+		});
 		
 		botonTienda.addActionListener(new ActionListener() {
 			   @Override

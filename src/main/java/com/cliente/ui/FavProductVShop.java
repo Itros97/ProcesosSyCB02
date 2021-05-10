@@ -4,6 +4,10 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
+
+import com.cliente.jdo.Producto;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -55,8 +59,13 @@ public class FavProductVShop {
 		backButton.setBounds(136, 194, 150, 23);
 		frame.getContentPane().add(backButton);
 		
-		JList list = new JList();
+		final DefaultListModel<Producto> favProductListModel = new DefaultListModel<>();
+		JList<Producto> list = new JList<>(favProductListModel);
 		list.setBounds(10, 11, 414, 169);
 		frame.getContentPane().add(list);
+		
+		for (int i = 0; i < MainVShop.favorito.size(); i++) {
+			favProductListModel.add(i, MainVShop.favorito.get(i));
+		}
 	}
 }
