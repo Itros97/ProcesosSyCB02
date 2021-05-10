@@ -22,6 +22,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.cliente.jdo.Carrito;
 import com.cliente.jdo.Producto;
+import com.database.ProductoDB;
 
 public class MainVShop {
 
@@ -110,6 +111,12 @@ public class MainVShop {
 		buscar.setColumns(10);
 		
 		JButton botonBuscar = new JButton("BUSCAR");
+		botonBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProductoDB.busquedaNombre(buscar.getText());
+				System.out.println(buscar.getText());
+			}
+		});
 		botonBuscar.setBounds(642, 11, 89, 34);
 		frame.getContentPane().add(botonBuscar);
 		
