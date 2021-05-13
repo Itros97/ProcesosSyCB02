@@ -23,11 +23,12 @@ import javax.ws.rs.core.MediaType;
 import com.cliente.jdo.Carrito;
 import com.cliente.jdo.Producto;
 import com.database.ProductoDB;
+import com.server.ProductoSeleccionado;
 
 public class MainVShop {
 
 	private JFrame frame;
-	private JTextField buscar;
+	public static JTextField buscar;
 	
 	private Client client;
 	
@@ -67,6 +68,7 @@ public class MainVShop {
 		
 		final WebTarget appTarget = client.target("http://localhost:8080/myapp");
         final WebTarget productosTarget = appTarget.path("producto");
+        final WebTarget productosSeleccionado = appTarget.path("productoSeleccionado");
         
 		frame = new JFrame();
 		frame.setBounds(100, 100, 755, 657);
@@ -110,15 +112,8 @@ public class MainVShop {
 		frame.getContentPane().add(buscar);
 		buscar.setColumns(10);
 		
-		JButton botonBuscar = new JButton("BUSCAR");
-		botonBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ProductoDB.busquedaNombre(buscar.getText());
-				System.out.println(buscar.getText());
-			}
-		});
-		botonBuscar.setBounds(642, 11, 89, 34);
-		frame.getContentPane().add(botonBuscar);
+		
+		
 		
 	    final DefaultListModel<Producto> productListModel = new DefaultListModel<>();
         final JList<Producto> productList = new JList<>(productListModel);
@@ -174,5 +169,25 @@ public class MainVShop {
 	            }
 	            
 	        });
+		
+		
+		JButton botonBuscar = new JButton("BUSCAR");
+		botonBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+                    GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
+                    List<Producto> productos = productosSeleccionado.request(MediaType.APPLICATION_JSON).get(genericType);
+                    productListModel.clear();
+                    System.out.println(productos.toString());
+                    for (Producto p1 : productos) {
+                    	productListModel.addElement(p1);
+                    }
+                } catch (ProcessingException ex) {
+                    JOptionPane.showInputDialog(MainVShop.this);
+                }
+			}
+		});
+		botonBuscar.setBounds(642, 11, 89, 34);
+		frame.getContentPane().add(botonBuscar);
 	}
 }

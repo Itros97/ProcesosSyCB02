@@ -156,7 +156,7 @@ public class ProductoDB {
     
     
     
-    public static void busquedaNombre(String nombre) {
+    public static ArrayList<Producto> busquedaNombre(String nombre) {
 
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
@@ -195,6 +195,7 @@ public class ProductoDB {
         }catch (Exception e){
 
         }
+		return productos;
 
 
     }
