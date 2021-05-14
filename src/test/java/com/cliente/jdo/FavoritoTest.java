@@ -26,7 +26,7 @@ public class FavoritoTest extends Favorito {
     
     @Test
     public void testToString() {
-    	String expected = "Favorito{nickname=" + nickname + ", idProducto=" + idProducto + '}';
+    	String expected = "Favorito {nickname=" + f.nickname +", idProducto="+ f.idProducto + '}';
         assertEquals(expected, f.toString());
     }
 }

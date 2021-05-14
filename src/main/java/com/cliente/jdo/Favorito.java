@@ -42,7 +42,7 @@ public class Favorito {
 
 	@Override
 	public String toString() {
-		return "Favorito [nickname=" + nickname + ", idProducto=" + idProducto + "]";
+		return "Favorito {nickname=" + nickname + ", idProducto=" + idProducto + "}";
 	}
 
 }
