@@ -15,9 +15,13 @@ public class Favorito {
 	protected int idProducto;
 	
 	public Favorito(String nickname, int idProducto) {
-		super();
 		this.nickname = nickname;
 		this.idProducto = idProducto;
+	}
+	
+	public Favorito() {
+		this.nickname = "";
+		this.idProducto = 0;
 	}
 
 	public String getNickname() {
