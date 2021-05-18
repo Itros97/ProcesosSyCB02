@@ -20,8 +20,10 @@ public class ProductoSeleccionado {
 	    @Produces(MediaType.APPLICATION_JSON)
 	    public List<com.cliente.jdo.Producto> getProductos() {
 	        ArrayList<com.cliente.jdo.Producto> productos = new ArrayList<>();
-	        ProductoDB.busquedaNombre(MainVShop.buscar.getText());
-
+	        ProductoDB.busquedaNombre(productos, "balon");
+	        
+	        
+	        
 	        return productos;
 	    }
 

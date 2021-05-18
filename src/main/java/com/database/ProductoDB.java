@@ -156,13 +156,13 @@ public class ProductoDB {
     
     
     
-    public static ArrayList<Producto> busquedaNombre(String nombre) {
+    public static void busquedaNombre(ArrayList<Producto> productos, String nombre) {
 
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
         
-        ArrayList<Producto> productos = new ArrayList<Producto>();
-
+        //ArrayList<Producto> productos = new ArrayList<Producto>();
+        System.out.println(nombre);
         int id;
         String des;
         String ma;
@@ -170,9 +170,9 @@ public class ProductoDB {
         float pr;
         
         String filter = ""+nombre+"";
-        
+        System.out.println(productos.toString());
         try{
-            String query = "SELECT * FROM PRODUCTO WHERE NOMBRE LIKE"+'"'+filter+'"';
+            String query = "SELECT * FROM PRODUCTO WHERE NOMBRE LIKE '" + nombre + "'";
             Statement statement = con.createStatement();
             ResultSet resulSet = statement.executeQuery(query);
 
@@ -186,7 +186,7 @@ public class ProductoDB {
             	
                 Producto p = new Producto(n, ma, pr, des);
                 productos.add(p);
-                
+                System.out.println(p.toString());
             }
 
             
@@ -195,7 +195,7 @@ public class ProductoDB {
         }catch (Exception e){
 
         }
-		return productos;
+		//return productos;
 
 
     }
