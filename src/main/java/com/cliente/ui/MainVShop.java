@@ -111,8 +111,7 @@ public class MainVShop {
 		buscar.setBounds(177, 11, 457, 34);
 		frame.getContentPane().add(buscar);
 		buscar.setColumns(10);
-		
-		
+			
 		
 		
 	    final DefaultListModel<Producto> productListModel = new DefaultListModel<>();
