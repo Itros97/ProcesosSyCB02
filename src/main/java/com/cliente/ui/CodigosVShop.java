@@ -119,12 +119,12 @@ public class CodigosVShop {
 		JButton btnNewButton_3 = new JButton("Generar");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		
-				System.out.println(Codigo.generarcodigo(0, 10));
-				System.out.println(Codigo.generarcodigo(0, 10));
-				System.out.println(Codigo.generarcodigo(0, 10));
-				System.out.println(Codigo.generarcodigo(0, 10));
-				System.out.println(Codigo.generarcodigo(0, 10));
+				Codigo cod = new Codigo();
+				System.out.println(cod.generarcodigo(0, 10));
+				System.out.println(cod.generarcodigo(0, 10));
+				System.out.println(cod.generarcodigo(0, 10));
+				System.out.println(cod.generarcodigo(0, 10));
+				System.out.println(cod.generarcodigo(0, 10));
 			}
 		});
 		btnNewButton_3.setBounds(10, 193, 89, 23);
