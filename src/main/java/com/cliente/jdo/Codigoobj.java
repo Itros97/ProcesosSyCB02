@@ -6,19 +6,19 @@ import javax.jdo.annotations.PersistenceCapable;
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
-public class Codigo {
-	int code;
+public class Codigoobj {
+	String code;
 
-	public Codigo(int code) {
+	public Codigoobj(String code) {
 		super();
 		this.code = code;
 	}
 
-	public int getCodigo() {
+	public String getCodigo() {
 		return code;
 	}
 
-	public void setCodigo(int code) {
+	public void setCodigo(String code) {
 		this.code = code;
 	}
 

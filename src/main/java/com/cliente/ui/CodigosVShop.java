@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import com.cliente.jdo.Codigoobj;
+import com.database.CodigoBD;
 import com.miscelaneus.Codigo;
 
 import java.awt.event.ActionListener;
@@ -95,6 +97,15 @@ public class CodigosVShop {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Guardo en la bd y txt");
+				Codigoobj c1 = new Codigoobj(lblNewLabel_0.getText());
+				Codigoobj c2 = new Codigoobj(lblNewLabel_1.getText());
+				Codigoobj c3 = new Codigoobj(lblNewLabel_2.getText());
+				Codigoobj c4 = new Codigoobj(lblNewLabel_3.getText());
+				CodigoBD.insertarCodigo(c1);
+				CodigoBD.insertarCodigo(c2);
+				CodigoBD.insertarCodigo(c3);
+				CodigoBD.insertarCodigo(c4);
+				
 				
 					try {
 						FileWriter writter = new FileWriter("Codigos/Codigos.txt");

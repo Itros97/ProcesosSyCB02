@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.cliente.jdo.Codigo;
+import com.cliente.jdo.Codigoobj;
 import com.cliente.jdo.Compra;
 
 public class CodigoBD {
@@ -28,11 +28,10 @@ public class CodigoBD {
 
             System.out.println("No se pudo eliminar el codigo");
             System.out.println(e);
-        }
-        
+        }   
 
     }
-    public static void insertarCompra(Codigo ncodigo)
+    public static void insertarCodigo(Codigoobj ncodigo)
     {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
@@ -43,7 +42,7 @@ public class CodigoBD {
             preparedStatement = con.prepareStatement(query);
 
 
-            preparedStatement.setInt(1, ncodigo.getCodigo());
+            preparedStatement.setString(1, ncodigo.getCodigo());
             preparedStatement.execute();
 
             System.out.println("Insert existoso");
