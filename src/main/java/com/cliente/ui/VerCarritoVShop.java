@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JTable;
+
+import com.database.CarritoDB;
+import com.database.UsuarioDB;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -53,7 +57,7 @@ public class VerCarritoVShop {
 		JButton seleccionarUsuario = new JButton("Seleccionar Usuario");
 		seleccionarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Falta insertar los usuarios de la base de datos
+				UsuarioDB.getUsuario(null);
 			}
 		});
 		seleccionarUsuario.setBounds(10, 227, 197, 23);
@@ -66,7 +70,7 @@ public class VerCarritoVShop {
 		JButton cargarCarritos = new JButton("Cargar Carritos");
 		cargarCarritos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Falta insertar los carritos desde la base de datos e insertarlos en la lista
+				CarritoDB.recogerCarrito(null);
 			}
 		});
 		cargarCarritos.setBounds(227, 227, 200, 23);
