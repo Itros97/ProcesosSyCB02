@@ -17,6 +17,8 @@ import javax.swing.JTextField;
 
 import com.cliente.jdo.Carrito;
 import com.cliente.jdo.Producto;
+import com.database.CarritoDB;
+import com.database.ProductoDB;
 
 public class CompraVShop {
 
@@ -57,13 +59,25 @@ public class CompraVShop {
 		frame.getContentPane().setLayout(null);
 		frame.setTitle("CompraVShop");
 		
-		JButton botonEliminarCarrito = new JButton("ELIMINAR CARRITO");
-		botonEliminarCarrito.setBounds(10, 37, 170, 62);
-		frame.getContentPane().add(botonEliminarCarrito);
+		final DefaultListModel<Producto> productListModel = new DefaultListModel<>();
+		final JList<Producto> list = new JList<>(productListModel);
+		list.setBounds(216, 37, 427, 243);
+		frame.getContentPane().add(list);
 		
-		JButton botonEliminarProducto = new JButton("ELIMINAR PRODUCTO");
-		botonEliminarProducto.setBounds(10, 144, 170, 62);
-		frame.getContentPane().add(botonEliminarProducto);
+		for (int i = 0; i < MainVShop.carrito.size(); i++) {
+			productListModel.add(i, MainVShop.carrito.get(i));
+		}
+		
+		JButton botonEliminarCarrito = new JButton("ELIMINAR CARRITO");
+		botonEliminarCarrito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				MainVShop.carrito.clear();
+				frame.dispose();
+			}
+		});
+		botonEliminarCarrito.setBounds(21, 110, 170, 62);
+		frame.getContentPane().add(botonEliminarCarrito);
 		
 		JButton botonCerrar = new JButton("CERRAR");
 		botonCerrar.addActionListener(new ActionListener() {
@@ -103,14 +117,6 @@ public class CompraVShop {
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		final DefaultListModel<Producto> productListModel = new DefaultListModel<>();
-		JList<Producto> list = new JList<>(productListModel);
-		list.setBounds(216, 37, 427, 243);
-		frame.getContentPane().add(list);
-		
-		for (int i = 0; i < MainVShop.carrito.size(); i++) {
-			productListModel.add(i, MainVShop.carrito.get(i));
-		}
 		
 	}
 
