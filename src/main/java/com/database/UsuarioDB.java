@@ -16,6 +16,8 @@ import com.cliente.ui.MainVShop;
 public class UsuarioDB {
 
 	public static boolean correcto;
+	
+    public static Usuario u = new Usuario();
 
     //INSERTAR USUARIO
 
@@ -73,10 +75,10 @@ public class UsuarioDB {
         }
 
     }
-
+    
     //LOGIN
     public static boolean LoginUsuario(String nickname, String password) {
-
+    	
     	correcto = false;
         boolean comprobar = false;
 
@@ -93,6 +95,8 @@ public class UsuarioDB {
 
                 if (resultSet.getString("PASSWORD").equals(password)) {
                     System.out.println("Si");
+                    u.setNickname(nickname);
+                    System.out.println(u.getNickname());
                     if (getUsuario(nickname).isAdmin() == true) {
                         //Tengo que hacer el enable del boton Administrar
                         System.out.println("Es Admin");

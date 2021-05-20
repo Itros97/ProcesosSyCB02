@@ -21,8 +21,11 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
 import com.cliente.jdo.Carrito;
+import com.cliente.jdo.Favorito;
 import com.cliente.jdo.Producto;
+import com.database.FavoritoDB;
 import com.database.ProductoDB;
+import com.database.UsuarioDB;
 
 public class MainVShop {
 
@@ -143,7 +146,11 @@ public class MainVShop {
 		JButton botonAnyadirFavorito = new JButton("AÑADIR FAVORITO");
 		botonAnyadirFavorito.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Favorito nuevoFavorito = new Favorito(); 
+				nuevoFavorito.setIdProducto(2);
+				nuevoFavorito.setNickname(UsuarioDB.u.getNickname());
 				favorito.add(productList.getSelectedValue());
+				FavoritoDB.insertarFavorito(nuevoFavorito);
 			}
 		});
 		botonAnyadirFavorito.setBounds(244, 469, 150, 45);

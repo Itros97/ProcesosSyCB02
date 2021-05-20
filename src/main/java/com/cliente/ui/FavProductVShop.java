@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 
 import com.cliente.jdo.Producto;
+import com.database.FavoritoDB;
+import com.database.UsuarioDB;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -61,6 +63,7 @@ public class FavProductVShop {
 		
 		final DefaultListModel<Producto> favProductListModel = new DefaultListModel<>();
 		JList<Producto> list = new JList<>(favProductListModel);
+		//FavoritoDB.getAllFavoritos(UsuarioDB.u.getNickname(), JList<Producto>);
 		list.setBounds(10, 11, 414, 169);
 		frame.getContentPane().add(list);
 		
