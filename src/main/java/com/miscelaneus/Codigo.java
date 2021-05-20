@@ -4,26 +4,26 @@ import java.util.Random;
 
 public class Codigo {
 	
-	protected final char[] letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-	protected final char[] numeros = "0123456789".toCharArray();
-	protected Random r;
-	String codigo = "";
+	protected final static char[] letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+	protected final static char[] numeros = "0123456789".toCharArray();
+	protected static Random r;
+	static String codigo = "";
 
 	public Codigo() 
 	{
 		r = new Random();
 	}
 	
-	private char getletra() 
+	private static char getletra() 
 	{
 		return letras[r.nextInt(letras.length)];
 	}
-	private char getnumero() 
+	private static char getnumero() 
 	{
 		return numeros[r.nextInt(numeros.length)];
 	}
 
-	public String generarcodigo(int lenght,int size) 
+	public static String generarcodigo(int lenght,int size) 
 	{
 		//Caso base o caso por el que tiene que acabar
 		if(size==lenght) 
