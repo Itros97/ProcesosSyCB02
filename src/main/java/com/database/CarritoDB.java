@@ -53,6 +53,26 @@ public class CarritoDB {
             System.out.println(e);
         }
     }
+    
+    public static void recogerCarrito(Carrito carro) {
+        PreparedStatement preparedStatement = null;
+        Connection con = ConexionDB.Conexion();
+        try {
+            String query = " SELECT * FROM CARRITO ORDER BY NOMBRE ASC";
+
+            preparedStatement = con.prepareStatement(query);
+
+            preparedStatement.execute();
+            preparedStatement.close();
+
+            System.out.println("Operacion existosa");
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un ERROR");
+            System.out.println(e);
+        }
+    }
+    
     public static int rowcount () {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
