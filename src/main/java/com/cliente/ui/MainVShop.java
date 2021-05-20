@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -20,10 +21,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
-import com.cliente.jdo.Carrito;
 import com.cliente.jdo.Producto;
-import com.database.ProductoDB;
-import com.server.ProductoSeleccionado;
 
 public class MainVShop {
 
@@ -35,6 +33,7 @@ public class MainVShop {
 	public static List<Producto> carrito = new ArrayList<>();
 	public static List<Producto> favorito = new ArrayList<>();
 	
+	JComboBox comboFiltro;
 
 	/**
 	 * Launch the application.
@@ -69,6 +68,9 @@ public class MainVShop {
 		final WebTarget appTarget = client.target("http://localhost:8080/myapp");
         final WebTarget productosTarget = appTarget.path("producto");
         final WebTarget productosSeleccionado = appTarget.path("productoSeleccionado");
+        final WebTarget productosOrdenadoMarca = appTarget.path("productoMarca");
+        final WebTarget productosOrdenadoPrecio = appTarget.path("productoPrecio");
+        final WebTarget productosOrdenadoNombre = appTarget.path("productoNombre");
         
 		frame = new JFrame();
 		frame.setBounds(100, 100, 755, 657);
@@ -188,5 +190,69 @@ public class MainVShop {
 		});
 		botonBuscar.setBounds(642, 11, 89, 34);
 		frame.getContentPane().add(botonBuscar);
+		
+		comboFiltro = new JComboBox();
+		comboFiltro.setBounds(644, 90, 87, 39);
+		comboFiltro.addItem("Filtro");
+		comboFiltro.addItem("Nombre");
+		comboFiltro.addItem("Marca");
+		comboFiltro.addItem("Precio");
+		frame.getContentPane().add(comboFiltro);
+		
+		JButton botonBuscarFiltro = new JButton("APLICAR");
+		botonBuscarFiltro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (comboFiltro.getSelectedItem().equals("Nombre")) {
+					try {
+	                    GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
+	                    List<Producto> productos = productosOrdenadoNombre.request(MediaType.APPLICATION_JSON).get(genericType);
+	                    productListModel.clear();
+	                    System.out.println(productos.toString());
+	                    for (Producto p1 : productos) {
+	                    	productListModel.addElement(p1);
+	                    }
+	                } catch (ProcessingException ex) {
+	                    JOptionPane.showInputDialog(MainVShop.this);
+	                }
+				}
+				
+				//
+				
+				
+				if (comboFiltro.getSelectedItem().equals("Marca")) {
+					try {
+	                    GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
+	                    List<Producto> productos = productosOrdenadoMarca.request(MediaType.APPLICATION_JSON).get(genericType);
+	                    productListModel.clear();
+	                    System.out.println(productos.toString());
+	                    for (Producto p1 : productos) {
+	                    	productListModel.addElement(p1);
+	                    }
+	                } catch (ProcessingException ex) {
+	                    JOptionPane.showInputDialog(MainVShop.this);
+	                }
+				}
+				
+				//
+				
+				if (comboFiltro.getSelectedItem().equals("Precio")) {
+					try {
+	                    GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
+	                    List<Producto> productos = productosOrdenadoPrecio.request(MediaType.APPLICATION_JSON).get(genericType);
+	                    productListModel.clear();
+	                    System.out.println(productos.toString());
+	                    for (Producto p1 : productos) {
+	                    	productListModel.addElement(p1);
+	                    }
+	                } catch (ProcessingException ex) {
+	                    JOptionPane.showInputDialog(MainVShop.this);
+	                }
+				}
+				
+				//
+			}
+		});
+		botonBuscarFiltro.setBounds(644, 159, 87, 34);
+		frame.getContentPane().add(botonBuscarFiltro);
 	}
 }
