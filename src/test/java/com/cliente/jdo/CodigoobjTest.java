@@ -13,22 +13,22 @@ public class CodigoobjTest {
 	public void testVacio() {
 		assertEquals("Codigoobj{code=''}", "Codigoobj{code=''}");
 	}
-	
+
 	@Test
-	public void testGetCodigo(){
-	    assertEquals("Codigo", co.getCodigo());
+	public void testGetCodigo() {
+		assertEquals("Codigo", co.getCodigo());
 	}
 
 	@Test
-	public void testSetCodigo(){
-	    co.setCodigo("Codigo2");
-	    assertEquals("Codigo2", co.getCodigo());
+	public void testSetCodigo() {
+		co.setCodigo("Codigo2");
+		assertEquals("Codigo2", co.getCodigo());
 	}
-	
+
 	@Test
-    public void testToString() {
-        String expected = "Codigo [code=" + co.code + "]";
-        assertEquals(expected, co.toString());
-    }
+	public void testToString() {
+		String expected = "Codigo [code=" + co.code + "]";
+		assertEquals(expected, co.toString());
+	}
 
 }
