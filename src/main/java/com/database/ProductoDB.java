@@ -156,13 +156,13 @@ public class ProductoDB {
     
     
     
-    public static void busquedaNombre(String nombre) {
+    public static void busquedaNombre(ArrayList<Producto> productos, String nombre) {
 
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
         
-        ArrayList<Producto> productos = new ArrayList<Producto>();
-
+        //ArrayList<Producto> productos = new ArrayList<Producto>();
+        System.out.println(nombre);
         int id;
         String des;
         String ma;
@@ -170,9 +170,9 @@ public class ProductoDB {
         float pr;
         
         String filter = ""+nombre+"";
-        
+        System.out.println(productos.toString());
         try{
-            String query = "SELECT * FROM PRODUCTO WHERE NOMBRE LIKE"+'"'+filter+'"';
+            String query = "SELECT * FROM PRODUCTO WHERE NOMBRE LIKE '" + nombre + "'";
             Statement statement = con.createStatement();
             ResultSet resulSet = statement.executeQuery(query);
 
@@ -186,7 +186,7 @@ public class ProductoDB {
             	
                 Producto p = new Producto(n, ma, pr, des);
                 productos.add(p);
-                
+                System.out.println(p.toString());
             }
 
             
@@ -195,6 +195,7 @@ public class ProductoDB {
         }catch (Exception e){
 
         }
+		//return productos;
 
 
     }
@@ -218,6 +219,141 @@ public class ProductoDB {
             // TODO: handle exception
         }
         return count;
+    }
+    
+  //SELECCIONAR PRODUCTO POR NOMBRE
+    public static void seleccionarProductoNombre(ArrayList<Producto> productos){
+        PreparedStatement preparedStatement = null;
+        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
+        Connection con = ConexionDB.Conexion();
+        try {
+            try {
+                PreparedStatement pst = con.prepareStatement("SELECT * FROM PRODUCTO ORDER BY NOMBRE");
+                ResultSet rs = pst.executeQuery();
+
+                int id;
+                String nom;
+                String mar;
+                float pre;
+                String des;
+
+                while(rs.next()) {
+                	id = rs.getInt("IDPRODUCTO");
+                    nom = rs.getString("NOMBRE");
+                    mar = rs.getString("MARCA");
+                    pre = rs.getFloat("PRECIO");
+                    des = rs.getString("DESCRIPCION");
+
+
+                    Producto e = new Producto(nom, mar, pre, des);
+                    //return e;
+                    productos.add(e);
+
+                }
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+                //return null;
+            }
+
+        } catch (Exception e) {
+            System.out.println("ERROR al seleccionar el producto");
+            System.out.println(e);
+        }
+
+        //return null;
+    }
+    
+  //SELECCIONAR PRODUCTO POR MARCA
+    public static void seleccionarProductoMarca(ArrayList<Producto> productos){
+        PreparedStatement preparedStatement = null;
+        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
+        Connection con = ConexionDB.Conexion();
+        try {
+            try {
+                PreparedStatement pst = con.prepareStatement("SELECT * FROM PRODUCTO ORDER BY MARCA");
+                ResultSet rs = pst.executeQuery();
+
+                int id;
+                String nom;
+                String mar;
+                float pre;
+                String des;
+
+                while(rs.next()) {
+                	id = rs.getInt("IDPRODUCTO");
+                    nom = rs.getString("NOMBRE");
+                    mar = rs.getString("MARCA");
+                    pre = rs.getFloat("PRECIO");
+                    des = rs.getString("DESCRIPCION");
+
+
+                    Producto e = new Producto(nom, mar, pre, des);
+                    //return e;
+                    productos.add(e);
+
+                }
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+                //return null;
+            }
+
+        } catch (Exception e) {
+            System.out.println("ERROR al seleccionar el producto");
+            System.out.println(e);
+        }
+
+        //return null;
+    }
+    
+  //SELECCIONAR PRODUCTO POR PRECIO
+    public static void seleccionarProductoPrecio(ArrayList<Producto> productos){
+        PreparedStatement preparedStatement = null;
+        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
+        Connection con = ConexionDB.Conexion();
+        try {
+            try {
+                PreparedStatement pst = con.prepareStatement("SELECT * FROM PRODUCTO ORDER BY PRECIO");
+                ResultSet rs = pst.executeQuery();
+
+                int id;
+                String nom;
+                String mar;
+                float pre;
+                String des;
+
+                while(rs.next()) {
+                	id = rs.getInt("IDPRODUCTO");
+                    nom = rs.getString("NOMBRE");
+                    mar = rs.getString("MARCA");
+                    pre = rs.getFloat("PRECIO");
+                    des = rs.getString("DESCRIPCION");
+
+
+                    Producto e = new Producto(nom, mar, pre, des);
+                    //return e;
+                    productos.add(e);
+
+                }
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+                //return null;
+            }
+
+        } catch (Exception e) {
+            System.out.println("ERROR al seleccionar el producto");
+            System.out.println(e);
+        }
+
+        //return null;
     }
 
 }
