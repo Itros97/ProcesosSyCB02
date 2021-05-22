@@ -26,7 +26,7 @@ import com.cliente.jdo.Producto;
 public class MainVShop {
 
 	private JFrame frame;
-	public static JTextField buscar;
+	public JTextField buscar;
 	
 	private Client client;
 	
@@ -66,8 +66,7 @@ public class MainVShop {
 		client = ClientBuilder.newClient();
 		
 		final WebTarget appTarget = client.target("http://localhost:8080/myapp");
-        final WebTarget productosTarget = appTarget.path("producto");
-        final WebTarget productosSeleccionado = appTarget.path("productoSeleccionado");
+        final WebTarget productosTarget = appTarget.path("producto");      
         final WebTarget productosOrdenadoMarca = appTarget.path("productoMarca");
         final WebTarget productosOrdenadoPrecio = appTarget.path("productoPrecio");
         final WebTarget productosOrdenadoNombre = appTarget.path("productoNombre");
@@ -175,6 +174,9 @@ public class MainVShop {
 		JButton botonBuscar = new JButton("BUSCAR");
 		botonBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nombre;
+				nombre = buscar.getText();
+				final WebTarget productosSeleccionado = appTarget.path("productoSeleccionado/"+nombre);
 				try {
                     GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
                     List<Producto> productos = productosSeleccionado.request(MediaType.APPLICATION_JSON).get(genericType);
