@@ -6,11 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import com.cliente.jdo.Codigoobj;
+import com.database.CodigoBD;
 import com.miscelaneus.Codigo;
 
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 
 public class CodigosVShop {
@@ -68,24 +71,24 @@ public class CodigosVShop {
 				System.out.println("Elimino los códigos");
 			}
 		});
-		final JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(10, 11, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
+		final JLabel lblNewLabel_0 = new JLabel("New label");
+		lblNewLabel_0.setBounds(10, 11, 227, 14);
+		frame.getContentPane().add(lblNewLabel_0);
 		
 		final JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(10, 36, 46, 14);
+		lblNewLabel_1.setBounds(10, 36, 227, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		final JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(10, 61, 46, 14);
+		lblNewLabel_2.setBounds(10, 61, 227, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		final JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setBounds(10, 86, 46, 14);
+		lblNewLabel_3.setBounds(10, 86, 227, 14);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		final JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setBounds(10, 111, 46, 14);
+		lblNewLabel_4.setBounds(10, 111, 227, 14);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JButton btnNewButton_1 = new JButton("Guardar/Guardar en txt");
@@ -94,11 +97,20 @@ public class CodigosVShop {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Guardo en la bd y txt");
+				Codigoobj c1 = new Codigoobj(lblNewLabel_0.getText());
+				Codigoobj c2 = new Codigoobj(lblNewLabel_1.getText());
+				Codigoobj c3 = new Codigoobj(lblNewLabel_2.getText());
+				Codigoobj c4 = new Codigoobj(lblNewLabel_3.getText());
+				CodigoBD.insertarCodigo(c1);
+				CodigoBD.insertarCodigo(c2);
+				CodigoBD.insertarCodigo(c3);
+				CodigoBD.insertarCodigo(c4);
+				
 				
 					try {
 						FileWriter writter = new FileWriter("Codigos/Codigos.txt");
 						writter.write("--------------- \n");
-						writter.write(lblNewLabel.getText());
+						writter.write(lblNewLabel_0.getText());
 						writter.write("\n--------------- \n");
 						writter.write(lblNewLabel_1.getText());
 						writter.write("\n--------------- \n");
@@ -119,12 +131,32 @@ public class CodigosVShop {
 		JButton btnNewButton_3 = new JButton("Generar");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Codigo cod = new Codigo();
-				System.out.println(cod.generarcodigo(0, 10));
-				System.out.println(cod.generarcodigo(0, 10));
-				System.out.println(cod.generarcodigo(0, 10));
-				System.out.println(cod.generarcodigo(0, 10));
-				System.out.println(cod.generarcodigo(0, 10));
+				for (int i = 0; i < 6; i++) {
+					Codigo cod = new Codigo();
+					if(i==0) 
+					{
+					lblNewLabel_0.setText(cod.generarcodigo(0, 10));
+					}
+					if(i==1) 
+					{
+					lblNewLabel_1.setText(cod.generarcodigo(0, 10));
+					}
+					if(i==2) 
+					{
+					lblNewLabel_2.setText(cod.generarcodigo(0, 10));
+					}
+					if(i==3) 
+					{
+					lblNewLabel_3.setText(cod.generarcodigo(0, 10));
+					}
+					if(i==4) 
+					{
+					lblNewLabel_4.setText(cod.generarcodigo(0, 10));
+					}
+					cod.setCodigo("");
+					
+				}
+			
 			}
 		});
 		btnNewButton_3.setBounds(10, 193, 89, 23);
