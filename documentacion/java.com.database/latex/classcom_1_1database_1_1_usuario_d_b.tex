@@ -1,0 +1,83 @@
+\hypertarget{classcom_1_1database_1_1_usuario_d_b}{}\doxysection{com.\+database.\+Usuario\+DB Class Reference}
+\label{classcom_1_1database_1_1_usuario_d_b}\index{com.database.UsuarioDB@{com.database.UsuarioDB}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classcom_1_1database_1_1_usuario_d_b_a4ba4242aa998f9876d411484fbf943db}{insertar\+Usuarios}} (Usuario nuevo\+Usuario)
+\item 
+static void \mbox{\hyperlink{classcom_1_1database_1_1_usuario_d_b_aadc44c5af212f94d44f1403e2751c06a}{eliminar\+Usuario}} (String correo)
+\item 
+static boolean \mbox{\hyperlink{classcom_1_1database_1_1_usuario_d_b_a8d51c15e724846a74db5330593766a7c}{Login\+Usuario}} (String nickname, String password)
+\item 
+static Usuario \mbox{\hyperlink{classcom_1_1database_1_1_usuario_d_b_a9653bd7b3b19698d242802b98c5b9cd3}{get\+Usuario}} (String correo)
+\item 
+static void \mbox{\hyperlink{classcom_1_1database_1_1_usuario_d_b_a241e609917cad9b4fb0d67fc1533ec39}{get\+All\+Users}} (Array\+List$<$ Usuario $>$usuarioslist)
+\item 
+static int \mbox{\hyperlink{classcom_1_1database_1_1_usuario_d_b_ad7dc8d9c18c94cacb0a40f9388f9adb5}{rowcount}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static boolean \mbox{\hyperlink{classcom_1_1database_1_1_usuario_d_b_a2c45e5c2bf471f5874cb9f5f28255b16}{correcto}}
+\item 
+static Usuario \mbox{\hyperlink{classcom_1_1database_1_1_usuario_d_b_a0ca103112f17a0f61b1dd83d19603608}{u}} = new Usuario()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_aadc44c5af212f94d44f1403e2751c06a}\label{classcom_1_1database_1_1_usuario_d_b_aadc44c5af212f94d44f1403e2751c06a}} 
+\index{com.database.UsuarioDB@{com.database.UsuarioDB}!eliminarUsuario@{eliminarUsuario}}
+\index{eliminarUsuario@{eliminarUsuario}!com.database.UsuarioDB@{com.database.UsuarioDB}}
+\doxysubsubsection{\texorpdfstring{eliminarUsuario()}{eliminarUsuario()}}
+{\footnotesize\ttfamily static void com.\+database.\+Usuario\+DB.\+eliminar\+Usuario (\begin{DoxyParamCaption}\item[{String}]{correo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a241e609917cad9b4fb0d67fc1533ec39}\label{classcom_1_1database_1_1_usuario_d_b_a241e609917cad9b4fb0d67fc1533ec39}} 
+\index{com.database.UsuarioDB@{com.database.UsuarioDB}!getAllUsers@{getAllUsers}}
+\index{getAllUsers@{getAllUsers}!com.database.UsuarioDB@{com.database.UsuarioDB}}
+\doxysubsubsection{\texorpdfstring{getAllUsers()}{getAllUsers()}}
+{\footnotesize\ttfamily static void com.\+database.\+Usuario\+DB.\+get\+All\+Users (\begin{DoxyParamCaption}\item[{Array\+List$<$ Usuario $>$}]{usuarioslist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a9653bd7b3b19698d242802b98c5b9cd3}\label{classcom_1_1database_1_1_usuario_d_b_a9653bd7b3b19698d242802b98c5b9cd3}} 
+\index{com.database.UsuarioDB@{com.database.UsuarioDB}!getUsuario@{getUsuario}}
+\index{getUsuario@{getUsuario}!com.database.UsuarioDB@{com.database.UsuarioDB}}
+\doxysubsubsection{\texorpdfstring{getUsuario()}{getUsuario()}}
+{\footnotesize\ttfamily static Usuario com.\+database.\+Usuario\+DB.\+get\+Usuario (\begin{DoxyParamCaption}\item[{String}]{correo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a4ba4242aa998f9876d411484fbf943db}\label{classcom_1_1database_1_1_usuario_d_b_a4ba4242aa998f9876d411484fbf943db}} 
+\index{com.database.UsuarioDB@{com.database.UsuarioDB}!insertarUsuarios@{insertarUsuarios}}
+\index{insertarUsuarios@{insertarUsuarios}!com.database.UsuarioDB@{com.database.UsuarioDB}}
+\doxysubsubsection{\texorpdfstring{insertarUsuarios()}{insertarUsuarios()}}
+{\footnotesize\ttfamily static void com.\+database.\+Usuario\+DB.\+insertar\+Usuarios (\begin{DoxyParamCaption}\item[{Usuario}]{nuevo\+Usuario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a8d51c15e724846a74db5330593766a7c}\label{classcom_1_1database_1_1_usuario_d_b_a8d51c15e724846a74db5330593766a7c}} 
+\index{com.database.UsuarioDB@{com.database.UsuarioDB}!LoginUsuario@{LoginUsuario}}
+\index{LoginUsuario@{LoginUsuario}!com.database.UsuarioDB@{com.database.UsuarioDB}}
+\doxysubsubsection{\texorpdfstring{LoginUsuario()}{LoginUsuario()}}
+{\footnotesize\ttfamily static boolean com.\+database.\+Usuario\+DB.\+Login\+Usuario (\begin{DoxyParamCaption}\item[{String}]{nickname,  }\item[{String}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_ad7dc8d9c18c94cacb0a40f9388f9adb5}\label{classcom_1_1database_1_1_usuario_d_b_ad7dc8d9c18c94cacb0a40f9388f9adb5}} 
+\index{com.database.UsuarioDB@{com.database.UsuarioDB}!rowcount@{rowcount}}
+\index{rowcount@{rowcount}!com.database.UsuarioDB@{com.database.UsuarioDB}}
+\doxysubsubsection{\texorpdfstring{rowcount()}{rowcount()}}
+{\footnotesize\ttfamily static int com.\+database.\+Usuario\+DB.\+rowcount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a2c45e5c2bf471f5874cb9f5f28255b16}\label{classcom_1_1database_1_1_usuario_d_b_a2c45e5c2bf471f5874cb9f5f28255b16}} 
+\index{com.database.UsuarioDB@{com.database.UsuarioDB}!correcto@{correcto}}
+\index{correcto@{correcto}!com.database.UsuarioDB@{com.database.UsuarioDB}}
+\doxysubsubsection{\texorpdfstring{correcto}{correcto}}
+{\footnotesize\ttfamily boolean com.\+database.\+Usuario\+DB.\+correcto\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a0ca103112f17a0f61b1dd83d19603608}\label{classcom_1_1database_1_1_usuario_d_b_a0ca103112f17a0f61b1dd83d19603608}} 
+\index{com.database.UsuarioDB@{com.database.UsuarioDB}!u@{u}}
+\index{u@{u}!com.database.UsuarioDB@{com.database.UsuarioDB}}
+\doxysubsubsection{\texorpdfstring{u}{u}}
+{\footnotesize\ttfamily Usuario com.\+database.\+Usuario\+DB.\+u = new Usuario()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/database/\mbox{\hyperlink{_usuario_d_b_8java}{Usuario\+DB.\+java}}\end{DoxyCompactItemize}
