@@ -16,9 +16,12 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import com.cliente.jdo.Carrito;
+import com.cliente.jdo.Compra;
 import com.cliente.jdo.Producto;
 import com.database.CarritoDB;
+import com.database.CompraDB;
 import com.database.ProductoDB;
+import com.database.UsuarioDB;
 
 public class CompraVShop {
 
@@ -93,6 +96,10 @@ public class CompraVShop {
 			public void actionPerformed(ActionEvent e) {
 				printTicket(MainVShop.carrito);
 				
+				for (int i = 0; i <= MainVShop.carrito.size(); i++) {
+					Compra c1 = new Compra(UsuarioDB.u.getNickname(), MainVShop.carrito.get(i).getIdProducto());
+					CompraDB.insertarCompra(c1);
+				}
 				
 			}
 		});
