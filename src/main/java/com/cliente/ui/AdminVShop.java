@@ -70,7 +70,7 @@ public class AdminVShop {
 				}
 				
 				if (comboBox.getSelectedItem().equals("Administrar códigos de descuento")) {
-					//llamar ventana de codigos
+					CodigosVShop.main(null);
 					frame.dispose();
 				}
 				

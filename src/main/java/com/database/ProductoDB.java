@@ -97,7 +97,7 @@ public class ProductoDB {
 
         try {
 
-            String query = "DELETE FROM PRODUCTO WHERE ID = '" + id + "'";
+            String query = "DELETE FROM PRODUCTO WHERE IDPRODUCTO = '" + id + "'";
 
             preparedStatement = con.prepareStatement(query);
 
