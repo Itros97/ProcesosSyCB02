@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import org.dbunit.DBTestCase;
@@ -71,6 +72,14 @@ public class ProductoDBTest extends DBTestCase {
 	}
 
 	@Test
+	public void busquedaNombre(ArrayList<Producto> productos, String nombre) {
+		productos.add(p);
+        ProductoDB.busquedaNombre(productos, nombre);
+        
+        assertEquals(nombre, productos.get(0).getNombre());
+    }
+	
+	@Test
 	public void testrowcount() {
 		int data = ProductoDB.rowcount();
 
@@ -85,6 +94,19 @@ public class ProductoDBTest extends DBTestCase {
         assertEquals("admin", productos.get(0).getNombre());
     }
 	
+	@Test
+	public void seleccionarProductoMarca(ArrayList<Producto> productos){
+		productos.add(p);
+        ProductoDB.seleccionarProductoMarca(productos);
+        
+        assertEquals("admin", productos.get(0).getMarca());
+    }
 	
-	
+	@Test
+	public void seleccionarProductoPrecio(ArrayList<Producto> productos){
+		productos.add(p);
+        ProductoDB.seleccionarProductoPrecio(productos);
+        
+        assertEquals("2.2", productos.get(0).getPrecio());
+    }
 }
