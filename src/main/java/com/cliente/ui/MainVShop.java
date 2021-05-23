@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -20,6 +21,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
+
 import com.cliente.jdo.Carrito;
 import com.cliente.jdo.Favorito;
 import com.cliente.jdo.Producto;
@@ -27,16 +29,18 @@ import com.database.FavoritoDB;
 import com.database.ProductoDB;
 import com.database.UsuarioDB;
 
+
 public class MainVShop {
 
 	private JFrame frame;
-	private JTextField buscar;
+	public JTextField buscar;
 	
 	private Client client;
 	
 	public static List<Producto> carrito = new ArrayList<>();
 	public static List<Producto> favorito = new ArrayList<>();
 	
+	JComboBox comboFiltro;
 
 	/**
 	 * Launch the application.
@@ -69,7 +73,10 @@ public class MainVShop {
 		client = ClientBuilder.newClient();
 		
 		final WebTarget appTarget = client.target("http://localhost:8080/myapp");
-        final WebTarget productosTarget = appTarget.path("producto");
+        final WebTarget productosTarget = appTarget.path("producto");      
+        final WebTarget productosOrdenadoMarca = appTarget.path("productoMarca");
+        final WebTarget productosOrdenadoPrecio = appTarget.path("productoPrecio");
+        final WebTarget productosOrdenadoNombre = appTarget.path("productoNombre");
         
 		frame = new JFrame();
 		frame.setBounds(100, 100, 755, 657);
@@ -112,16 +119,8 @@ public class MainVShop {
 		buscar.setBounds(177, 11, 457, 34);
 		frame.getContentPane().add(buscar);
 		buscar.setColumns(10);
+			
 		
-		JButton botonBuscar = new JButton("BUSCAR");
-		botonBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ProductoDB.busquedaNombre(buscar.getText());
-				System.out.println(buscar.getText());
-			}
-		});
-		botonBuscar.setBounds(642, 11, 89, 34);
-		frame.getContentPane().add(botonBuscar);
 		
 	    final DefaultListModel<Producto> productListModel = new DefaultListModel<>();
         final JList<Producto> productList = new JList<>(productListModel);
@@ -181,5 +180,92 @@ public class MainVShop {
 	            }
 	            
 	        });
+		
+		
+		JButton botonBuscar = new JButton("BUSCAR");
+		botonBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nombre;
+				nombre = buscar.getText();
+				final WebTarget productosSeleccionado = appTarget.path("productoSeleccionado/"+nombre);
+				try {
+                    GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
+                    List<Producto> productos = productosSeleccionado.request(MediaType.APPLICATION_JSON).get(genericType);
+                    productListModel.clear();
+                    System.out.println(productos.toString());
+                    for (Producto p1 : productos) {
+                    	productListModel.addElement(p1);
+                    }
+                } catch (ProcessingException ex) {
+                    JOptionPane.showInputDialog(MainVShop.this);
+                }
+			}
+		});
+		botonBuscar.setBounds(642, 11, 89, 34);
+		frame.getContentPane().add(botonBuscar);
+		
+		comboFiltro = new JComboBox();
+		comboFiltro.setBounds(644, 90, 87, 39);
+		comboFiltro.addItem("Filtro");
+		comboFiltro.addItem("Nombre");
+		comboFiltro.addItem("Marca");
+		comboFiltro.addItem("Precio");
+		frame.getContentPane().add(comboFiltro);
+		
+		JButton botonBuscarFiltro = new JButton("APLICAR");
+		botonBuscarFiltro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (comboFiltro.getSelectedItem().equals("Nombre")) {
+					try {
+	                    GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
+	                    List<Producto> productos = productosOrdenadoNombre.request(MediaType.APPLICATION_JSON).get(genericType);
+	                    productListModel.clear();
+	                    System.out.println(productos.toString());
+	                    for (Producto p1 : productos) {
+	                    	productListModel.addElement(p1);
+	                    }
+	                } catch (ProcessingException ex) {
+	                    JOptionPane.showInputDialog(MainVShop.this);
+	                }
+				}
+				
+				//
+				
+				
+				if (comboFiltro.getSelectedItem().equals("Marca")) {
+					try {
+	                    GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
+	                    List<Producto> productos = productosOrdenadoMarca.request(MediaType.APPLICATION_JSON).get(genericType);
+	                    productListModel.clear();
+	                    System.out.println(productos.toString());
+	                    for (Producto p1 : productos) {
+	                    	productListModel.addElement(p1);
+	                    }
+	                } catch (ProcessingException ex) {
+	                    JOptionPane.showInputDialog(MainVShop.this);
+	                }
+				}
+				
+				//
+				
+				if (comboFiltro.getSelectedItem().equals("Precio")) {
+					try {
+	                    GenericType<List<Producto>> genericType = new GenericType<List<Producto>>() {};
+	                    List<Producto> productos = productosOrdenadoPrecio.request(MediaType.APPLICATION_JSON).get(genericType);
+	                    productListModel.clear();
+	                    System.out.println(productos.toString());
+	                    for (Producto p1 : productos) {
+	                    	productListModel.addElement(p1);
+	                    }
+	                } catch (ProcessingException ex) {
+	                    JOptionPane.showInputDialog(MainVShop.this);
+	                }
+				}
+				
+				//
+			}
+		});
+		botonBuscarFiltro.setBounds(644, 159, 87, 34);
+		frame.getContentPane().add(botonBuscarFiltro);
 	}
 }

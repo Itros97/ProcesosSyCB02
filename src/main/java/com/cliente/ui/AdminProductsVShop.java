@@ -93,7 +93,7 @@ public class AdminProductsVShop {
 		botonCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Producto p = new Producto(2,nombre.getText(), marca.getText(), Float.parseFloat(precio.getText()), descripcion.getText());
+				Producto p = new Producto(ProductoDB.rowcount()+1,nombre.getText(), marca.getText(), Float.parseFloat(precio.getText()), descripcion.getText());
 				ProductoDB.insertarProducto(p);
 			}
 		});
@@ -136,6 +136,15 @@ public class AdminProductsVShop {
 		JButton botonEliminar = new JButton("ELIMINAR PRODUCTO");
 		botonEliminar.setBounds(70, 64, 378, 31);
 		panelEliminar.add(botonEliminar);
+		botonEliminar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		
+				ProductoDB.eliminarProducto(Integer.parseInt(id.getText()));
+				
+			}
+		});
 		
 		JPanel panelModificar = new JPanel();
 		tabbedPane.addTab("Modificar", null, panelModificar, null);
