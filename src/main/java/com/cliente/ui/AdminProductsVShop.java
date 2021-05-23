@@ -93,7 +93,7 @@ public class AdminProductsVShop {
 		botonCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Producto p = new Producto(2,nombre.getText(), marca.getText(), Float.parseFloat(precio.getText()), descripcion.getText());
+				Producto p = new Producto(ProductoDB.rowcount()+1,nombre.getText(), marca.getText(), Float.parseFloat(precio.getText()), descripcion.getText());
 				ProductoDB.insertarProducto(p);
 			}
 		});
