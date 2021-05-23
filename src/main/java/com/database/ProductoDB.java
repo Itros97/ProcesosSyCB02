@@ -90,14 +90,14 @@ public class ProductoDB {
 
 
     //ELIMINAR PRODUCTO
-    public static void eliminarProducto(String nombre) {
+    public static void eliminarProducto(int id) {
 
         PreparedStatement preparedStatement= null;
         Connection con = ConexionDB.Conexion();
 
         try {
 
-            String query = "DELETE FROM PRODUCTO WHERE NOMBRE = '" + nombre + "'";
+            String query = "DELETE FROM PRODUCTO WHERE ID = '" + id + "'";
 
             preparedStatement = con.prepareStatement(query);
 

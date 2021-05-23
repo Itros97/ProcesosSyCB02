@@ -14,6 +14,13 @@ public class Codigo {
 		r = new Random();
 	}
 	
+	
+	public Codigo(String string) {
+		// TODO Auto-generated constructor stub
+	
+	}
+
+
 	private static char getletra() 
 	{
 		return letras[r.nextInt(letras.length)];

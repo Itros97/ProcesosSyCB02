@@ -136,6 +136,15 @@ public class AdminProductsVShop {
 		JButton botonEliminar = new JButton("ELIMINAR PRODUCTO");
 		botonEliminar.setBounds(70, 64, 378, 31);
 		panelEliminar.add(botonEliminar);
+		botonEliminar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		
+				ProductoDB.eliminarProducto(Integer.parseInt(id.getText()));
+				
+			}
+		});
 		
 		JPanel panelModificar = new JPanel();
 		tabbedPane.addTab("Modificar", null, panelModificar, null);
