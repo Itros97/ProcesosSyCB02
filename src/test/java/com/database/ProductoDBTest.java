@@ -52,7 +52,7 @@ public class ProductoDBTest extends DBTestCase {
 	@Test
 	public void testeliminarProducto() {
 
-		ProductoDB.eliminarProducto(p.getNombre());
+		ProductoDB.eliminarProducto(p.getIdProducto());
 
 		assertEquals(1, ProductoDB.rowcount());
 	}
