@@ -4,7 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
-
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
@@ -73,5 +76,15 @@ public class ProductoDBTest extends DBTestCase {
 
 		assertEquals(1, data);
 	}
-
+	
+	@Test
+	public void seleccionarProductoNombre(ArrayList<Producto> productos){
+		productos.add(p);
+        ProductoDB.seleccionarProductoNombre(productos);
+        
+        assertEquals("admin", productos.get(0).getNombre());
+    }
+	
+	
+	
 }
