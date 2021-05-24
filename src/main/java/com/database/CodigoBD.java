@@ -9,15 +9,15 @@ import com.cliente.jdo.Compra;
 
 public class CodigoBD {
 	
-	 //ELIMINAR COMPRA
-    public static void eliminarCodigo(int idCodigo) {
+	 //ELIMINAR CODIGO
+    public static void eliminarCodigo(String code) {
 
         PreparedStatement preparedStatement= null;
         Connection con = ConexionDB.Conexion();
 
         try {
 
-            String query = "DELETE FROM CODIGO WHERE IDCOMPRA = '" + idCodigo + "'";
+            String query = "DELETE FROM CODIGOOBJ WHERE CODE = '" + code + "'";
 
             preparedStatement = con.prepareStatement(query);
 
@@ -36,7 +36,7 @@ public class CodigoBD {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
         try {
-            String query = " INSERT INTO CODIGO (CODE)"
+            String query = " INSERT INTO CODIGOOBJ (CODE)"
                     + " VALUES (?)";
 
             preparedStatement = con.prepareStatement(query);
