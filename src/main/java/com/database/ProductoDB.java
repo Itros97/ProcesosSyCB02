@@ -14,15 +14,15 @@ import javax.swing.JList;
 
 public class ProductoDB {
 
-    //INSERTAR PRODUCTO
-
-    public static void insertarProducto(Producto nuevoProducto)
-    {
-        //Puede que sea necesarario efectuar algunos cambios en estas sentencias
-        //ya que esto es SQL puro y estamos trabajando con JDO
+	/**
+	 * This is the method that inserts Products into the database
+	 * @param nuevoProducto
+	 */
+    public static void insertarProducto(Producto nuevoProducto) {
+    	
         PreparedStatement preparedStatement = null;
-        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
+        
         try {
             String query = " INSERT INTO PRODUCTO (IDPRODUCTO,NOMBRE,MARCA,PRECIO,DESCRIPCION)"
                     + " VALUES (?, ?, ?, ?, ?)";
@@ -44,11 +44,15 @@ public class ProductoDB {
         }
     }
 
-    //SELECCIONAR PRODUCTO
-    public static Producto seleccionarProducto(String nombre){
+    /**
+     * This is the method that selects all the products
+     * @param nombre
+     * @return
+     */
+    public static Producto seleccionarProducto(String nombre) {
         PreparedStatement preparedStatement = null;
-        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
+        
         try {
             try {
                 PreparedStatement pst = con.prepareStatement("SELECT * FROM PRODUCTO WHERE NOMBRE = '" + nombre + "'");
@@ -88,12 +92,15 @@ public class ProductoDB {
         return null;
     }
 
-    
-    //SELECCIONAR PRODUCTO NOMBRE
+    /**
+     * This method is used to select a certain product and recover it's ID
+     * @param nombre
+     * @return
+     */
     public static int seleccionarProductoConNombre(String nombre){
         PreparedStatement preparedStatement = null;
-        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
+        
         try {
             try {
                 PreparedStatement pst = con.prepareStatement("SELECT IDPRODUCTO FROM PRODUCTO WHERE NOMBRE = '" + nombre + "'");
@@ -127,7 +134,10 @@ public class ProductoDB {
         return 0;
     }
 
-    //ELIMINAR PRODUCTO
+    /**
+     * Method used to delete a certain product
+     * @param id
+     */
     public static void eliminarProducto(int id) {
 
         PreparedStatement preparedStatement= null;
@@ -150,6 +160,10 @@ public class ProductoDB {
 
     }
 
+    /**
+     * Method used to recover all the products
+     * @param productos
+     */
     public static void getAllProducts(ArrayList<Producto> productos) {
 
         PreparedStatement preparedStatement = null;
@@ -193,7 +207,11 @@ public class ProductoDB {
     }
     
     
-    
+    /**
+     * Method used to recover a product by its name
+     * @param productos
+     * @param nombre
+     */
     public static void busquedaNombre(ArrayList<Producto> productos, String nombre) {
 
         PreparedStatement preparedStatement = null;
@@ -227,19 +245,17 @@ public class ProductoDB {
                 System.out.println(p.toString());
             }
 
-            
-
-
         }catch (Exception e){
 
         }
 		//return productos;
 
-
     }
     
-    
-    
+    /**
+     * This is the method that shows the quantity of Product items of the database    
+     * @return
+     */
     public static int rowcount () {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
@@ -259,11 +275,14 @@ public class ProductoDB {
         return count;
     }
     
-  //SELECCIONAR PRODUCTO POR NOMBRE
+    /**
+     * This method is used to select a certain product and order by it's name
+     * @param productos
+     */
     public static void seleccionarProductoNombre(ArrayList<Producto> productos){
         PreparedStatement preparedStatement = null;
-        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
+        
         try {
             try {
                 PreparedStatement pst = con.prepareStatement("SELECT * FROM PRODUCTO ORDER BY NOMBRE");
@@ -304,11 +323,14 @@ public class ProductoDB {
         //return null;
     }
     
-  //SELECCIONAR PRODUCTO POR MARCA
+    /**
+     * This method is used to select a certain product and order by it's brand
+     * @param productos
+     */
     public static void seleccionarProductoMarca(ArrayList<Producto> productos){
         PreparedStatement preparedStatement = null;
-        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
+        
         try {
             try {
                 PreparedStatement pst = con.prepareStatement("SELECT * FROM PRODUCTO ORDER BY MARCA");
@@ -349,7 +371,10 @@ public class ProductoDB {
         //return null;
     }
     
-  //SELECCIONAR PRODUCTO POR PRECIO
+    /**
+     * This method is used to select a certain product and order by it's price
+     * @param productos
+     */
     public static void seleccionarProductoPrecio(ArrayList<Producto> productos){
         PreparedStatement preparedStatement = null;
         //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla

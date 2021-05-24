@@ -12,6 +12,10 @@ import com.cliente.jdo.Usuario;
 
 public class FavoritoDB {
 	
+	/**
+	 * This is the method that inserts favorite products into the database
+	 * @param nuevoFavorito
+	 */
 	public static void insertarFavorito(Favorito nuevoFavorito) {
     
         PreparedStatement preparedStatement = null;
@@ -37,6 +41,11 @@ public class FavoritoDB {
         }
     }
 	
+	/**
+	 * Method used to recover all the favorite products
+	 * @param nickname
+	 * @param fav
+	 */
 	public static void getAllFavoritos (String nickname, ArrayList<Favorito> fav) {
 		
         PreparedStatement preparedStatement = null;
@@ -67,6 +76,10 @@ public class FavoritoDB {
         
 	}
 	
+	/**
+	 * This is the method that shows the quantity of favorite product items of the database
+	 * @return
+	 */
     public static int rowcount () {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();

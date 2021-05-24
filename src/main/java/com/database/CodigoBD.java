@@ -9,7 +9,11 @@ import com.cliente.jdo.Compra;
 
 public class CodigoBD {
 	
-	 //ELIMINAR CODIGO
+	/**
+	 * 
+	 * This is the Code Delition method
+	 * @param code
+	 */
     public static void eliminarCodigo(String code) {
 
         PreparedStatement preparedStatement= null;
@@ -31,8 +35,12 @@ public class CodigoBD {
         }   
 
     }
-    public static void insertarCodigo(Codigoobj ncodigo)
-    {
+    
+    /**
+     * This is the Code insertion method
+     * @param ncodigo
+     */
+    public static void insertarCodigo(Codigoobj ncodigo) {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
         try {
