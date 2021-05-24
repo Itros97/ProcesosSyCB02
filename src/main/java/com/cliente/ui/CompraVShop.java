@@ -78,9 +78,22 @@ public class CompraVShop {
 		list.setBounds(216, 37, 427, 243);
 		frame.getContentPane().add(list);
 		
+		textField = new JTextField();
+		textField.setBounds(471, 310, 187, 22);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		double precio = 0;
+		
 		for (int i = 0; i < MainVShop.carrito.size(); i++) {
 			productListModel.add(i, MainVShop.carrito.get(i));
+			precio = precio + MainVShop.carrito.get(i).getPrecio();
+			textField.setText("");
+			textField.setText(""+precio);
 		}
+		
+
+		
 		
 		JButton botonEliminarCarrito = new JButton("ELIMINAR CARRITO");
 		botonEliminarCarrito.addActionListener(new ActionListener() {
@@ -107,8 +120,11 @@ public class CompraVShop {
 			public void actionPerformed(ActionEvent e) {
 				printTicket(MainVShop.carrito);
 				
-				for (int i = 0; i <= MainVShop.carrito.size(); i++) {
-					Compra c1 = new Compra(UsuarioDB.u.getNickname(), MainVShop.carrito.get(i).getIdProducto());
+				for (int i = 0; i < MainVShop.carrito.size(); i++) {
+					int id = ProductoDB.seleccionarProductoConNombre(MainVShop.carrito.get(i).getNombre());
+					
+					Compra c1 = new Compra(CompraDB.rowcount()+1, UsuarioDB.u.getNickname(), id);
+					System.out.println(MainVShop.carrito.get(i).getIdProducto());
 					CompraDB.insertarCompra(c1);
 				}
 				
@@ -130,15 +146,16 @@ public class CompraVShop {
 		precioTotal.setBounds(348, 308, 117, 24);
 		frame.getContentPane().add(precioTotal);
 		
-		textField = new JTextField();
-		textField.setBounds(471, 310, 187, 22);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+
 		
 		JButton bdescuento = new JButton("APLICAR DESCUENTO");
 		bdescuento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				activardescuento(codDes.getText());
+				double precioDe = 0;
+				precioDe = Double.parseDouble(textField.getText()) * 0.9;
+				textField.setText("");
+				textField.setText(""+precioDe);
 			}
 		});
 		bdescuento.setBounds(137, 343, 139, 43);
