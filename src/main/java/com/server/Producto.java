@@ -11,10 +11,17 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.database.ProductoDB;
-
+/**
+ * Resource (exposed at "producto" path)
+ */
 @Path("producto")
 public class Producto {
-
+	
+	/**
+	 * This method returns a list of all the products
+	 * @return
+	 */
+	
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<com.cliente.jdo.Producto> getProductos() {
