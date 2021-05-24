@@ -27,8 +27,8 @@ public class FavoritoDBTest extends DBTestCase {
 	@Mock
 	private Connection con = ConexionDB.Conexion();
 
-	@Mock
-	Favorito f = new Favorito("nickkname", 1);
+	//@Mock
+	
 	
 	protected IDataSet getDataSet() throws Exception {
 		return new FlatXmlDataSetBuilder().build(new FileInputStream("dbsample/favorito.xml"));
@@ -36,7 +36,7 @@ public class FavoritoDBTest extends DBTestCase {
 	
 	@Test
 	public void testInsertarProducto() {
-
+		Favorito f = new Favorito("jose", 1);
 		FavoritoDB.insertarFavorito(f);
 
 		assertEquals(1, ProductoDB.rowcount());

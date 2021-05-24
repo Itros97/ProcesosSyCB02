@@ -88,6 +88,44 @@ public class ProductoDB {
         return null;
     }
 
+    
+    //SELECCIONAR PRODUCTO NOMBRE
+    public static int seleccionarProductoConNombre(String nombre){
+        PreparedStatement preparedStatement = null;
+        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
+        Connection con = ConexionDB.Conexion();
+        try {
+            try {
+                PreparedStatement pst = con.prepareStatement("SELECT IDPRODUCTO FROM PRODUCTO WHERE NOMBRE = '" + nombre + "'");
+                ResultSet rs = pst.executeQuery();
+
+                int id;
+                String nom;
+                String mar;
+                float pre;
+                String des;
+
+                while(rs.next()) {
+                	id = rs.getInt("IDPRODUCTO");
+
+                    return id;
+
+                }
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+                return 0;
+            }
+
+        } catch (Exception e) {
+            System.out.println("ERROR al seleccionar el producto");
+            System.out.println(e);
+        }
+
+        return 0;
+    }
 
     //ELIMINAR PRODUCTO
     public static void eliminarProducto(int id) {

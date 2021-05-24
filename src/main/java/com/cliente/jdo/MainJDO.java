@@ -22,7 +22,7 @@ public class MainJDO {
                 Usuario userC = new Usuario("Isaac", "Newton","","","","gnomo","",12,true);
                 pm.makePersistent(userC);
 
-                Producto productoA = new Producto("NVidiaGTX","Gygabyte",300.0f,"Grafica series 3000");
+                Producto productoA = new Producto("nVidiaGTX","gygabyte",300.0f,"Grafica series 3000");
                 pm.makePersistent(productoA);
 
 /*
