@@ -10,14 +10,13 @@ import com.cliente.jdo.Compra;
 
 public class CompraDB {
 
-    //INSERTAR COMPRA
-
-    public static void insertarCompra(Compra nuevaCompra)
-    {
-        //Puede que sea necesarario efectuar algunos cambios en estas sentencias
-        //ya que esto es SQL puro y estamos trabajando con JDO
+   /**
+    * This is the method that inserts Compra in the database
+    * @param nuevaCompra
+    */
+    public static void insertarCompra(Compra nuevaCompra) {
+        
         PreparedStatement preparedStatement = null;
-        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
         try {
             String query = " INSERT INTO COMPRA (IDCOMPRA,CORREOUSUARIO,IDPRODUCTOCOMPRA)"
@@ -39,48 +38,10 @@ public class CompraDB {
         }
     }
 
-    //SELECT COMPRA
-/*
-    public static Compra seleccionarCompra(int idC){
-        PreparedStatement preparedStatement = null;
-        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
-        Connection con = ConexionDB.Conexion();
-        try {
-            try {
-                PreparedStatement pst = con.prepareStatement("SELECT * FROM COMPRA WHERE NOMBRE = '" + idC + "'");
-                ResultSet rs = pst.executeQuery();
-
-                int id;
-                String cus;
-                int idP;
-
-                while(rs.next()) {
-                    id = rs.getInt("IDCOMPRA");
-                    cus = rs.getString("CORREOUSUARIO");
-                    idP = rs.getInt("IDPRODUCTOCOMPRA");
-                    
-                    Compra e = new Compra(id, cus, idP);
-                    return e;
-
-                }
-                rs.close();
-                pst.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-
-                return null;
-            }
-
-        } catch (Exception e) {
-            System.out.println("ERROR al seleccionar el producto");
-            System.out.println(e);
-        }
-
-        return null;
-    }
-*/
-
-    //ELIMINAR COMPRA
+    /**
+     * This is the method that deletes a certain Compra in the database
+     * @param idCompra
+     */
     public static void eliminarCompra(int idCompra) {
 
         PreparedStatement preparedStatement= null;
@@ -102,6 +63,11 @@ public class CompraDB {
         }
 
     }
+    
+    /**
+     * This is the method that shows the quantity of Compra items of the database
+     * @return
+     */
     public static int rowcount () {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
@@ -120,6 +86,5 @@ public class CompraDB {
         }
         return count;
     }
-
 
 }

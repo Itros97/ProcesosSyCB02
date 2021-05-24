@@ -31,36 +31,73 @@ static Usuario \mbox{\hyperlink{classcom_1_1database_1_1_usuario_d_b_a0ca103112f
 \doxysubsubsection{\texorpdfstring{eliminarUsuario()}{eliminarUsuario()}}
 {\footnotesize\ttfamily static void com.\+database.\+Usuario\+DB.\+eliminar\+Usuario (\begin{DoxyParamCaption}\item[{String}]{correo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+This method is used to delete users from the database using the mail as parameter 
+\begin{DoxyParams}{Parameters}
+{\em correo} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a241e609917cad9b4fb0d67fc1533ec39}\label{classcom_1_1database_1_1_usuario_d_b_a241e609917cad9b4fb0d67fc1533ec39}} 
 \index{com.database.UsuarioDB@{com.database.UsuarioDB}!getAllUsers@{getAllUsers}}
 \index{getAllUsers@{getAllUsers}!com.database.UsuarioDB@{com.database.UsuarioDB}}
 \doxysubsubsection{\texorpdfstring{getAllUsers()}{getAllUsers()}}
 {\footnotesize\ttfamily static void com.\+database.\+Usuario\+DB.\+get\+All\+Users (\begin{DoxyParamCaption}\item[{Array\+List$<$ Usuario $>$}]{usuarioslist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+Method used to recover all the users 
+\begin{DoxyParams}{Parameters}
+{\em usuarioslist} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a9653bd7b3b19698d242802b98c5b9cd3}\label{classcom_1_1database_1_1_usuario_d_b_a9653bd7b3b19698d242802b98c5b9cd3}} 
 \index{com.database.UsuarioDB@{com.database.UsuarioDB}!getUsuario@{getUsuario}}
 \index{getUsuario@{getUsuario}!com.database.UsuarioDB@{com.database.UsuarioDB}}
 \doxysubsubsection{\texorpdfstring{getUsuario()}{getUsuario()}}
 {\footnotesize\ttfamily static Usuario com.\+database.\+Usuario\+DB.\+get\+Usuario (\begin{DoxyParamCaption}\item[{String}]{correo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+Method used to get a signed in user 
+\begin{DoxyParams}{Parameters}
+{\em correo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a4ba4242aa998f9876d411484fbf943db}\label{classcom_1_1database_1_1_usuario_d_b_a4ba4242aa998f9876d411484fbf943db}} 
 \index{com.database.UsuarioDB@{com.database.UsuarioDB}!insertarUsuarios@{insertarUsuarios}}
 \index{insertarUsuarios@{insertarUsuarios}!com.database.UsuarioDB@{com.database.UsuarioDB}}
 \doxysubsubsection{\texorpdfstring{insertarUsuarios()}{insertarUsuarios()}}
 {\footnotesize\ttfamily static void com.\+database.\+Usuario\+DB.\+insertar\+Usuarios (\begin{DoxyParamCaption}\item[{Usuario}]{nuevo\+Usuario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+This is the method that inserts Users into the database 
+\begin{DoxyParams}{Parameters}
+{\em nuevo\+Usuario} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_a8d51c15e724846a74db5330593766a7c}\label{classcom_1_1database_1_1_usuario_d_b_a8d51c15e724846a74db5330593766a7c}} 
 \index{com.database.UsuarioDB@{com.database.UsuarioDB}!LoginUsuario@{LoginUsuario}}
 \index{LoginUsuario@{LoginUsuario}!com.database.UsuarioDB@{com.database.UsuarioDB}}
 \doxysubsubsection{\texorpdfstring{LoginUsuario()}{LoginUsuario()}}
 {\footnotesize\ttfamily static boolean com.\+database.\+Usuario\+DB.\+Login\+Usuario (\begin{DoxyParamCaption}\item[{String}]{nickname,  }\item[{String}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+Method used to log the User 
+\begin{DoxyParams}{Parameters}
+{\em nickname} & \\
+\hline
+{\em password} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{classcom_1_1database_1_1_usuario_d_b_ad7dc8d9c18c94cacb0a40f9388f9adb5}\label{classcom_1_1database_1_1_usuario_d_b_ad7dc8d9c18c94cacb0a40f9388f9adb5}} 
 \index{com.database.UsuarioDB@{com.database.UsuarioDB}!rowcount@{rowcount}}
 \index{rowcount@{rowcount}!com.database.UsuarioDB@{com.database.UsuarioDB}}
 \doxysubsubsection{\texorpdfstring{rowcount()}{rowcount()}}
 {\footnotesize\ttfamily static int com.\+database.\+Usuario\+DB.\+rowcount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+This is the method that shows the quantity of Users in the database ~\newline
+ \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
