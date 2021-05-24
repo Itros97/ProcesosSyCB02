@@ -13,23 +13,30 @@ import javax.ws.rs.core.MediaType;
 import com.cliente.ui.MainVShop;
 import com.database.ProductoDB;
 
+/**
+ * Resource (exposed at "productoNombre" path)
+ */
 @Path("productoNombre")
 public class ProductoNombre {
 
-	    @GET
-	    @Produces(MediaType.APPLICATION_JSON)
-	    public List<com.cliente.jdo.Producto> getProductos() {
-	        ArrayList<com.cliente.jdo.Producto> productos = new ArrayList<>();
-	        ProductoDB.seleccionarProductoNombre(productos);
-	        
-	        
-	        return productos;
-	    }
+	/**
+	 * This method returns a list of all the products order by nombre
+	 * @return
+	 */
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<com.cliente.jdo.Producto> getProductos() {
+		ArrayList<com.cliente.jdo.Producto> productos = new ArrayList<>();
+		ProductoDB.seleccionarProductoNombre(productos);
 
-	    @POST
-	    @Consumes(MediaType.APPLICATION_JSON)
-	    public void addProducto(Producto producto) {
-	        System.out.println("Received new product: " + producto);
-	    }
+		return productos;
+	}
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void addProducto(Producto producto) {
+		System.out.println("Received new product: " + producto);
+	}
 
 }

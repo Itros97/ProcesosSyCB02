@@ -3,7 +3,9 @@ package com.miscelaneus;
 import java.util.Random;
 
 public class Codigo {
-	
+	/**
+	 * This class is used to generate random codes to apply discounts
+	 */
 	protected final static char[] letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 	protected final static char[] numeros = "0123456789".toCharArray();
 	protected static Random r;
