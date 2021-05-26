@@ -9,7 +9,11 @@ import java.sql.Statement;
 import com.cliente.jdo.Carrito;
 
 public class CarritoDB {
-
+	
+	/**
+	 * This is the Carrito database insertion method
+	 * @param carro
+	 */
     public static void insertarCarrito(Carrito carro) {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
@@ -33,7 +37,11 @@ public class CarritoDB {
             System.out.println(e);
         }
     }
-
+    
+    /**
+     * This is the method that deletes a certain Carrito from the database
+     * @param idCarrito
+     */
     public static void deleteCarrito(int idCarrito) {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
@@ -53,6 +61,35 @@ public class CarritoDB {
             System.out.println(e);
         }
     }
+    
+    /**
+     * This is the method that shows all the Carritos
+     * @param carro
+     */
+	public static void recogerCarrito(Carrito carro) {
+		PreparedStatement preparedStatement = null;
+		Connection con = ConexionDB.Conexion();
+		try {
+			String query = " SELECT * FROM CARRITO ORDER BY NOMBRE ASC";
+
+			preparedStatement = con.prepareStatement(query);
+
+			preparedStatement.execute();
+			preparedStatement.close();
+
+			System.out.println("Operacion existosa");
+
+		} catch (SQLException e) {
+			System.out.println("No se ha podido ordenar el carrito");
+			System.out.println(e);
+		}
+
+	}
+    
+	/**
+	 * This is the method that shows the quantity of Carrito items of the database
+	 * @return
+	 */
     public static int rowcount () {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();

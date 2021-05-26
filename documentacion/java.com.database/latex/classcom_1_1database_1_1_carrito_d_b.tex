@@ -7,6 +7,8 @@ static void \mbox{\hyperlink{classcom_1_1database_1_1_carrito_d_b_a0c3dd75ea5193
 \item 
 static void \mbox{\hyperlink{classcom_1_1database_1_1_carrito_d_b_a82512562e13086962e1c3aa45d09cd7e}{delete\+Carrito}} (int id\+Carrito)
 \item 
+static void \mbox{\hyperlink{classcom_1_1database_1_1_carrito_d_b_a2aa9b108e3db63c747452b912dfb352e}{recoger\+Carrito}} (Carrito carro)
+\item 
 static int \mbox{\hyperlink{classcom_1_1database_1_1_carrito_d_b_ace695f676499e59a0a9b063d38375aa0}{rowcount}} ()
 \end{DoxyCompactItemize}
 
@@ -18,18 +20,42 @@ static int \mbox{\hyperlink{classcom_1_1database_1_1_carrito_d_b_ace695f676499e5
 \doxysubsubsection{\texorpdfstring{deleteCarrito()}{deleteCarrito()}}
 {\footnotesize\ttfamily static void com.\+database.\+Carrito\+DB.\+delete\+Carrito (\begin{DoxyParamCaption}\item[{int}]{id\+Carrito }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+This is the method that deletes a certain Carrito from the database 
+\begin{DoxyParams}{Parameters}
+{\em id\+Carrito} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classcom_1_1database_1_1_carrito_d_b_a0c3dd75ea5193de26fbadd807e8a42fb}\label{classcom_1_1database_1_1_carrito_d_b_a0c3dd75ea5193de26fbadd807e8a42fb}} 
 \index{com.database.CarritoDB@{com.database.CarritoDB}!insertarCarrito@{insertarCarrito}}
 \index{insertarCarrito@{insertarCarrito}!com.database.CarritoDB@{com.database.CarritoDB}}
 \doxysubsubsection{\texorpdfstring{insertarCarrito()}{insertarCarrito()}}
 {\footnotesize\ttfamily static void com.\+database.\+Carrito\+DB.\+insertar\+Carrito (\begin{DoxyParamCaption}\item[{Carrito}]{carro }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+This is the Carrito database insertion method 
+\begin{DoxyParams}{Parameters}
+{\em carro} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcom_1_1database_1_1_carrito_d_b_a2aa9b108e3db63c747452b912dfb352e}\label{classcom_1_1database_1_1_carrito_d_b_a2aa9b108e3db63c747452b912dfb352e}} 
+\index{com.database.CarritoDB@{com.database.CarritoDB}!recogerCarrito@{recogerCarrito}}
+\index{recogerCarrito@{recogerCarrito}!com.database.CarritoDB@{com.database.CarritoDB}}
+\doxysubsubsection{\texorpdfstring{recogerCarrito()}{recogerCarrito()}}
+{\footnotesize\ttfamily static void com.\+database.\+Carrito\+DB.\+recoger\+Carrito (\begin{DoxyParamCaption}\item[{Carrito}]{carro }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This is the method that shows all the Carritos 
+\begin{DoxyParams}{Parameters}
+{\em carro} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classcom_1_1database_1_1_carrito_d_b_ace695f676499e59a0a9b063d38375aa0}\label{classcom_1_1database_1_1_carrito_d_b_ace695f676499e59a0a9b063d38375aa0}} 
 \index{com.database.CarritoDB@{com.database.CarritoDB}!rowcount@{rowcount}}
 \index{rowcount@{rowcount}!com.database.CarritoDB@{com.database.CarritoDB}}
 \doxysubsubsection{\texorpdfstring{rowcount()}{rowcount()}}
 {\footnotesize\ttfamily static int com.\+database.\+Carrito\+DB.\+rowcount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+This is the method that shows the quantity of Carrito items of the database \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

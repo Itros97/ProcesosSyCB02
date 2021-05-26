@@ -9,15 +9,22 @@ import javax.ws.rs.core.MediaType;
 
 import com.database.UsuarioDB;
 
+/**
+ * Resource (exposed at "usuarios" path)
+ */
 @Path("usuarios")
 public class Usuario {
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<com.cliente.jdo.Usuario> getUsers() {
-        ArrayList<com.cliente.jdo.Usuario> users = new ArrayList<>();
-        UsuarioDB.getAllUsers(users);
-        return users;
-    }
+	/**
+	 * This method returns a list of all the users
+	 * @return
+	 */
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<com.cliente.jdo.Usuario> getUsers() {
+		ArrayList<com.cliente.jdo.Usuario> users = new ArrayList<>();
+		UsuarioDB.getAllUsers(users);
+		return users;
+	}
 
 }

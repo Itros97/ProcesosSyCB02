@@ -1,11 +1,7 @@
 Datos prod: 
-NVidiaGTX,Gygabyte, precio=300.0
-Datos prod: 
-NVidiaGTX,Gygabyte, precio=300.0
-Datos prod: 
-NVidiaGTX,Gygabyte, precio=300.0
-Datos prod: 
 admin,admin, precio=2.2
+Datos prod: 
+balon,adidas, precio=9.99
 --------------- 
 Precio Total: 
-
+	

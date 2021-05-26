@@ -9,15 +9,10 @@ import com.cliente.jdo.Producto;
 
 public class ConexionDB {
 
-/*
-    public void ReiniciarBasesDeDatos() {
-        Connection con = Conexion();
-        BorrarBasesDeDatos(con);
-        CrearBasesDeDatos(con);
-
-    }*/
-	
-    //CODIGO PARA LA CONEXION CON LA BASE DE DATOS
+	/**
+	 * This method is used to connect with the database
+	 * @return
+	 */
     public static Connection Conexion() {
 
         Connection con = null;
@@ -36,12 +31,23 @@ public class ConexionDB {
 
         return con;
     }
+    
+    /**
+     * This method is used to execute the query
+     * @param query
+     * @return
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
     public int executeQuery(String query) throws ClassNotFoundException, SQLException {
     	Connection con = Conexion();
     	return con.createStatement().executeUpdate(query);
     }
 
-    //INSERT PRODUCTOS
+    /**
+     * This method is used to insert the products into the database
+     * @param nuevoProducto
+     */
     public void InsertarProducto(Producto nuevoProducto) {
         ProductoDB.insertarProducto(nuevoProducto);
     }

@@ -19,14 +19,15 @@ public class UsuarioDB {
 	
     public static Usuario u = new Usuario();
 
-    //INSERTAR USUARIO
-
+    /**
+     * This is the method that inserts Users into the database
+     * @param nuevoUsuario
+     */
     public static void insertarUsuarios(Usuario nuevoUsuario) {
-        //Puede que sea necesarario efectuar algunos cambios en estas sentencias
-        //ya que esto es SQL puro y estamos trabajando con JDO
+       
         PreparedStatement preparedStatement = null;
-        //Debe ser el metodo que haga conexion con la base de datos, es decir tenemos que especificar donde se encuentra esta tabla
         Connection con = ConexionDB.Conexion();
+        
         try {
             String query = " INSERT INTO USUARIO (CORREO,NOMBRE,NICKNAME,PASSWORD,APELLIDO1,APELLIDO2,DIRECCION,TARJETACREDITO, ISADMIN)"
                     + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -53,7 +54,10 @@ public class UsuarioDB {
     }
 
 
-    //ELIMINAR USUARIO
+    /**
+     * This method is used to delete users from the database using the mail as parameter
+     * @param correo
+     */
     public static void eliminarUsuario(String correo) {
 
         PreparedStatement preparedStatement = null;
@@ -76,7 +80,12 @@ public class UsuarioDB {
 
     }
     
-    //LOGIN
+    /**
+     * Method used to log the User
+     * @param nickname
+     * @param password
+     * @return
+     */
     public static boolean LoginUsuario(String nickname, String password) {
     	
     	correcto = false;
@@ -128,50 +137,12 @@ public class UsuarioDB {
         return comprobar;
     }
 
-    /*
-        public static boolean loginUsuario(String nickname, String password) {
-
-            boolean comprobar = false;
-            System.out.println("Voy a entrar por el try");
-            try{
-                PreparedStatement preparedStatement = null;
-                Connection con = ConexionDB.Conexion();
-
-                String query = "SELECT PASSWORD FROM USUARIO WHERE NICKNAME = '" + nickname + "'";
-                System.out.println("Se va a ejecutar query");
-
-                Statement statement = con.createStatement();
-                ResultSet resultSet = statement.executeQuery(query);
-
-                while (resultSet.next()) {
-
-                    if (resultSet.getString("PASSWORD").equals(password)) {
-                        System.out.println("Si");
-                        comprobar = true;
-                        break;
-                    } else {
-                        System.out.println("Contrasenya Incorrecta");
-                    }
-                }
-
-            }catch (Exception e){
-                System.out.println("Ha ocurrido un ERROR");
-                System.out.println(e);
-            }
-            if (comprobar == true) {
-                System.out.println("Existe y la contrasenya concuerda,permitir el logeo");
-
-
-                com.cliente.ui.MainVShop window = new com.cliente.ui.MainVShop();
-                window.setVisible(true);
-                window.setTitle("Tienda");
-                window.setBounds(100, 100, 1280, 720);
-
-            }
-            return comprobar;
-        }
-        */
-    //Obtener usuario logeado
+    
+    /**
+     * Method used to get a signed in user
+     * @param correo
+     * @return
+     */
     public static Usuario getUsuario(String correo) {
         Usuario user = new Usuario();
         PreparedStatement preparedStatement = null;
@@ -198,6 +169,10 @@ public class UsuarioDB {
         return user;
     }
 
+    /**
+     * Method used to recover all the users
+     * @param usuarioslist
+     */
     public static void getAllUsers (ArrayList<Usuario>usuarioslist) {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
@@ -233,8 +208,10 @@ public class UsuarioDB {
         }
     }
 
-
-
+    /**
+     * This is the method that shows the quantity of Users in the database  
+     * @return
+     */
     public static int rowcount () {
         PreparedStatement preparedStatement = null;
         Connection con = ConexionDB.Conexion();
