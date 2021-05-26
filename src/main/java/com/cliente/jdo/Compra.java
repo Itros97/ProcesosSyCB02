@@ -13,8 +13,7 @@ public class Compra {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     protected int idCompra;
-    //Datos
-    //Key Externas
+ 
     @PrimaryKey
     protected String CorreoUsuario;
     @PrimaryKey

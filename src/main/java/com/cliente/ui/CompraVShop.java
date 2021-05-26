@@ -125,6 +125,7 @@ public class CompraVShop {
 					
 					Compra c1 = new Compra(CompraDB.rowcount()+1, UsuarioDB.u.getNickname(), id);
 					System.out.println(MainVShop.carrito.get(i).getIdProducto());
+
 					CompraDB.insertarCompra(c1);
 				}
 				

@@ -6,7 +6,9 @@ import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
 public class MainJDO {
-
+/*
+ * Clase que inserta datos haciendo uso de maven y jdo
+ */
     public static void main(String[] args) {
 
             PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -25,10 +27,7 @@ public class MainJDO {
                 Producto productoA = new Producto("nVidiaGTX","gygabyte",300.0f,"Grafica series 3000");
                 pm.makePersistent(productoA);
 
-/*
-                Compra c1 = new Compra(userA,productoA);
-                pm.makePersistent(c1);
-  */
+
                 tx.commit();
 
 

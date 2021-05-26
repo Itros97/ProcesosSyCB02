@@ -19,6 +19,14 @@ public class Producto {
     protected float precio;
     protected String descripcion;
 
+    /**
+     * This is the Product Constructor (not id) used for show data into ApiRest
+     * @param nombre
+     * @param marca
+     * @param precio
+     * @param descripcion
+     */
+    
     public Producto(String nombre, String marca, float precio, String descripcion) {
         this.nombre = nombre;
         this.marca = marca;
@@ -33,6 +41,14 @@ public class Producto {
         this.descripcion = "";
     }
 
+    /**
+     * This is the Product Constructor with id , used for create products as admin
+     * @param idProducto
+     * @param nombre
+     * @param marca
+     * @param precio
+     * @param descripcion
+     */
     public Producto(int idProducto, String nombre, String marca, float precio, String descripcion) {
         this.idProducto = idProducto;
         this.nombre = nombre;
