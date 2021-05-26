@@ -21,7 +21,10 @@
 
 **Testear el proyecto**
 
+	//En la primera ocasion que se ejecute dará error
+	//A la segunda funcionará correctamente
     "mvn test"
+    
 
 **Datos de prueba**
 
